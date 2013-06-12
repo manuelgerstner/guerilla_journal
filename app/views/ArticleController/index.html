@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'Neuer Artikel' /}
+
+    
+    <h1>New Article</h1>
+    
+  
+    
+#{form @ArticleController.uploadPicture(), enctype:'multipart/form-data'}
+ 
+<input type="file" name="Article.picture.image" />
+<input type="text" name="Article.author"/>
+<input type="text" name="Article.entry"/>
+<input type="text" name="Article.summary"/>
+
+<input type="submit" name="submit" value="Save" />
+#{/form}

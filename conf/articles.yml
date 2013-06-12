@@ -1,0 +1,18 @@
+Article(article1):
+ author: Julian Pfaff
+ summary: FC Bayern gewinnt die Championsleage
+ entry: FC Bayern gewinnt die Championsleage schon wieder oO
+ imgpath: sinnfrei
+ tags:
+ - sport
+ - international
+ 
+ 
+Article(article2):
+ author: Manfred
+ summary: blabla
+ entry: blablablaablubb
+ imgpath: sinnfrei
+ tags:
+ - sinnfrei
+ - nochwas
