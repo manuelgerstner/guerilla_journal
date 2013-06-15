@@ -9,8 +9,8 @@ public class ArticleController extends Controller {
     
     @Before
     static void addDefaults() {
-        renderArgs.put("blogTitle", Play.configuration.getProperty("journalTitle"));
-        renderArgs.put("blogBaseline", Play.configuration.getProperty("journalBaseline"));
+        renderArgs.put("journalTitle", Play.configuration.getProperty("journal.Title"));
+        renderArgs.put("journalBaseline", Play.configuration.getProperty("journal.Baseline"));
     }
 
     public static void index() {
