@@ -8,7 +8,7 @@ public class Bootstrap extends Job {
 	
 	public void doJob(){
 		
-		//Fixtures.loadModels("articles.yml");
+		Fixtures.loadModels("articles.yml");
 	}
 
 }
