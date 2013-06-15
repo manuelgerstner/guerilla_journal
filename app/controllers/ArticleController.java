@@ -2,9 +2,16 @@ package controllers;
 
 import models.Picture;
 import models.Article;
+import play.Play;
 import play.mvc.*;
 
 public class ArticleController extends Controller {
+    
+    @Before
+    static void addDefaults() {
+        renderArgs.put("blogTitle", Play.configuration.getProperty("journalTitle"));
+        renderArgs.put("blogBaseline", Play.configuration.getProperty("journalBaseline"));
+    }
 
     public static void index() {
         render();
@@ -14,7 +21,7 @@ public class ArticleController extends Controller {
     }
 
     public static void uploadPicture(Picture picture, String author, String summary, String entry) {
-    	Article art = new Article(author,summary,entry,picture);
+    	Article art = new Article(author, "Titel", summary,entry,picture);
     	art.save();
     	index();
     	}
