@@ -2,7 +2,9 @@ package controllers;
 
 import java.net.URLEncoder;
 
-import models.User;
+import controller.*;
+import models.*;
+import java.util.List;
 import play.libs.OAuth;
 import play.libs.OAuth.Response;
 import play.libs.OAuth.ServiceInfo;
@@ -12,24 +14,26 @@ import play.mvc.Controller;
 public class Application extends Controller {
 
     private static final ServiceInfo TWITTER = new ServiceInfo(
-            "http://twitter.com/oauth/request_token",
-            "http://twitter.com/oauth/access_token",
-            "http://twitter.com/oauth/authorize",
-            "eevIR82fiFK3e6VrGpO9rw",
-            "OYCQA6fpsLiMVaxqqm1EqDjDWFmdlbkSYYcIbwICrg"
+        "http://twitter.com/oauth/request_token",
+        "http://twitter.com/oauth/access_token",
+        "http://twitter.com/oauth/authorize",
+        "eevIR82fiFK3e6VrGpO9rw",
+        "OYCQA6fpsLiMVaxqqm1EqDjDWFmdlbkSYYcIbwICrg"
     );
-    
+
     public static void index() {
+
         Article frontPost = Article.find("order by postedAt desc").first();
         List<Article> olderPosts = Article.find("order by postedAt desc").from(1).fetch(10);
-        render(frontPost, olderPosts);        
+        render(frontPost, olderPosts);
     }
 
-    public static void twitterLogin(){
-        String url = "http://twitter.com/statuses/mentions.xml";
-        String mentions = "";
-        mentions = WS.url(url).oauth(TWITTER, getUser().token, getUser().secret).get().getString();
-        render(mentions);
+    public static void twitterLogin() {
+        renderText("www.google.de");
+        // String url = "http://twitter.com/statuses/mentions.xml";
+        // String mentions = "";
+        //mentions = WS.url(url).oauth(TWITTER, getUser().token, getUser().secret).get().getString();
+        //render(mentions);
 
         //redirect here...
     }
@@ -42,6 +46,8 @@ public class Application extends Controller {
     }
 
     public static void authenticate() {
+
+        
         // TWITTER is a OAuth.ServiceInfo object
         // getUser() is a method returning the current user
         if (OAuth.isVerifierResponse()) {
@@ -66,7 +72,7 @@ public class Application extends Controller {
     }
 
     private static User getUser() {
-        return User.findOrCreate("guest");
+        return User.findOrCreate("guest", null);
     }
 
 }
