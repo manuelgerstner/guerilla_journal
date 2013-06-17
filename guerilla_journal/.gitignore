@@ -10,7 +10,7 @@ data/
 dist/
 logs/
 lib/
-tmp/
+tmp
 eclipse
 log
 logs
