@@ -1,33 +1,110 @@
 <!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="${_response_encoding}">
+    <title>#{get 'title' /}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
-    </head>    
-     <body>        
-        <div id="header">
-            <div id="logo">
-                Guerilla-Journal LOGO
-            </div>            
-            <div id="title">
-                <h1><a href="#">${journalTitle}</a></h1>
-                <h2>${journalBaseline}</h2>
-            </div>
+    <link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet">
+    <style>
+      body { padding-top: 60px; /* 60px to make the container go all the way
+      to the bottom of the topbar */ }
+    </style>
+    <link href="@{'/public/assets/css/bootstrap-responsive.css'}" rel="stylesheet">
+        <link rel="stylesheet" href="@{'/public/assets/css/smoothness/jquery-ui-1.8.13.custom.css'}" type="text/css" media="screen">
+            <link rel="stylesheet" href="@{'/public/assets/css/elrte.min.css'}" type="text/css" media="screen">
+        
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+    	<div class="navbar-inner">
+    		<div class="container-fluid">
+    			<a class="brand" href="#">Guerilla Journal</a>
+    			<div class="nav-collapse collapse">
+    				<ul class="nav">
+    					<li class="active">
+    						<a href="/">View Articles</a>
+    					</li>
+    					<li>
+    						<a href="/article">Submit</a>
+    					</li>
+    					<li>
+    						<a href="#profile">My Profile</a>
+    					</li>
+    				</ul>
+    			</div>
+    			<!--/.nav-collapse -->
+    			<a class="btn pull-right" style="background-image: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230)); background-position: 0% 0%; background-repeat: repeat no-repeat;">Sign in</a>
+    		</div>
+    	</div>
+    </div>
+    <div class="container-fluid">
+    	<div class="row-fluid">
+            <!-- layout begin -->
+                #{doLayout /}
+
+            <!-- layout end -->
         </div>
-        
-        <div id="main">
-            #{doLayout /} 
-        </div>
-        
-        <p id="footer">
-            GuerillaJournal is a Journal.
-        </p>
-        
-    </body
+        <!--/row-->
+        <hr>
+        <footer>
+            <p>
+                @ Guerilla Journal 2013
+            </p>
+        </footer>
+    </div>
+    <!--/.fluid-container-->
+
+    <style>
+      
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+      
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+    </script>
+    <script src="@{'/public/assets/js/bootstrap.js'}">
+    </script>
+
+    <script src="@{'/public/assets/js/jquery-ui-1.8.13.custom.min.js'}" type="text/javascript" charset="utf-8"></script>
+
+    <!-- elRTE -->
+    <script src="@{'/public/assets/js/elrte.min.js'}" type="text/javascript" charset="utf-8"></script>
+
+    <!-- elRTE translation messages -->
+    <script src="@{'/public/assets/js/i18n/elrte.ru.js'}" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            var opts = {
+                cssClass : 'el-rte',
+                // lang     : 'ru',
+                height   : 450,
+                toolbar  : 'complete',
+                cssfiles : [' @{'/public/assets/css/elrte-inner.css'} ']
+            }
+            $('#entry').elrte(opts);
+        })
+    </script>
+  </body>
 </html>
