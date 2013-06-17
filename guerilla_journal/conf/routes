@@ -6,6 +6,7 @@
 GET     /                                       Application.index
 GET     /OAuthCallback/                         Application.authenticate
 
+GET 	/Login									Application.authenticate
 POST	/ws/status								Application.setStatus
 
 GET     /article								ArticleController.index

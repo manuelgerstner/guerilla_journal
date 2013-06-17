@@ -4,18 +4,22 @@
 !.gitignore
 
 # Ignore Play! working directory #
-db
+db/
+bin/
+data/
+dist/
+logs/
+lib/
+tmp/
 eclipse
-lib
 log
 logs
-modules
-precompiled
+modules/
+precompiled/
 nbproject
 project/project
 project/target
 target
-tmp
 test-result
 server.pid
 *.iml
