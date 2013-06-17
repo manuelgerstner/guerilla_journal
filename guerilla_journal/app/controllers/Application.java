@@ -18,9 +18,11 @@ public class Application extends Controller {
             "eevIR82fiFK3e6VrGpO9rw",
             "OYCQA6fpsLiMVaxqqm1EqDjDWFmdlbkSYYcIbwICrg"
     );
-
-    public static void index(){
-        render();
+    
+    public static void index() {
+        Article frontPost = Article.find("order by postedAt desc").first();
+        List<Article> olderPosts = Article.find("order by postedAt desc").from(1).fetch(10);
+        render(frontPost, olderPosts);        
     }
 
     public static void twitterLogin(){
