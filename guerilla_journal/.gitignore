@@ -4,18 +4,18 @@
 !.gitignore
 
 # Ignore Play! working directory #
-db/
-bin/
-data/
-dist/
-logs/
-lib/
+db
+bin
+data
+dist
+logs
+lib
 tmp
 eclipse
 log
 logs
-modules/
-precompiled/
+modules
+precompiled
 nbproject
 project/project
 project/target
