@@ -1,4 +1,50 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+<!--
+#{welcome /}-->
 
-#{welcome /}
+#{if frontPost}
+    <div class="post">
+        <h2 class="post-title">
+            <a href="#">${frontPost.title}</a>
+        </h2>
+        <div class="post-summary">
+            <span class="post-summary">${frontPost.summary}</span>
+        </div>        
+        <div class="post-content">
+            ${frontPost.entry.nl2br()}
+        </div>
+        <div class="post-metadata">
+            <span class="post-author">by ${frontPost.author}</span>            
+            <span class="post-date">at ${frontPost.postedAt.format('MMM dd')}</span>            
+        </div>
+    </div>
+    
+    #{if olderPosts}
+        <div class="older-posts">    
+            <h3>Older articles <span class="from">from this site</span></h3>        
+            #{list items:olderPosts, as:'oldPost'}
+                <div class="post">                    
+                    <a href="#">${oldPost.title}</a>
+                    <br/>
+                    <span class="post-summary">by ${frontPost.summary}</span>
+                    <br/>
+                    <div class="post-metadata">
+                        <span class="post-author">by ${oldPost.author}</span>                        
+                        <span class="post-date">at 
+                            ${oldPost.postedAt.format('dd MMM yy')}
+                        </span>                        
+                    </div>
+                </div>
+            #{/list}
+        </div>
+        
+    #{/if}
+    
+#{/if}
+ 
+#{else}
+    <div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}

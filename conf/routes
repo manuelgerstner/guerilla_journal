@@ -8,6 +8,8 @@ GET     /OAuthCallback/                         Application.authenticate
 
 POST	/ws/status								Application.setStatus
 
+GET     /article								ArticleController.index
+GET     /pictures								ArticleController.pictures
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

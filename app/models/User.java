@@ -1,26 +1,30 @@
 package models;
 
 import javax.persistence.Entity;
-
 import play.db.jpa.Model;
 
+/**
+ *
+ * @author Christine
+ */
 @Entity
 public class User extends Model {
-
-    public String username;
+ 
+    public String email;
+    public String name;
     public String token;
     public String secret;
-
-    public User(String username) {
-        this.username = username;
+    
+    public User(String email, String fullname) {
+        this.email = email;
+        this.name = fullname;
     }
-
-    public static User findOrCreate(String username) {
-        User user = User.find("username", username).first();
+    public static User findOrCreate(String name) {
+        User user = User.find("name", name).first();
         if (user == null) {
-            user = new User(username);
+            user = new User(name);
         }
         return user;
     }
-
+ 
 }
