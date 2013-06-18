@@ -22,22 +22,13 @@ public class Application extends Controller {
     );
 
     public static void index() {
-        User user = getUser();
-        renderText(user.name +"   "+ user.email);
-
-        // Article frontPost = Article.find("order by postedAt desc").first();
-        // List<Article> olderPosts = Article.find("order by postedAt desc").from(1).fetch(10);
-        // render(frontPost, olderPosts);
+        Article frontPost = Article.find("order by postedAt desc").first();
+        List<Article> olderPosts = Article.find("order by postedAt desc").from(1).fetch(10);
+        render(frontPost, olderPosts);
     }
 
     public static void twitterLogin() {
         renderText("www.google.de");
-        // String url = "http://twitter.com/statuses/mentions.xml";
-        // String mentions = "";
-        // mentions = WS.url(url).oauth(TWITTER, getUser().token, getUser().secret).get().getString();
-        //render(mentions);
-
-        //redirect here...
     }
 
     public static void setStatus(String status) throws Exception {
