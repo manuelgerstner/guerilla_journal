@@ -24,7 +24,7 @@ public class Application extends Controller {
     public static void index() {
         User user = getUser();
         renderText("www.google.de");
-        
+
         // Article frontPost = Article.find("order by postedAt desc").first();
         // List<Article> olderPosts = Article.find("order by postedAt desc").from(1).fetch(10);
         // render(frontPost, olderPosts);
@@ -84,7 +84,7 @@ public class Application extends Controller {
 
     // Should return current user
     private static User getUser() {
-        return User.findOrCreate("guest", null);
+        return User.findOrCreate("guest");
     }
 
 }
