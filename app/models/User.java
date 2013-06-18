@@ -22,10 +22,10 @@ public class User extends Model {
         this.email = email;
         this.name = fullname;
     }
-    public static User findOrCreate(String name, String email) {
+    public static User findOrCreate(String name) {
         User user = User.find("name", name).first();
         if (user == null) {
-            user = new User(email, name);
+            user = new User("nomail", name);
         }
         return user;
     }
