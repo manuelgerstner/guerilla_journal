@@ -8,7 +8,7 @@ import play.data.validation.*;
  *
  * @author Christine
  */
-@Entity
+@Entity(name="Users")
 public class User extends Model {
  
     @Required
