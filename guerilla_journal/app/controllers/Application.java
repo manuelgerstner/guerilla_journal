@@ -23,7 +23,7 @@ public class Application extends Controller {
 
     public static void index() {
         User user = getUser();
-        renderText("www.google.de");
+        renderText(user.name +"   "+ user.email);
 
         // Article frontPost = Article.find("order by postedAt desc").first();
         // List<Article> olderPosts = Article.find("order by postedAt desc").from(1).fetch(10);
