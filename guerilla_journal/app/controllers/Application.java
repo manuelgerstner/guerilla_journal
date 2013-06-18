@@ -58,7 +58,7 @@ public class Application extends Controller {
                 user.secret = oauthResponse.secret;
                 user.save();
             } else {
-                Logger.error("Error connecting to twitter: " + oauthResponse.error);
+                //Logger.error("Error connecting to twitter: " + oauthResponse.error);
             }
             index();
         }
@@ -73,7 +73,7 @@ public class Application extends Controller {
             // Redirect the user to the authorization page
             redirect(twitt.redirectUrl(oauthResponse.token));
         } else {
-            Logger.error("Error connecting to twitter: " + oauthResponse.error);
+            //Logger.error("Error connecting to twitter: " + oauthResponse.error);
             index();
         }
 
