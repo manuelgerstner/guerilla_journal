@@ -4,9 +4,9 @@
 
 # Home page
 GET     /                                       Application.index
-GET     /OAuthCallback/                         Application.authenticate
+GET     /oauthcallback                          Application.authenticate
 
-GET 	/Login									Application.authenticate
+GET 	/login									Application.authenticate
 POST	/ws/status								Application.setStatus
 
 GET     /article								ArticleController.index
