@@ -27,6 +27,7 @@
     		<div class="container-fluid">
     			<a class="brand" href="#">Guerilla Journal</a>
     			<div class="nav-collapse collapse">
+                    
     				<ul class="nav">
     					<li class="active">
     						<a href="/">View Articles</a>
@@ -38,9 +39,18 @@
     						<a href="#profile">My Profile</a>
     					</li>
     				</ul>
+                    
     			</div>
     			<!--/.nav-collapse -->
-    			<a href="@{Application.authenticate()}" class="btn pull-right" style="background-image: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230)); background-position: 0% 0%; background-repeat: repeat no-repeat;">Sign in</a>
+                #{if session["loggedin"]=="false"}
+                    <a href="@{Users.authenticate()}" class="btn pull-right" style="background-image: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230)); background-position: 0% 0%; background-repeat: repeat no-repeat;">Sign in</a>
+                #{/if}
+                #{else}#{list items:controllers.Users.getUser(), as:'user'}
+                    <img src="${user.iconUrl}" />
+                    <a href="@Users.profile()"> ${user.screenName}</a>
+                    #{/list}
+                #{/else}
+                
     		</div>
     	</div>
     </div>

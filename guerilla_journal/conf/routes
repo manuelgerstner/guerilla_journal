@@ -5,6 +5,9 @@
 # Home page
 GET     /                                       Application.index
 GET     /oauthcallback                          Application.authenticate
+GET		/profile								Users.profile
+
+GET		/admin									module:crud
 
 GET 	/login									Application.authenticate
 POST	/ws/status								Application.setStatus

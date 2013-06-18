@@ -10,24 +10,37 @@ import play.data.validation.*;
  */
 @Entity(name="Users")
 public class User extends Model {
- 
-    @Required
-    public String email;
+    // emails are not provided by twitter api, do we really need them? - david
+    // @Required
+    // public String email;
     @Required
     public String name;
+    public String screenName;
     public String token; // oauth
     public String secret; // oauth
+    public String iconUrl;
+    public String session;
     
-    public User(String email, String fullname) {
-        this.email = email;
+    public User(String fullname) {
         this.name = fullname;
     }
     public static User findOrCreate(String name) {
         User user = User.find("name", name).first();
         if (user == null) {
-            user = new User("nomail", name);
+            user = new User(name);
         }
         return user;
     }
+    
  
+    public String toString() {
+        return name + " : "
+            + (screenName == null ? " " : screenName)+" : "
+            + (token == null ? "no twitter" : "twitter ok") +" : "
+            + session; 
+    }
+
+    public boolean isLoggedIn(){
+        return (token == null ? false : true );
+    }
 }
