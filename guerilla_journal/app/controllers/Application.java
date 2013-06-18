@@ -32,7 +32,7 @@ public class Application extends Controller {
         renderText("www.google.de");
         // String url = "http://twitter.com/statuses/mentions.xml";
         // String mentions = "";
-        //mentions = WS.url(url).oauth(TWITTER, getUser().token, getUser().secret).get().getString();
+        // mentions = WS.url(url).oauth(TWITTER, getUser().token, getUser().secret).get().getString();
         //render(mentions);
 
         //redirect here...
@@ -46,31 +46,41 @@ public class Application extends Controller {
     }
 
     public static void authenticate() {
-
+        User user = getUser();
         
         // TWITTER is a OAuth.ServiceInfo object
         // getUser() is a method returning the current user
         if (OAuth.isVerifierResponse()) {
-            // We got the verifier;
-            // now get the access tokens using the request tokens
-            OAuth.Response resp = OAuth.service(TWITTER).retrieveAccessToken(
-                                      getUser().token, getUser().secret
-                                  );
-            // let's store them and go back to index
-            getUser().token = resp.token; getUser().secret = resp.secret;
-            getUser().save();
+            // We got the verifier; now get the access token, store it and back to index
+            OAuth.Response oauthResponse = OAuth.service(TWITTER).retrieveAccessToken(user.token, user.secret);
+            if (oauthResponse.error == null) {
+                user.token = oauthResponse.token;
+                user.secret = oauthResponse.secret;
+                user.save();
+            } else {
+                Logger.error("Error connecting to twitter: " + oauthResponse.error);
+            }
             index();
         }
+        
         OAuth twitt = OAuth.service(TWITTER);
-        Response resp = twitt.retrieveRequestToken();
-        // We received the unauthorized tokens
-        // we need to store them before continuing
-        getUser().token = resp.token; getUser().secret = resp.secret;
-        getUser().save();
-        // Redirect the user to the authorization page
-        redirect(twitt.redirectUrl(resp.token));
+        OAuth.Response oauthResponse = twitt.retrieveRequestToken();
+        if (oauthResponse.error == null) {
+            // We received the unauthorized tokens in the OAuth object - store it before we proceed
+            user.token = oauthResponse.token;
+            user.secret = oauthResponse.secret;
+            user.save();
+            // Redirect the user to the authorization page
+            redirect(twitt.redirectUrl(oauthResponse.token));
+        } else {
+            Logger.error("Error connecting to twitter: " + oauthResponse.error);
+            index();
+        }
+
+
     }
 
+    // Should return current user
     private static User getUser() {
         return User.findOrCreate("guest", null);
     }
