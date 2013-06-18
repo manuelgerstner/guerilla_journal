@@ -8,5 +8,5 @@ import java.util.*;
 
 @Entity
 public class Picture extends Model {
-public Blob image;
+	public Blob image;
 }
