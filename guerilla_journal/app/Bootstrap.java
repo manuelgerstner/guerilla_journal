@@ -8,7 +8,7 @@ public class Bootstrap extends Job {
 
     public void doJob() {
         try {
-            if (Arcticle.count() == 0) {
+            if (Article.count() == 0) {
                 Fixtures.loadModels("articles.yml");
             }
         } catch (Exception e) {
