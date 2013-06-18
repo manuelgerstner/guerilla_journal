@@ -17,8 +17,8 @@ public class Application extends Controller {
         "http://twitter.com/oauth/request_token",
         "http://twitter.com/oauth/access_token",
         "http://twitter.com/oauth/authorize",
-        "eevIR82fiFK3e6VrGpO9rw",
-        "OYCQA6fpsLiMVaxqqm1EqDjDWFmdlbkSYYcIbwICrg"
+        "pwzihITyZssfbuGtAIZk0w",
+        "0yy3WiJZESGeDeg2xGJq87I4OwFBSz0lHoBmjZAvEnA"
     );
 
     public static void index() {
@@ -51,9 +51,11 @@ public class Application extends Controller {
                 user.secret = oauthResponse.secret;
                 user.save();
             } else {
-                //Logger.error("Error connecting to twitter: " + oauthResponse.error);
+                System.err.println("Error retrieving twitter access token: " + oauthResponse.error);
             }
-            index();
+            renderText("verified response");
+            return;
+            // index();
         }
         
         OAuth twitt = OAuth.service(TWITTER);
@@ -67,7 +69,9 @@ public class Application extends Controller {
             redirect(twitt.redirectUrl(oauthResponse.token));
         } else {
             //Logger.error("Error connecting to twitter: " + oauthResponse.error);
-            index();
+            // index();
+            renderText(oauthResponse.error);
+            System.err.println("Error retrieving twitter request token: " + oauthResponse.error);
         }
 
 
