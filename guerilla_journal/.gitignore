@@ -4,23 +4,12 @@
 !.gitignore
 
 # Ignore Play! working directory #
-db
-bin
-data
-dist
-logs
-lib
-tmp
-eclipse
-log
-logs
-modules
-precompiled
-nbproject
-project/project
-project/target
-target
-test-result
-server.pid
-*.iml
-*.eml
+bin/
+data/
+db/
+dist/
+logs/
+test-result/
+lib/
+tmp/
+modules/
