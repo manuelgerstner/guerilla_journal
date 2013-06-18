@@ -1,4 +1,5 @@
 import play.jobs.Job;
+import models.*;
 import play.jobs.OnApplicationStart;
 import play.test.Fixtures;
 
