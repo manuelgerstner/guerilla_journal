@@ -1,1 +1,1 @@
-web:    guerilla_journal/play run --http.port=$PORT $PLAY_OPTS --%heroku -Dheroku.database=$DATABASE_URL
+web:    play run --http.port=$PORT $PLAY_OPTS --%heroku -Dheroku.database=$DATABASE_URL
