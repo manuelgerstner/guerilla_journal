@@ -1,20 +1,19 @@
+import models.Article;
 import play.jobs.Job;
-import models.*;
 import play.jobs.OnApplicationStart;
 import play.test.Fixtures;
-
 
 @OnApplicationStart
 public class Bootstrap extends Job {
 
-    public void doJob() {
-        try {
-            if (Article.count() == 0) {
-                Fixtures.loadModels("articles.yml");
-            }
-        } catch (Exception e) {
-            // i don't fucking care...
-        }
-    }
+	public void doJob() {
+		try {
+			if (Article.count() == 0) {
+				Fixtures.loadModels("articles.yml");
+			}
+		} catch (Exception e) {
+			// i don't fucking care...
+		}
+	}
 
 }
