@@ -15,10 +15,11 @@
 	<div class="row-fluid">
 	#{list items:controllers.Users.getUser(), as:'user'}
 		<div class="span4">
+			<img alt="usericon" src="${user.iconUrl}">
 			<h2>
 				Your profile:
 			</h2>
-			<table>
+			<table class="well">
 				<tr>
 					<td>
 					Username:
