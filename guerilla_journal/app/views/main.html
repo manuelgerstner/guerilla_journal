@@ -46,8 +46,9 @@
                     <a href="@{Users.authenticate()}" class="btn pull-right" style="background-image: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230)); background-position: 0% 0%; background-repeat: repeat no-repeat;">Sign in</a>
                 #{/if}
                 #{else}#{list items:controllers.Users.getUser(), as:'user'}
-                    <img src="${user.iconUrl}" />
-                    <a href="#profile"> ${user.screenName}</a>
+                    <a href="#profile" class="pull-right">
+						<img src="${user.iconUrl}" />${user.screenName}
+                   	</a>
                     #{/list}
                 #{/else}
                 
