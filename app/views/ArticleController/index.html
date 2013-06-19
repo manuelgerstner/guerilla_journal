@@ -11,9 +11,10 @@
 	<div class="row-fluid">
 		<div class="span12">
 			#{form @ArticleController.uploadPicture(), enctype:'multipart/form-data'}
-
+				Title: <input type="text" name="title" id="title"/>
 				<textarea name="entry" id="entry"></textarea>
-
+				
+				<input type="button" value="Upload header picture" onclick="filepicker.pick(function(FPFile){ console.log(FPFile.url); });">
 				<label for="picture">Picture</label>
 				<input type="file" name="picture" id="picture"/>
 				<br/>

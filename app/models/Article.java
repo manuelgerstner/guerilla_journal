@@ -27,6 +27,7 @@ public class Article extends Model {
 		this.entry = entry;
 		this.postedAt = new Date();
 		this.picture = picture;
+		this.title = title;
 		// this.tags = tags;
 		create();
 	}
