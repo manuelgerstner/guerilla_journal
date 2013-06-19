@@ -47,7 +47,7 @@
                 #{/if}
                 #{else}#{list items:controllers.Users.getUser(), as:'user'}
                     <img src="${user.iconUrl}" />
-                    <a href="@Users.profile()"> ${user.screenName}</a>
+                    <a href="#profile"> ${user.screenName}</a>
                     #{/list}
                 #{/else}
                 
