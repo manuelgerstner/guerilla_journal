@@ -2,9 +2,12 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+
+import controllers.Users;
 
 import play.db.jpa.Model;
 
@@ -23,7 +26,7 @@ public class Article extends Model {
 	public Article(String author, String title, String summary, String entry,
 			String headerPicUrl/* , Set tags */) {
 		super();
-
+		
 		this.author = author;
 		this.summary = summary;
 		this.entry = entry;
@@ -81,6 +84,12 @@ public class Article extends Model {
 
 	public void setHeaderPicUrl(String headerPicUrl) {
 		this.headerPicUrl = headerPicUrl;
+	}
+	
+	public static List<Article> getUsersArticles() {
+		User currentUser = Users.getUser();
+		List<Article> articleList = Article.find("author = '" + currentUser.name +"'").fetch();
+		return articleList;
 	}
 
 }

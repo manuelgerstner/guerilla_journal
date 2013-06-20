@@ -1,4 +1,4 @@
-<!-- articles.html -->
+<!-- index.html -->
 
 #{extends 'main.html' /}
 #{set title:'Your profile' /}
@@ -13,14 +13,35 @@
 			<img class="usericon" src="${user.iconUrl}">
 			<h2>${user.name}'s articles</h2>
 			<ul>
-			#{list items:models.Article.findAll(), as:'article'}
+			#{list items:models.Article.getUsersArticles(), as:'article'}
 
-					<li>
-						<a href="#">${article.title}</a>
-					</li>
+					<div class="well">	
+						<a href="detail/${article.id}">${article.title}</a> 
+						Writing style: <span id="star"></span>
+						Non-alignment: 
+						Overall: 
+					</div>
+					
 			#{/list}
 			</ul>
 		</div>
 	#{/list}
+	</div>
+</div>
+
+<div class="span3">
+	
+	<div class="well sidebar-nav">
+		<h4>
+			Your rating:
+		</h4>
+		<ul class="nav nav-list">
+			<li>
+				<a href="#">Article #1</a>
+			</li>
+			<li>
+				<a href="#">Article #2</a>
+			</li>
+		</ul>
 	</div>
 </div>
