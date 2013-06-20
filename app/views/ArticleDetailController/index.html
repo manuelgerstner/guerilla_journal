@@ -34,19 +34,7 @@
 								Choose wisely:
 							</label>
 							<div class="controls">
-								<select>
-									<option value="5">
-										Great
-									</option>
-									<option value="3">
-										Fair
-									</option>
-									<option value="1">
-										Poor
-									</option>
-								</select>
-							</div>
-							<div class="controls">
+								<div class="star"></div>
 							</div>
 						</div>
 						<p>
@@ -62,17 +50,7 @@
 								Choose wisely:
 							</label>
 							<div class="controls">
-								<select>
-									<option value="5">
-										Great
-									</option>
-									<option value="3">
-										Fair
-									</option>
-									<option value="1">
-										Poor
-									</option>
-								</select>
+								<div class="star"></div>
 							</div>
 						</div>
 						<p>
@@ -88,17 +66,7 @@
 								Choose wisely:
 							</label>
 							<div class="controls">
-								<select>
-									<option value="5">
-										Great
-									</option>
-									<option value="3">
-										Fair
-									</option>
-									<option value="1">
-										Poor
-									</option>
-								</select>
+								<div class="star"></div>
 							</div>
 						</div>
 						<p>
@@ -117,4 +85,14 @@
             <div>Published on: 24.12.2012</div>
         </div>
 	</div>
+	<script type="text/javascript" src="@{'/public/assets/js/jquery.raty-2.5.2.min.js'}"></script>
+	<script>
+		$(function() {
+
+			$('.star').raty({
+				  path : '/public/assets/img/'
+				  // TODO callback append input
+			});
+		});
+	</script>
 </div>
