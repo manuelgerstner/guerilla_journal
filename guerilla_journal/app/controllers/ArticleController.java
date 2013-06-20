@@ -12,13 +12,18 @@ public class ArticleController extends Controller {
 	public static void createArticle(String author, String title,
 			String summary, String entry, String headerPicUrl) {
 
-		// TODO: sanity check
+		// TODO: sanity check + tags
 
 		new Article(author, title, summary, entry, headerPicUrl).save();
 		// redirect to main page
 
 		redirect("/");
 	}
+
+	public static void rateArticle(int writingStyle, int nonAlignment,
+			int overall) {
+	}
+
 	//
 	// public static void getPicture(long id) {
 	// Article art = Article.findById(id);
