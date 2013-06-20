@@ -9,29 +9,26 @@ import play.db.jpa.Model;
 
 @Entity
 public class Article extends Model {
-	public String author;
-	public String title;
-	public String summary;
+	private String author;
+	private String title;
+	private String summary;
 	@Lob
-	public String entry;
-	public Date postedAt;
-	public Picture picture;
-	public String headerPicUrl;
-
-	// public ArrayList <String>tags;
+	private String entry;
+	private Date postedAt;
+	private String headerPicUrl;
 
 	public Article(String author, String title, String summary, String entry,
-			Picture picture, String headerPicUrl) {
+			String headerPicUrl) {
 		super();
+
 		this.author = author;
 		this.summary = summary;
 		this.entry = entry;
 		this.postedAt = new Date();
-		this.picture = picture;
 		this.title = title;
 		this.headerPicUrl = headerPicUrl;
-		// this.tags = tags;
-		create();
+
+		super.create();
 	}
 
 	public String getAuthor() {
@@ -72,6 +69,14 @@ public class Article extends Model {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getHeaderPicUrl() {
+		return headerPicUrl;
+	}
+
+	public void setHeaderPicUrl(String headerPicUrl) {
+		this.headerPicUrl = headerPicUrl;
 	}
 
 }

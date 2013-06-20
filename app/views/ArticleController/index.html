@@ -3,22 +3,40 @@
 #{extends 'main.html' /}
 #{set title:'Submit new Article' /}
 <div class="span12">
-	<div class="hero-unit">
-		<h1>
+	<div class="well">
+		<h2>
 			Submit your Article
-		</h1>
+		</h2>
 	</div>
 	<div class="row-fluid">
 		<div class="span12">
-			#{form @ArticleController.uploadPicture(), enctype:'multipart/form-data'}
-				Title: <input type="text" name="title" id="title"/><br/>
-				Add some eye-candy: <input type="button" value="Upload header picture" onclick="filepicker.pick(function(FPFile){ addHeaderUrl(FPFile); });">
-				<textarea name="entry" id="entry"></textarea>
-				<!-- <label for="picture">Picture</label>
-				<input type="file" name="picture" id="picture"/> -->
-				<input id="headerPicUrl" name="headerPicUrl" type="hidden" value="#" />
+			#{form @ArticleController.createArticle(), enctype:'multipart/form-data'}
+				<input type="hidden" name="author" value="Author Name"/>
+				<div class="row-fluid">
+					<div class="span3 control-group">
+						<label class="control-label" for="title" placeholder="Enter your article's title">Title:</label>
+						<input type="text" name="title" id="title" class="input-block-level"/>
+					</div>
+					<div class="span2">
+						<label class="control-label" for="headerPicSelector">Header Picture:</label>
+						<button class="btn" id="headerPicSelector">Select a picture</button>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span5 control-group">
+						<label class="control-label" for="summary" placeholder="Summarize your article">Summary:</label>
+						<input type="text" name="summary" id="summary" class="input-block-level"/>
+					</div>
+				</div>
+			
+				<div id="textarea" class="control-group">
+					<label for="entry" class="control-label">Article:</label>
 				
-				<div id="imagePreview"></div>
+					<textarea name="entry" id="entry" rows="16"></textarea>
+				
+				</div>
+				<input type="hidden" id="headerPicUrl" name="headerPicUrl"/>
+				
 				<br/>
 				<button class="btn" type="submit" name="submit">Submit &raquo;</button>
 			#{/form}

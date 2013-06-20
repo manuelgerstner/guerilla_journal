@@ -2,78 +2,10 @@
 <html lang="en">
   
   <head>
-    <meta charset="${_response_encoding}">
+    <meta charset="utf-8">
     <title>#{get 'title' /}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet">
-    <style>
-      body { padding-top: 60px; /* 60px to make the container go all the way
-      to the bottom of the topbar */ }
-    </style>
-    <link href="@{'/public/assets/css/bootstrap-responsive.css'}" rel="stylesheet">
-        <link rel="stylesheet" href="@{'/public/assets/css/smoothness/jquery-ui-1.8.13.custom.css'}" type="text/css" media="screen">
-            <link rel="stylesheet" href="@{'/public/assets/css/elrte.min.css'}" type="text/css" media="screen">
-        
-    
-  </head>
-
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-    	<div class="navbar-inner">
-    		<div class="container-fluid">
-    			<a class="brand" href="/">Guerilla Journal</a>
-    			<div class="nav-collapse collapse">
-                    
-    				<ul class="nav">
-    					<li class="active">
-    						<a href="/">View Articles</a>
-    					</li>
-    					<li>
-    						<a href="/article">Submit</a>
-    					</li>
-    			#{if session["loggedin"]=="true"}
-    					<li>
-    						<a href="/profile">My Profile</a>
-    					</li>
-    			#{/if}
-    				</ul>
-                    
-    			</div>
-    			<!--/.nav-collapse -->
-                #{if session["loggedin"]=="false"}
-                    <a href="@{Users.authenticate()}" class="btn pull-right" style="background-image: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230)); background-position: 0% 0%; background-repeat: repeat no-repeat;">Sign in</a>
-                #{/if}
-                #{else}#{list items:controllers.Users.getUser(), as:'user'}
-                    <a href="/profile" class="pull-right">
-						<img height="40px" width="40px" src="${user.iconUrl}" /> ${user.screenName}
-                   	</a>    
-                    #{/list}
-                #{/else}
-                
-    		</div>
-    	</div>
-    </div>
-    <div class="container-fluid">
-    	<div class="row-fluid">
-            <!-- layout begin -->
-                #{doLayout /}
-
-            <!-- layout end -->
-        </div>
-        <!--/row-->
-        <hr>
-        <footer>
-            <p>
-                @ Guerilla Journal 2013
-            </p>
-        </footer>
-    </div>
-    <!--/.fluid-container-->
-
     <style>
       
       body {
@@ -94,41 +26,89 @@
       }
       
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-    </script>
-    <script src="@{'/public/assets/js/bootstrap.js'}">
-    </script>
+    <link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet">
+    <link href="@{'/public/assets/css/bootstrap-responsive.css'}" rel="stylesheet">
+        
+    
+  </head>
 
-    <script src="@{'/public/assets/js/jquery-ui-1.8.13.custom.min.js'}" type="text/javascript" charset="utf-8"></script>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+    	<div class="navbar-inner">
+    		<div class="container-fluid">
+    			<a class="brand" href="/">Guerilla Journal</a>
+    			<div class="nav-collapse collapse">
+                    
+    				<ul class="nav">
+    					<li>
+    						<a href="/">View Articles</a>
+    					</li>
+    					<li>
+    						<a href="/article">Submit</a>
+    					</li>
+    				#{if session["loggedin"]=="true"}
+    					<li>
+    						<a href="/profile">My Profile</a>
+    					</li>
+    				#{/if}
+    				</ul>
+                    
+    			</div>
 
-    <!-- elRTE -->
-    <script src="@{'/public/assets/js/elrte.min.js'}" type="text/javascript" charset="utf-8"></script>
+                #{if session["loggedin"]=="false"}
+                    <a href="@{Users.authenticate()}" class="btn pull-right">Sign in</a>
+                #{/if}
+                
+                #{else}
+                    #{list items:controllers.Users.getUser(), as:'user'}
+	                    <a href="/profile" class="pull-right">
+							<img src="${user.iconUrl}" /> ${user.screenName}
+	                   	</a>    
+                    #{/list}
+                #{/else}
+                
+    		</div>
+    	</div>
+    </div>
+    <div class="container-fluid">
+    	<div class="row-fluid">
+            <!-- layout begin -->
+                #{doLayout /}
+            <!-- layout end -->
+        </div>
+        <hr>
+        <footer>
+                @ Guerilla Journal 2013
+        </footer>
+    </div>
+    <!--/.fluid-container-->
 
-    <!-- elRTE translation messages -->
-    <script src="@{'/public/assets/js/i18n/elrte.ru.js'}" type="text/javascript" charset="utf-8"></script>
-
-    <script type="text/javascript" charset="utf-8">
-        $(function() {
-            var opts = {
-                cssClass : 'el-rte',
-                // lang     : 'ru',
-                height   : 450,
-                toolbar  : 'normal',
-                cssfiles : [' @{'/public/assets/css/elrte-inner.css'} ']
-            }
-            $('#entry').elrte(opts);
-        })
-    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="@{'/public/assets/js/bootstrap.js'}"></script>
+    <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
-    <script type="text/javascript" charset="utf-8">
-    	
-    	filepicker.setKey('AK3uFvZ9SxKyRxBB0ajWgz');
-    	
-    	var addHeaderUrl = function(FPFile) {
-    		document.getElementById('headerPicUrl').value = FPFile.url;
-    		document.getElementById('imagePreview').innerHTML= '<img src="' + FPFile.url + '">'
-    		console.log(FPFile.url);
-    	}
+    <script type="text/javascript">
+	    	
+    	// All javascript should be wrapped in jQuery's document.ready callback
+	    $(function() {
+	    	// api key for filepicker
+	    	filepicker.setKey('AK3uFvZ9SxKyRxBB0ajWgz');
+	    	
+	    	// init tinymce for all textarea elements
+	        tinymce.init({selector:'textarea'});
+	    	
+	    	// filepicker initialization and callback
+	    	$('#headerPicSelector').click(function(e) {
+	    		e.preventDefault();
+	    		filepicker.pick(function(img) {
+	    			if (img) {
+		    			$('#headerPicUrl').val(img.url);
+		    			$('<img src="'+img.url+'"/><br/>').prependTo('#textarea');
+		    			$('#headerPicSelector').text('Select a different picture');
+	    			}
+	    		})
+	    	});
+	    });
     
     </script>
   </body>

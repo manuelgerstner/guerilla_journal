@@ -4,101 +4,23 @@
 #{set title:'Your profile' /}
 
 <div class="span9">
-	<div class="hero-unit">
-		<h1>
-			Guerilla Journal
-		</h1>
-		<p>
-			Your go-to place for independent, peer-reviewed news that change the world.
-		</p>
+	<div class="well">
+		<h2>Guerilla Journal</h2>
 	</div>
 	<div class="row-fluid">
 	#{list items:controllers.Users.getUser(), as:'user'}
-		<div class="span4">
-			<img alt="usericon" src="${user.iconUrl}">
-			<h2>
-				Your profile:
-			</h2>
-			<table class="well">
-				<tr>
-					<td>
-					Username:
-					</td>
-					<td>${user.name}</td>
-				</tr>
-				<tr>
-					<td>
-					Articles
-					</td>
-					<td>#{list items:models.Article.findAll(), as:'article'}
-						${article.title}
-					#{/list}
-					</td>
-				</tr>
-			</table>
+		<div class="span9">
+			<img class="usericon" src="${user.iconUrl}">
+			<h2>${user.name}'s articles</h2>
+			<ul>
+			#{list items:models.Article.findAll(), as:'article'}
+
+					<li>
+						<a href="#">${article.title}</a>
+					</li>
+			#{/list}
+			</ul>
 		</div>
 	#{/list}
 	</div>
-	<!--/row-->
-</div>
-<!--/span-->
-<div class="span3">
-	<div class="well">
-		<h3>
-			Trending Topics
-		</h3>
-	</div>
-	<div class="well sidebar-nav">
-		<ul class="nav nav-list">
-			<li class="nav-header">
-				Politics
-			</li>
-			<li class="active">
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li class="nav-header">
-				Technology
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li class="nav-header">
-				Sport
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-			<li>
-				<a href="#">Link</a>
-			</li>
-		</ul>
-	</div>
-	<!--/.well -->
 </div>
