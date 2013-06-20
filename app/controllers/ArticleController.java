@@ -25,8 +25,8 @@ public class ArticleController extends Controller {
 	}
 
 	public static void uploadPicture(Picture picture, String author, String title,
-			String summary, String entry) {
-		Article art = new Article(author, title, summary, entry, picture);
+			String summary, String entry, String headerPicUrl) {
+		Article art = new Article(author, title, summary, entry, picture, headerPicUrl);
 		art.save();
 		index();
 	}

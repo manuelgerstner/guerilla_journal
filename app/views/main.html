@@ -123,6 +123,12 @@
     <script type="text/javascript" charset="utf-8">
     	
     	filepicker.setKey('AK3uFvZ9SxKyRxBB0ajWgz');
+    	
+    	var addHeaderUrl = function(FPFile) {
+    		document.getElementById('headerPicUrl').value = FPFile.url;
+    		document.getElementById('imagePreview').innerHTML= '<img src="' + FPFile.url + '">'
+    		console.log(FPFile.url);
+    	}
     
     </script>
   </body>

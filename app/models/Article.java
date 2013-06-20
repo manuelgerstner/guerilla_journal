@@ -16,11 +16,12 @@ public class Article extends Model {
 	public String entry;
 	public Date postedAt;
 	public Picture picture;
+	public String headerPicUrl;
 
 	// public ArrayList <String>tags;
 
 	public Article(String author, String title, String summary, String entry,
-			Picture picture) {
+			Picture picture, String headerPicUrl) {
 		super();
 		this.author = author;
 		this.summary = summary;
@@ -28,6 +29,7 @@ public class Article extends Model {
 		this.postedAt = new Date();
 		this.picture = picture;
 		this.title = title;
+		this.headerPicUrl = headerPicUrl;
 		// this.tags = tags;
 		create();
 	}
