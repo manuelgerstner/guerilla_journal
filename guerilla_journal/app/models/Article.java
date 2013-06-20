@@ -1,7 +1,7 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;
@@ -18,7 +18,7 @@ public class Article extends Model {
 	private Date postedAt;
 	private String headerPicUrl;
 
-	private Set<Tag> tags;
+	private ArrayList<Tag> tags;
 
 	public Article(String author, String title, String summary, String entry,
 			String headerPicUrl/* , Set tags */) {
