@@ -76,11 +76,9 @@ public class Users extends CRUD {
 	}
 
 	public static User getUser() {
-		User user = User.find("session", session.getId()).first(); // get known
-																	// user
-		if (user == null)
-			user = User.findOrCreate("guest"); // create dummy user
-		return user;
+		// get known user
+		User user = User.find("session", session.getId()).first();
+		return user == null ? User.findOrCreate("guest") : user;
 	}
 
 }
