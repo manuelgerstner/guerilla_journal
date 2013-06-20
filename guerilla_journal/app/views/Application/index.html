@@ -15,7 +15,7 @@
 	<div class="row-fluid">
 	#{list items:models.Article.findAll(), as:'article'}
 		<div class="span4">
-			<img src="@{ArticleController.getPicture(article.id)}">
+			<img src="${article.headerPicUrl}">
 			<h2>
 				${article.title}
 			</h2>
