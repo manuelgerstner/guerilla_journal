@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;
@@ -17,8 +18,10 @@ public class Article extends Model {
 	private Date postedAt;
 	private String headerPicUrl;
 
+	private Set<Tag> tags;
+
 	public Article(String author, String title, String summary, String entry,
-			String headerPicUrl) {
+			String headerPicUrl/* , Set tags */) {
 		super();
 
 		this.author = author;
@@ -26,6 +29,7 @@ public class Article extends Model {
 		this.entry = entry;
 		this.postedAt = new Date();
 		this.title = title;
+		// this.tags = tags;
 		this.headerPicUrl = headerPicUrl;
 
 		super.create();
