@@ -23,7 +23,8 @@
 	<div class="row-fluid">
 		<div class="span8">
 			<h2>Rating (Overall Rating: 4.5/5)</h2>
-			<form>
+			
+			#{form @ArticleController.rateArticle()}
 				<div class="row-fluid">
 					<div class="span4">
 						<h3>
@@ -31,15 +32,12 @@
 						</h3>
 						<div class="control-group">
 							<label class="control-label">
-								Choose wisely:
+								How well was the article written?
 							</label>
 							<div class="controls">
-								<div class="star"></div>
+								<div class="star" data-category="writingStyle"></div>
 							</div>
 						</div>
-						<p>
-							How well was the article written?
-						</p>
 					</div>
 					<div class="span4">
 						<h3>
@@ -47,15 +45,12 @@
 						</h3>
 						<div class="control-group">
 							<label class="control-label">
-								Choose wisely:
+								How non-aligned was the article?
 							</label>
 							<div class="controls">
-								<div class="star"></div>
+								<div class="star" data-category="nonAlignment"></div>
 							</div>
 						</div>
-						<p>
-							How non-aligned was the article?
-						</p>
 					</div>
 					<div class="span4">
 						<h3>
@@ -63,18 +58,15 @@
 						</h3>
 						<div class="control-group">
 							<label class="control-label">
-								Choose wisely:
+							Overall, how did you like the article?
 							</label>
 							<div class="controls">
-								<div class="star"></div>
+								<div class="star" data-category="overall"></div>
 							</div>
 						</div>
-						<p>
-							Overall, how did you like the article?
-						</p>
 					</div>
 				</div>
-			</form>
+			#{/form}
 		</div>
 		<div class="span4">
 			<h2>
@@ -87,11 +79,29 @@
 	</div>
 	<script type="text/javascript" src="@{'/public/assets/js/jquery.raty-2.5.2.min.js'}"></script>
 	<script>
+			
+		// global variable
+		ARTICLE_ID = ${article.id};
+		
 		$(function() {
-
-			$('.star').raty({
-				  path : '/public/assets/img/'
-				  // TODO callback append input
+			
+			$('.star').each(function() {
+				
+				var category = $(this).attr('data-category');
+				$(this).raty({
+				  path : '/public/assets/img/',
+				  scoreName: category,
+				  click: function(score) {
+					  console && console.log('rating article #%d with %d points in category %s', ARTICLE_ID, score, category);
+					  $.post('@{ArticleController.rateArticle()}', {
+							  articleId: ARTICLE_ID,
+							  score: score,
+							  category: category
+					  }, function(e) {
+						  console && console.log(e); // log response
+					  });
+				  }
+				});
 			});
 		});
 	</script>

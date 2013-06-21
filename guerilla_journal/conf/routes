@@ -12,6 +12,9 @@ GET	/admin		module:crud
 GET 	/login		Application.authenticate
 POST	/ws/status	Application.setStatus
 
+# Ajax rating
+POST    /article/rate ArticleController.rateArticle(articleId: long, score: int, category: String)
+
 GET     /article	ArticleController.index
 GET     /detail/{id}	ArticleDetailController.index(id: long)
 GET     /pictures	ArticleController.pictures

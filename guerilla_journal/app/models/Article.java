@@ -7,9 +7,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 
-import controllers.Users;
-
 import play.db.jpa.Model;
+import controllers.Users;
 
 @Entity
 public class Article extends Model {
@@ -23,10 +22,18 @@ public class Article extends Model {
 
 	private ArrayList<Tag> tags;
 
+	// Rating
+	private Integer nonAlignment;
+	private Integer nonAlignmentCount;
+	private Integer writingStyle;
+	private Integer writingStyleCount;
+	private Integer overall;
+	private Integer overallCount;
+
 	public Article(String author, String title, String summary, String entry,
 			String headerPicUrl/* , Set tags */) {
 		super();
-		
+
 		this.author = author;
 		this.summary = summary;
 		this.entry = entry;
@@ -34,6 +41,8 @@ public class Article extends Model {
 		this.title = title;
 		// this.tags = tags;
 		this.headerPicUrl = headerPicUrl;
+
+		// rating
 
 		super.create();
 	}
@@ -85,10 +94,11 @@ public class Article extends Model {
 	public void setHeaderPicUrl(String headerPicUrl) {
 		this.headerPicUrl = headerPicUrl;
 	}
-	
+
 	public static List<Article> getUsersArticles() {
 		User currentUser = Users.getUser();
-		List<Article> articleList = Article.find("author = '" + currentUser.name +"'").fetch();
+		List<Article> articleList = Article.find(
+				"author = '" + currentUser.name + "'").fetch();
 		return articleList;
 	}
 
