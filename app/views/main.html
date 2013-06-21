@@ -3,6 +3,7 @@
   
   <head>
     <meta charset="utf-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <title>#{get 'title' /}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,7 +84,6 @@
     </div>
     <!--/.fluid-container-->
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="@{'/public/assets/js/bootstrap.js'}"></script>
     <script src="@{'/public/assets/js/jquery.raty-2.5.2.min.js'}"></script>
     <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
@@ -92,6 +92,7 @@
 	    	
     	// All javascript should be wrapped in jQuery's document.ready callback
 	    $(function() {
+	    	
 	    	// Initiate raty with new img path
 	    	$('#star').raty({ path: '/public/assets/img' });
 	    	// api key for filepicker

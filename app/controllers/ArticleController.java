@@ -20,18 +20,10 @@ public class ArticleController extends Controller {
 		redirect("/");
 	}
 
-	public static void rateArticle(int writingStyle, int nonAlignment,
-			int overall) {
+	public static void rateArticle(long articleId, int score, String category) {
+		Article article = Article.find("id", articleId).first();
+		// TODO: rate article, persist, return new scores for the category in
+		// JSON using renderJSON()
 	}
 
-	//
-	// public static void getPicture(long id) {
-	// Article art = Article.findById(id);
-	// Picture picture = art.picture;
-	// if (picture != null) {
-	// response.setContentTypeIfNotSet(picture.image.type());
-	// renderBinary(picture.image.get());
-	// }
-	//
-	// }
 }
