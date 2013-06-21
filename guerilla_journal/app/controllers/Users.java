@@ -81,4 +81,12 @@ public class Users extends CRUD {
 		return user == null ? User.findOrCreate("guest") : user;
 	}
 
+	public static void logout() {
+		User user = User.find("session", session.getId()).first();
+		session.put("loggedin", false);
+		user.session = null;
+		user.save();
+		redirect("/");
+	}
+
 }

@@ -10,20 +10,33 @@
 	<div class="row-fluid">
 	#{list items:controllers.Users.getUser(), as:'user'}
 		<div class="span9">
-			<img class="usericon" src="${user.iconUrl}">
-			<h2>${user.name}'s articles</h2>
-			<ul>
-			#{list items:models.Article.getUsersArticles(), as:'article'}
-
-					<div class="well">	
-						<a href="detail/${article.id}">${article.title}</a> 
-						Writing style: <span id="star"></span>
-						Non-alignment: 
-						Overall: 
-					</div>
-					
-			#{/list}
-			</ul>
+			<div class="span1">
+			<img class="usericon" src="${user.iconUrl}"/>
+			</div>
+			<div class="span8">
+				<h3>${user.name}'s articles:</h3>
+				<ul>
+				#{list items:models.Article.getUsersArticles(), as:'article'}
+					<li>
+						<div class="well">	
+							<a href="detail/${article.id}">${article.title}</a> 
+							<div>
+								<dl>Writing style:</dl>
+								<dt><div class="star"></div></dt>
+							 </div>
+							<div>
+								<dl>Non-Alignment:</dl>
+								<dt><div class="star"></div></dt>
+							 </div>
+							 <div>
+								<dl>Overall:</dl>
+								<dt><div class="star"></div></dt>
+							 </div>
+						</div>
+					</li>
+				#{/list}
+				</ul>
+			</div>
 		</div>
 	#{/list}
 	</div>

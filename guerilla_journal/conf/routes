@@ -3,28 +3,29 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
-GET     /oauthcallback                          Application.authenticate
-GET	/profile	ProfileController.index
+GET     /               Application.index
+GET     /oauthcallback  Application.authenticate
+GET		/profile		ProfileController.index
 
-GET	/admin		module:crud
+#GET	/admin			module:crud
 
-GET 	/login		Application.authenticate
-POST	/ws/status	Application.setStatus
+GET 	/login			Application.authenticate
+POST	/ws/status		Application.setStatus
 
 # Ajax rating
-POST    /article/rate ArticleController.rateArticle(articleId: long, score: int, category: String)
+POST    /article/rate 	ArticleController.rateArticle(articleId: long, score: int, category: String)
 
-GET     /article	ArticleController.index
-GET     /detail/{id}	ArticleDetailController.index(id: long)
-GET     /pictures	ArticleController.pictures
+GET     /article		ArticleController.index
+GET     /detail/{id}	ArticleController.getArticle(id: long)
+GET     /pictures		ArticleController.pictures
+
+
+
 # Ignore favicon requests
-GET     /favicon.ico                            404
+GET     /favicon.ico   404
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
-
-
+GET     /public/       staticDir:public
 
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+*       /{controller}/{action} {controller}.{action}
