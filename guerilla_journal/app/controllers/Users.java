@@ -5,6 +5,7 @@ import play.libs.OAuth;
 import play.libs.OAuth.ServiceInfo;
 import play.libs.WS;
 import play.mvc.Router;
+import play.Logger;
 
 import com.google.gson.JsonObject;
 
@@ -51,7 +52,7 @@ public class Users extends CRUD {
 				redirect(Router.reverse("Application.index").toString());
 
 			} else {
-				System.err.println("Error retrieving twitter access token: "
+				Logger.error("Error retrieving twitter access token: "
 						+ oauthResponse.error);
 			}
 		}
@@ -69,7 +70,7 @@ public class Users extends CRUD {
 			redirect(twitt.redirectUrl(oauthResponse.token));
 		} else {
 			index();
-			System.err.println("Error retrieving twitter request token: "
+			Logger.error("Error retrieving twitter request token: "
 					+ oauthResponse.error);
 		}
 
