@@ -38,9 +38,11 @@ public class ArticleController extends Controller {
 
 	public static void getArticle(long id) {
 		Article article = Article.find("id", id).first();
-		if (article != null)
+		if (article != null){
+                    Logger.info("Show selected article.");
 			render("ArticleController/detail.html", article);
-		// not found
+                }
+                // not found
                 else{
                     Logger.warn("Article with this id is not available.");
                     notFound();
