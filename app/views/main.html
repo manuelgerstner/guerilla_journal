@@ -44,13 +44,16 @@
     					<li>
     						<a href="/">View Articles</a>
     					</li>
+    				#{if session["loggedin"]=="true"}
+    					
     					<li>
     						<a href="/article">Submit</a>
     					</li>
-    				#{if session["loggedin"]=="true"}
+    					
     					<li>
     						<a href="/profile">My Profile</a>
     					</li>
+    					
     				#{/if}
     				</ul>
                     
@@ -62,9 +65,15 @@
                 
                 #{else}
                     #{list items:controllers.Users.getUser(), as:'user'}
-	                    <a href="/profile" class="pull-right">
-							<img src="${user.iconUrl}" /> ${user.screenName}
-	                   	</a>    
+
+	                   	 	
+   						#{form @Users.logout(), style: 'height: 0px', class: 'pull-right form-inline'}
+							<a href="/profile">
+								<img height="24" width="24" src="${user.iconUrl}" />
+		                   		<span class="name">${user.screenName}</span>
+		                   	</a>
+   							<button type="submit" class="btn" name="logout">Logout</button>
+   						#{/form}
                     #{/list}
                 #{/else}
                 
