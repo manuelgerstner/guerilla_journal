@@ -30,8 +30,8 @@ public class ArticleController extends Controller {
 	}
 
 	public static void rateArticle(long articleId, int score, String category) {
-		Article article = Article.find("id", articleId).first();		
-		if(category.equals("writingStyle")) {
+		Article article = Article.find("id", articleId).first();
+		if (category.equals("writingStyle")) {
 			int writingStyle = article.getWritingStyle();
 			int writingStyleCount = article.getWritingStyleCount();
 			article.setWritingStyle(writingStyle + score);
