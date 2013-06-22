@@ -95,6 +95,54 @@ public class Article extends Model {
 		this.headerPicUrl = headerPicUrl;
 	}
 
+	public Integer getNonAlignment() {
+		return nonAlignment;
+	}
+
+	public void setNonAlignment(Integer nonAlignment) {
+		this.nonAlignment = nonAlignment;
+	}
+
+	public Integer getNonAlignmentCount() {
+		return nonAlignmentCount;
+	}
+
+	public void setNonAlignmentCount(Integer nonAlignmentCount) {
+		this.nonAlignmentCount = nonAlignmentCount;
+	}
+
+	public Integer getWritingStyle() {
+		return writingStyle;
+	}
+
+	public void setWritingStyle(Integer writingStyle) {
+		this.writingStyle = writingStyle;
+	}
+
+	public Integer getWritingStyleCount() {
+		return writingStyleCount;
+	}
+
+	public void setWritingStyleCount(Integer writingStyleCount) {
+		this.writingStyleCount = writingStyleCount;
+	}
+
+	public Integer getOverall() {
+		return overall;
+	}
+
+	public void setOverall(Integer overall) {
+		this.overall = overall;
+	}
+
+	public Integer getOverallCount() {
+		return overallCount;
+	}
+
+	public void setOverallCount(Integer overallCount) {
+		this.overallCount = overallCount;
+	}
+
 	public static List<Article> getUsersArticles() {
 		User currentUser = Users.getUser();
 		List<Article> articleList = Article.find(
