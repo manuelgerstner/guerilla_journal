@@ -45,7 +45,13 @@ public class Users extends CRUD {
 				user.name = userName;
 				user.iconUrl = iconUrl;
 				user.screenName = screenName;
+				user.session = session.getId();
 				user.save();
+
+				User guest = User.findOrCreate("guest");
+				guest.session = null;
+				guest.save();
+
 
 				session.put("loggedin", user.isLoggedIn());
 				// go back to homepage
@@ -64,8 +70,8 @@ public class Users extends CRUD {
 		if (oauthResponse.error == null) {
 			// We received the unauthorized tokens in the OAuth object - store
 			// it before we proceed
-			user.token = oauthResponse.token;
-			user.secret = oauthResponse.secret;
+			// user.token = oauthResponse.token;
+			// user.secret = oauthResponse.secret;
 			user.session = session.getId();
 			user.save();
 			// Redirect the user to the authorization page
