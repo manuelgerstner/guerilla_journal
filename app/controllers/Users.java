@@ -55,6 +55,8 @@ public class Users extends CRUD {
 				Logger.error("Error retrieving twitter access token: "
 						+ oauthResponse.error);
 			}
+		} else {
+
 		}
 
 		OAuth twitt = OAuth.service(TWITTER);

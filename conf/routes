@@ -5,19 +5,19 @@
 # Home page
 GET     /               Application.index
 GET     /oauthcallback  Application.authenticate
-GET		/profile		ProfileController.index
+GET		/profile		Profiles.index
 
-#GET		/admin			module:crud
+#GET	/admin			module:crud
 
 GET 	/login			Application.authenticate
 POST	/ws/status		Application.setStatus
 
 # Ajax rating
-POST    /article/rate 	ArticleController.rateArticle(articleId: long, score: int, category: String)
+POST    /article/rate 	Articles.rateArticle(articleId: long, score: int, category: String)
 
-GET     /article		ArticleController.index
-GET     /detail/{id}	ArticleController.getArticle(id: long)
-GET     /pictures		ArticleController.pictures
+GET     /article		Articles.index
+GET     /detail/{id}	Articles.getArticle(id: long)
+GET     /pictures		Articles.pictures
 
 
 
