@@ -30,9 +30,29 @@ public class ArticleController extends Controller {
 	}
 
 	public static void rateArticle(long articleId, int score, String category) {
-		Article article = Article.find("id", articleId).first();
-		Logger.info("Article rated.");
-		// TODO: rate article, persist, return new scores for the category in
+		Article article = Article.find("id", articleId).first();		
+		if(category.equals("writingStyle")) {
+			int writingStyle = article.getWritingStyle();
+			int writingStyleCount = article.getWritingStyleCount();
+			article.setWritingStyle(writingStyle + score);
+			article.setWritingStyleCount(writingStyleCount++);
+			Logger.info("Article rated.");
+		} else if (category.equals("nonAlignment")) {
+			int nonAlignment = article.getNonAlignment();
+			int nonAlignmentCount = article.getNonAlignmentCount();
+			article.setWritingStyle(nonAlignment + score);
+			article.setWritingStyleCount(nonAlignmentCount++);
+			Logger.info("Article rated.");
+		} else if (category.equals("overall")) {
+			int overall = article.getOverall();
+			int overallCount = article.getOverallCount();
+			article.setWritingStyle(overall + score);
+			article.setWritingStyleCount(overallCount++);
+			Logger.info("Article rated.");
+		} else {
+			Logger.error("The article could not be rated");
+		}
+		// TODO: return new scores for the category in
 		// JSON using renderJSON()
 	}
 
