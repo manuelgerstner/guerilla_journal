@@ -49,7 +49,7 @@
 			
 			#{list items:models.Article.findAll(), as:'article'}
 			<li>
-				<a href="@@{ArticleController.getArticle(article.id)}">${article.title}</a>
+				<a href="@@{Articles.getArticle(article.id)}">${article.title}</a>
 			</li>
 			#{/list}
 		</ul>
