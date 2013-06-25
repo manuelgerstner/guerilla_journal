@@ -3,3 +3,4 @@
 require:
     - play 1.2.5
     - play -> crud
+    - play -> search 2.0
