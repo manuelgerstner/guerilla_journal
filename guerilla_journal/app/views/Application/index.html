@@ -40,7 +40,12 @@
 </div>
 <!--/span-->
 <div class="span3">
-	
+        <div class="well sidebar-nav">            
+            <form action="@{Search.search()}" method="GET">
+                    <input type="text" name="query" /> 
+                    <input type="submit" value="Search article" />                                        
+            </form> 
+        </div>	
 	<div class="well sidebar-nav">
 		<h4>
 			Trending Articles
