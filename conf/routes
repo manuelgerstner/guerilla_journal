@@ -19,6 +19,8 @@ GET     /article		Articles.index
 GET     /detail/{id}	Articles.getArticle(id: long)
 GET     /pictures		Articles.pictures
 
+# Fulltext search
+GET     /search/{query}		Search.index(String: query)
 
 
 # Ignore favicon requests

@@ -1,0 +1,88 @@
+<!-- articles.html -->
+
+#{extends 'main.html' /}
+#{set title:'All articles' /}
+
+<div class="span9">
+	<div class="well">
+		<h1>
+			Guerilla Journal
+		</h1>
+		<p>
+			Your go-to place for independent, peer-reviewed news that change the world.
+		</p>
+	</div>
+	<div class="row-fluid">                
+                <h3>
+                    Your search results:
+		</h3>
+		#{list items:articles, as:'article'}
+			<div class="span4">
+				<img class="headerPicUrl" src="${article.headerPicUrl}"/>
+				<h2>${article.title}</h2>
+				<small>
+					Written on <strong>${article.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong>${article.author}</strong> 
+				</small>
+				<p class="lead">
+					${article.summary}
+				</p>
+				
+<!--				<p class="entry">
+					${article.entry.raw()} *{raw is needed to render html}*
+				</p>-->
+				
+				<br/>
+				
+				<div class="details">
+					<a class="btn" href="detail/${article.id}">Read full Article</a>
+				</div>
+			</div>
+		#{/list}
+	</div>
+	<!--/row-->
+</div>
+<!--/span-->
+<div class="span3">
+	
+	<div class="well sidebar-nav">
+		<h4>
+			Trending Articles
+		</h4>
+		<ul class="nav nav-list">
+			
+			#{list items:models.Article.findAll(), as:'article'}
+			<li>
+				<a href="@@{Articles.getArticle(article.id)}">${article.title}</a>
+			</li>
+			#{/list}
+		</ul>
+	</div>
+	
+	
+	<div class="well">
+		<h4>
+			Tagged Articles
+		</h4>
+		<ul class="nav nav-list">
+			<li class="nav-header">
+				Politics
+			</li>
+			<li class="active">
+				<a href="#">Article #1</a>
+			</li>
+			
+			<li class="nav-header">
+				Technology
+			</li>
+			<li>
+				<a href="#">Article #2</a>
+			</li>
+			<li class="nav-header">
+				Sport
+			</li>
+			<li>
+				<a href="#">Article #3</a>
+			</li>
+		</ul>
+	</div>
+</div>
