@@ -7,16 +7,25 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 
+import play.modules.search.Field;
+import play.modules.search.Indexed;
+
 import play.db.jpa.Model;
 import controllers.Users;
 
 @Entity
+@Indexed
 public class Article extends Model {
-	private String author;
-	private String title;
-	private String summary;
+        //necessary to make Fields public to access them with search-module.
+        @Field
+	public String author;
+        @Field
+	public String title;
+        @Field
+	public String summary;
+        @Field
 	@Lob
-	private String entry;
+	public String entry;
 	private Date postedAt;
 	private String headerPicUrl;
 
