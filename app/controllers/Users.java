@@ -35,20 +35,20 @@ public class Users extends CRUD {
 
         Logger.info("Authenticating user " + user.name);
 
+
         // TWITTER is a OAuth.ServiceInfo object
         // getUser() is a method returning the current user
         if (OAuth.isVerifierResponse()) {
             Logger.info("Received Verifier response for user " + user.name);
             // We got the verifier; now get the access token, store it and back
             // to index
-            OAuth.Response oauthResponse = OAuth.service(TWITTER)
-                                           .retrieveAccessToken(user.token, user.secret);
+            OAuth.Response oauthResponse = OAuth.service(TWITTER).retrieveAccessToken(user.token, user.secret);
             if (oauthResponse.error == null) {
                 Logger.info("Retrieved access token for user " + user.name);
 
                 // get user info
                 String url = "https://api.twitter.com/1.1/account/verify_credentials.json";
-                WS.HttpResponse response = WS.url(url).oauth(TWITTER, user.token, user.secret).get();
+                WS.HttpResponse response = WS.url(url).oauth(TWITTER, oauthResponse.token, oauthResponse.secret).get();
                 if (response.getStatus() == 200) {
                     JsonObject json = response.getJson().getAsJsonObject();
                     String iconUrl = json.get("profile_image_url").getAsString();
@@ -83,7 +83,10 @@ public class Users extends CRUD {
                 Logger.error("Error retrieving twitter user data: "
                              + oauthResponse.error);
             }
-        } else {
+        } else if(authorizeRequestSent(user)) {
+            // sent quthentice request, but the user declined access to his data => not logged in
+            redirect(Router.reverse("Application.index").toString());
+        } else { // guest, have to authenticate
             Logger.info("Generating authentication url for user " + user.name);
             // access not granted
             OAuth twitt = OAuth.service(TWITTER);
@@ -124,6 +127,10 @@ public class Users extends CRUD {
      */
     public static boolean isGuest(User usr) {
         return usr.name.equals("guest" + session.getId());
+    }
+
+    public static boolean authorizeRequestSent(User usr){
+        return isGuest(usr) && usr.token != null && usr.secret != null && usr.screenName == null;
     }
 
     public static boolean isLoggedIn(User usr) {
