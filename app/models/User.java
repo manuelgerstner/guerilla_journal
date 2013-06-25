@@ -17,10 +17,10 @@ public class User extends Model {
 	@Required
 	public String name;
 	public String screenName;
-	public String token; // oauth
-	public String secret; // oauth
+	public String token; 	// oauth
+	public String secret; 	// oauth
 	public String iconUrl;
-	public String session;
+	public String session;	
 
 	public User(String fullname) {
 		this.name = fullname;
@@ -36,11 +36,11 @@ public class User extends Model {
 
 	public String toString() {
 		return name + " : " + (screenName == null ? " " : screenName) + " : "
-				+ (token == null ? "no twitter" : "twitter ok") + " : "
+				+ (isLoggedIn() ? "logged in via twitter" : "no twitter login") + " : "
 				+ session;
 	}
 
 	public boolean isLoggedIn() {
-		return (token == null ? false : true);
+		return token != null && screenName != null && secret != null;
 	}
 }

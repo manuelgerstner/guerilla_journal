@@ -15,12 +15,12 @@ public class Application extends Controller {
 		user.save();
 
 		session.put("loggedin", user.isLoggedIn());
-		Logger.info("User has logged in", null);
+		Logger.info("User is logged in = "+user.isLoggedIn());
 
 		Article frontPost = Article.find("order by postedAt desc").first();
 		List<Article> olderPosts = Article.find("order by postedAt desc")
 				.from(1).fetch(10);
-		Logger.info("Got posts for show all view", null);
+		Logger.info("Got posts for show all view");
 		render(frontPost, olderPosts);
 	}
 
