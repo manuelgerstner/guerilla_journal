@@ -9,93 +9,133 @@ import play.Logger;
 
 import com.google.gson.JsonObject;
 
+/**
+ *  The Users controller handles all events concerning the User model object.
+ *  This includes Twitter login, creation and deletion of guest user records
+ *  in the database and helper methods to check the state of the current User.
+ *
+ *  @autohr David
+ */
 public class Users extends CRUD {
 
-	private static final ServiceInfo TWITTER = new ServiceInfo(
-			"https://api.twitter.com/oauth/request_token",
-			"https://api.twitter.com/oauth/access_token",
-			"https://api.twitter.com/oauth/authorize",
-			"pwzihITyZssfbuGtAIZk0w",
-			"0yy3WiJZESGeDeg2xGJq87I4OwFBSz0lHoBmjZAvEnA");
+    private static final ServiceInfo TWITTER = new ServiceInfo(
+        "https://api.twitter.com/oauth/request_token",
+        "https://api.twitter.com/oauth/access_token",
+        "https://api.twitter.com/oauth/authorize",
+        "pwzihITyZssfbuGtAIZk0w",
+        "0yy3WiJZESGeDeg2xGJq87I4OwFBSz0lHoBmjZAvEnA");
 
-	public static void authenticate() {
+    /**
+     *  Handel all Twitter login events:
+     *  -> Unkonwn user tries to log in
+     *  -> OAuth callback (from Twitter API)
+     */
+    public static void authenticate() {
+        User user = getUser();
 
-		User user = getUser();
+        Logger.info("Authenticating user " + user.name);
 
-		// TWITTER is a OAuth.ServiceInfo object
-		// getUser() is a method returning the current user
-		if (OAuth.isVerifierResponse()) {
-			// We got the verifier; now get the access token, store it and back
-			// to index
-			OAuth.Response oauthResponse = OAuth.service(TWITTER)
-					.retrieveAccessToken(user.token, user.secret);
-			if (oauthResponse.error == null) {
-				// store api stuff
-				user.token = oauthResponse.token;
-				user.secret = oauthResponse.secret;
-				// get user info
-				String url = "https://api.twitter.com/1.1/account/verify_credentials.json";
-				WS.HttpResponse response = WS.url(url)
-						.oauth(TWITTER, user.token, user.secret).get();
-				JsonObject json = response.getJson().getAsJsonObject();
-				String iconUrl = json.get("profile_image_url").getAsString();
-				String userName = json.get("name").getAsString();
-				String screenName = json.get("screen_name").getAsString();
-				// store user info
-				user.name = userName;
-				user.iconUrl = iconUrl;
-				user.screenName = screenName;
-				user.session = session.getId();
-				user.save();
+        // TWITTER is a OAuth.ServiceInfo object
+        // getUser() is a method returning the current user
+        if (OAuth.isVerifierResponse()) {
+            Logger.info("Received Verifier response for user " + user.name);
+            // We got the verifier; now get the access token, store it and back
+            // to index
+            OAuth.Response oauthResponse = OAuth.service(TWITTER)
+                                           .retrieveAccessToken(user.token, user.secret);
+            if (oauthResponse.error == null) {
+                Logger.info("Retrieved access token for user " + user.name);
 
-				User guest = User.findOrCreate("guest");
-				guest.session = null;
-				guest.save();
+                // get user info
+                String url = "https://api.twitter.com/1.1/account/verify_credentials.json";
+                WS.HttpResponse response = WS.url(url).oauth(TWITTER, user.token, user.secret).get();
+                if (response.getStatus() == 200) {
+                    JsonObject json = response.getJson().getAsJsonObject();
+                    String iconUrl = json.get("profile_image_url").getAsString();
+                    String userName = json.get("name").getAsString();
+                    String screenName = json.get("screen_name").getAsString();
+
+                    User knownUser = User.find("name", userName).first();
+                    if (knownUser != null) { // check if we already know this user
+                        user.delete();  // if so delete the guest user created for him
+                        user = knownUser; // and work on the know User db record from now on
+                    }
+
+                    // store api stuff
+                    user.token = oauthResponse.token;
+                    user.secret = oauthResponse.secret;
+
+                    // store user info
+                    user.name = userName;
+                    user.iconUrl = iconUrl;
+                    user.screenName = screenName;
+                    user.save();
+
+                    session.put("loggedin", user.isLoggedIn());
+                } else {
+                	Logger.error("Error retrieving twitter user data: "
+                             + response.getStatus());
+                }
+                // go back to homepage
+                redirect(Router.reverse("Application.index").toString());
+
+            } else {
+                Logger.error("Error retrieving twitter user data: "
+                             + oauthResponse.error);
+            }
+        } else {
+            Logger.info("Generating authentication url for user " + user.name);
+            // access not granted
+            OAuth twitt = OAuth.service(TWITTER);
+            OAuth.Response oauthResponse = twitt.retrieveRequestToken();
+            if (oauthResponse.error == null) {
+                // We received the unauthorized tokens in the OAuth object - store
+                // it before we proceed
+                user.token = oauthResponse.token;
+                user.secret = oauthResponse.secret;
+                user.session = session.getId();
+                user.save();
+                // Redirect the user to the authorization page
+                redirect(twitt.redirectUrl(oauthResponse.token));
+            } else {
+                Logger.error("Error creating Twitter authentication URL: "
+                             + oauthResponse.error);
+                redirect(Router.reverse("Application.index").toString());
+            }
+        }
 
 
-				session.put("loggedin", user.isLoggedIn());
-				// go back to homepage
-				redirect(Router.reverse("Application.index").toString());
 
-			} else {
-				Logger.error("Error retrieving twitter access token: "
-						+ oauthResponse.error);
-			}
-		} else {
+    }
 
-		}
+    /**
+     *  Get the current User identified by session.
+     *  If the user is not logged in you will receive a guest user, which may be accessed by others.
+     *  To check if a user is known (i.e. not a guest) call isGuest().
+     */
+    public static User getUser() {
+        // get known user
+        User user = User.find("session", session.getId()).first();
+        return user == null ? User.findOrCreate("guest" + session.getId()) : user;
+    }
 
-		OAuth twitt = OAuth.service(TWITTER);
-		OAuth.Response oauthResponse = twitt.retrieveRequestToken();
-		if (oauthResponse.error == null) {
-			// We received the unauthorized tokens in the OAuth object - store
-			// it before we proceed
-			// user.token = oauthResponse.token;
-			// user.secret = oauthResponse.secret;
-			user.session = session.getId();
-			user.save();
-			// Redirect the user to the authorization page
-			redirect(twitt.redirectUrl(oauthResponse.token));
-		} else {
-			index();
-			Logger.error("Error retrieving twitter request token: "
-					+ oauthResponse.error);
-		}
+    /**
+     *  Use this to check if a User is known or just a guest
+     */
+    public static boolean isGuest(User usr) {
+        return usr.name.equals("guest" + session.getId());
+    }
 
-	}
+    public static boolean isLoggedIn(User usr) {
+        return usr.isLoggedIn();
+    }
 
-	public static User getUser() {
-		// get known user
-		User user = User.find("session", session.getId()).first();
-		return user == null ? User.findOrCreate("guest") : user;
-	}
-
-	public static void logout() {
-		User user = User.find("session", session.getId()).first();
-		session.put("loggedin", false);
-		user.session = null;
-		user.save();
-		redirect("/");
-	}
+    public static void logout() {
+        User user = User.find("session", session.getId()).first();
+        session.put("loggedin", false);
+        user.session = null;
+        user.save();
+        redirect("/");
+    }
 
 }
