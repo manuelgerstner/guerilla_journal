@@ -10,25 +10,25 @@ import play.Logger;
 import com.google.gson.JsonObject;
 
 /**
- *  The Users controller handles all events concerning the User model object.
- *  This includes Twitter login, creation and deletion of guest user records
- *  in the database and helper methods to check the state of the current User.
+ * The Users controller handles all events concerning the User model object.
+ * This includes Twitter login, creation and deletion of guest user records
+ * in the database and helper methods to check the state of the current User.
  *
- *  @autohr David
+ * @autohr David
  */
 public class Users extends CRUD {
 
     private static final ServiceInfo TWITTER = new ServiceInfo(
-        "https://api.twitter.com/oauth/request_token",
-        "https://api.twitter.com/oauth/access_token",
-        "https://api.twitter.com/oauth/authorize",
-        "pwzihITyZssfbuGtAIZk0w",
-        "0yy3WiJZESGeDeg2xGJq87I4OwFBSz0lHoBmjZAvEnA");
+            "https://api.twitter.com/oauth/request_token",
+            "https://api.twitter.com/oauth/access_token",
+            "https://api.twitter.com/oauth/authorize",
+            "pwzihITyZssfbuGtAIZk0w",
+            "0yy3WiJZESGeDeg2xGJq87I4OwFBSz0lHoBmjZAvEnA");
 
     /**
-     *  Handel all Twitter login events:
-     *  -> Unkonwn user tries to log in
-     *  -> OAuth callback (from Twitter API)
+     * Handel all Twitter login events:
+     * -> Unkonwn user tries to log in
+     * -> OAuth callback (from Twitter API)
      */
     public static void authenticate() {
         User user = getUser();
@@ -57,7 +57,14 @@ public class Users extends CRUD {
 
                     User knownUser = User.find("name", userName).first();
                     if (knownUser != null) { // check if we already know this user
-                        user.delete();  // if so delete the guest user created for him
+                        if (isGuest(user)) {
+                            user.delete();  // if so delete the guest user created for him
+                        } else {
+                            user.session = null;
+                            user.secret = null;
+                            user.token = null;
+                            user.save();
+                        }
                         user = knownUser; // and work on the know User db record from now on
                     }
 
@@ -69,22 +76,31 @@ public class Users extends CRUD {
                     user.name = userName;
                     user.iconUrl = iconUrl;
                     user.screenName = screenName;
+
+                    user.session = session.getId();
+                    user.loggedIn = true;
+                    user.requestSent = false;
+
                     user.save();
 
-                    session.put("loggedin", user.isLoggedIn());
+                    session.put("loggedin", user.loggedIn);
                 } else {
-                	Logger.error("Error retrieving twitter user data: "
-                             + response.getStatus());
+                    Logger.error("Error retrieving twitter user data: "
+                            + response.getStatus());
                 }
                 // go back to homepage
                 redirect(Router.reverse("Application.index").toString());
 
             } else {
                 Logger.error("Error retrieving twitter user data: "
-                             + oauthResponse.error);
+                        + oauthResponse.error);
             }
-        } else if(authorizeRequestSent(user)) {
-            // sent quthentice request, but the user declined access to his data => not logged in
+        } else if (user.requestSent) {
+            // sent authenticate request, but the user declined access to his data => not logged in
+            user.token = null;
+            user.secret = null;
+            user.requestSent = false;
+            user.save();
             redirect(Router.reverse("Application.index").toString());
         } else { // guest, have to authenticate
             Logger.info("Generating authentication url for user " + user.name);
@@ -96,25 +112,25 @@ public class Users extends CRUD {
                 // it before we proceed
                 user.token = oauthResponse.token;
                 user.secret = oauthResponse.secret;
+                user.requestSent = true;
                 user.session = session.getId();
                 user.save();
                 // Redirect the user to the authorization page
                 redirect(twitt.redirectUrl(oauthResponse.token));
             } else {
                 Logger.error("Error creating Twitter authentication URL: "
-                             + oauthResponse.error);
+                        + oauthResponse.error);
                 redirect(Router.reverse("Application.index").toString());
             }
         }
 
 
-
     }
 
     /**
-     *  Get the current User identified by session.
-     *  If the user is not logged in you will receive a guest user, which may be accessed by others.
-     *  To check if a user is known (i.e. not a guest) call isGuest().
+     * Get the current User identified by session.
+     * If the user is not logged in you will receive a guest user, which may be accessed by others.
+     * To check if a user is known (i.e. not a guest) call isGuest().
      */
     public static User getUser() {
         // get known user
@@ -123,24 +139,23 @@ public class Users extends CRUD {
     }
 
     /**
-     *  Use this to check if a User is known or just a guest
+     * Use this to check if a User is known or just a guest
      */
     public static boolean isGuest(User usr) {
-        return usr.name.equals("guest" + session.getId());
+        return usr.name.equals("guest" + session.getId()) && !usr.loggedIn;
     }
 
-    public static boolean authorizeRequestSent(User usr){
-        return isGuest(usr) && usr.token != null && usr.secret != null && usr.screenName == null;
-    }
-
-    public static boolean isLoggedIn(User usr) {
-        return usr.isLoggedIn();
+    public static boolean authorizeRequestSent(User usr) {
+        return !usr.loggedIn && usr.token != null && usr.secret != null;
     }
 
     public static void logout() {
         User user = User.find("session", session.getId()).first();
+        user.loggedIn = false;
         session.put("loggedin", false);
-        user.session = null;
+        user.token = null;
+        user.secret = null;
+        user.requestSent = false;
         user.save();
         redirect("/");
     }
