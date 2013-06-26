@@ -20,10 +20,13 @@ public class User extends Model {
 	public String token; 	// oauth
 	public String secret; 	// oauth
 	public String iconUrl;
-	public String session;	
+	public String session;
+    public boolean loggedIn;
+    public boolean requestSent;
 
 	public User(String fullname) {
 		this.name = fullname;
+        loggedIn=false;
 	}
 
 	public static User findOrCreate(String name) {
@@ -36,11 +39,7 @@ public class User extends Model {
 
 	public String toString() {
 		return name + " : " + (screenName == null ? " " : screenName) + " : "
-				+ (isLoggedIn() ? "logged in via twitter" : "no twitter login") + " : "
+				+ (loggedIn ? "logged in via twitter" : "no twitter login") + " : "
 				+ session;
-	}
-
-	public boolean isLoggedIn() {
-		return token != null && screenName != null && secret != null;
 	}
 }

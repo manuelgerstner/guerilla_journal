@@ -14,6 +14,9 @@
 .classpath
 .project
 
+# ignore search index
+data
+
 # Ignore Play! working directory #
 db
 eclipse

@@ -14,8 +14,8 @@ public class Application extends Controller {
 		user.session = session.getId();
 		user.save();
 
-		session.put("loggedin", user.isLoggedIn());
-		Logger.info("User is logged in = "+user.isLoggedIn());
+		session.put("loggedin", user.loggedIn);
+		Logger.info("User is logged in = "+user.loggedIn);
 
 		Article frontPost = Article.find("order by postedAt desc").first();
 		List<Article> olderPosts = Article.find("order by postedAt desc")
