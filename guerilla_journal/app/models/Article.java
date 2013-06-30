@@ -6,7 +6,10 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+import controllers.Ratings;
 import play.modules.search.Field;
 import play.modules.search.Indexed;
 
@@ -28,16 +31,13 @@ public class Article extends Model {
 	public String entry;
 	private Date postedAt;
 	private String headerPicUrl;
+    private ArrayList<Tag> tags;
 
-	private ArrayList<Tag> tags;
 
-	// Rating
-	private Integer nonAlignment;
-	private Integer nonAlignmentCount;
-	private Integer writingStyle;
-	private Integer writingStyleCount;
-	private Integer overall;
-	private Integer overallCount;
+    @OneToMany
+    private List<Rating> ratings;
+    public float rank;
+    public float avgScore;
 
 	public Article(String author, String title, String summary, String entry,
 			String headerPicUrl/* , Set tags */) {
@@ -52,6 +52,8 @@ public class Article extends Model {
 		this.headerPicUrl = headerPicUrl;
 
 		// rating
+        this.ratings = new ArrayList<Rating>();
+        this.rank = Ratings.getFreshness(this);
 
 		super.create();
 	}
@@ -104,54 +106,6 @@ public class Article extends Model {
 		this.headerPicUrl = headerPicUrl;
 	}
 
-	public Integer getNonAlignment() {
-		return nonAlignment;
-	}
-
-	public void setNonAlignment(Integer nonAlignment) {
-		this.nonAlignment = nonAlignment;
-	}
-
-	public Integer getNonAlignmentCount() {
-		return nonAlignmentCount;
-	}
-
-	public void setNonAlignmentCount(Integer nonAlignmentCount) {
-		this.nonAlignmentCount = nonAlignmentCount;
-	}
-
-	public Integer getWritingStyle() {
-		return writingStyle;
-	}
-
-	public void setWritingStyle(Integer writingStyle) {
-		this.writingStyle = writingStyle;
-	}
-
-	public Integer getWritingStyleCount() {
-		return writingStyleCount;
-	}
-
-	public void setWritingStyleCount(Integer writingStyleCount) {
-		this.writingStyleCount = writingStyleCount;
-	}
-
-	public Integer getOverall() {
-		return overall;
-	}
-
-	public void setOverall(Integer overall) {
-		this.overall = overall;
-	}
-
-	public Integer getOverallCount() {
-		return overallCount;
-	}
-
-	public void setOverallCount(Integer overallCount) {
-		this.overallCount = overallCount;
-	}
-
 	public static List<Article> getUsersArticles() {
 		User currentUser = Users.getUser();
 		List<Article> articleList = Article.find(
@@ -159,4 +113,15 @@ public class Article extends Model {
 		return articleList;
 	}
 
+    public String toString(){
+        return author +" - "+title;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
 }
