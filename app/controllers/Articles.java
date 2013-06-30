@@ -1,10 +1,15 @@
 package controllers;
 
 import models.Article;
+import models.Rating;
+import models.User;
 import play.Logger;
 import play.mvc.Controller;
 
-public class Articles extends Controller {
+import java.util.Date;
+import java.util.List;
+
+public class Articles extends CRUD {
 
 	public static void index() {
 		if (session.get("loggedin").equals("false")) {
@@ -30,33 +35,78 @@ public class Articles extends Controller {
 	}
 
 	public static void rateArticle(long articleId, int score, String category) {
+        User usr = Users.getUser();
+        if(Users.isGuest(usr)){
+            // TODO let the user know it did not work, probably even before the request is sent.
+            Logger.info("Rating rejected, not a registered user");
+            return;
+        }
+
 		Article article = Article.find("id", articleId).first();
-		if (category.equals("writingStyle")) {
-			int writingStyle = article.getWritingStyle();
-			int writingStyleCount = article.getWritingStyleCount();
-			article.setWritingStyle(writingStyle + score);
-			article.setWritingStyleCount(writingStyleCount++);
-			Logger.info("Article rated.");
+        Rating rating = Rating.find("SELECT r FROM Rating r where r.user.id = "+usr.getId() + " AND r.article.id = " + article.getId()).first();
+
+        if(rating == null ){
+            rating = new Rating();
+            rating.user = usr;
+            rating.article=article;
+            article.getRatings().add(rating);
+        }
+        if (category.equals("writingStyle")) {
+            rating.writingStyle = score;
+			Logger.info("Article writing style rated with "+score);
 		} else if (category.equals("nonAlignment")) {
-			int nonAlignment = article.getNonAlignment();
-			int nonAlignmentCount = article.getNonAlignmentCount();
-			article.setWritingStyle(nonAlignment + score);
-			article.setWritingStyleCount(nonAlignmentCount++);
-			Logger.info("Article rated.");
+            rating.nonAlignment=score;
+            Logger.info("Article non alignment rated with "+score);
 		} else if (category.equals("overall")) {
-			int overall = article.getOverall();
-			int overallCount = article.getOverallCount();
-			article.setWritingStyle(overall + score);
-			article.setWritingStyleCount(overallCount++);
-			Logger.info("Article rated.");
+            rating.overall=score;
+            Logger.info("Article overall rated with "+score);
 		} else {
 			Logger.error("The article could not be rated");
+            return;
 		}
+        rating.save();
+        updateRank(article);
 		// TODO: return new scores for the category in
 		// JSON using renderJSON()
 	}
 
-	public static void getArticle(long id) {
+    /**
+     * calculate the Baysian average of each rating category
+     * @param article
+     */
+    private static void updateRank(Article article) {
+
+        float totNonAl =0;
+        float totStyle =0;
+        float totOverall =0;
+
+        // calculate the sum of each rating category for rank and avgScore calculation
+        for(Rating rat : article.getRatings()){
+            totNonAl+=  rat.nonAlignment;
+            totStyle+=  rat.writingStyle;
+            totOverall+=rat.overall;
+        }
+
+        float avgNonAl =      Ratings.getBayesAvg(totNonAl,article.getRatings().size(), Ratings.Type.NONALIGN);
+        float avgStyle =      Ratings.getBayesAvg(totStyle,article.getRatings().size(), Ratings.Type.STYLE);
+        float avgOverall =    Ratings.getBayesAvg(totOverall,article.getRatings().size(), Ratings.Type.OVERALL);
+
+        // no we've got the baysian average of the categories
+        // as average score we will display the arithmetic avg of the basian avg's
+        // TODO reevaluate the baysian average...
+        article.avgScore = (float) Math.round(((avgNonAl + avgOverall + avgStyle) / 3)*100)/100;
+
+        // now lets calculate the rank of the page
+        // following reddit's hot rank method
+        // see http://amix.dk/blog/post/19588
+        float freshness = Ratings.getFreshness(article);
+        float order = (float) Math.log10(totNonAl+totOverall+totStyle);
+        article.rank = freshness + order;
+        article.save();
+        Logger.info("Set rank and score for article.");
+    }
+
+    public static void getArticle(long id) {
 		Article article = Article.find("id", id).first();
 		if (article != null) {
 			Logger.info("Show selected article.");

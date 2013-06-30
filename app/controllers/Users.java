@@ -14,7 +14,7 @@ import com.google.gson.JsonObject;
  * This includes Twitter login, creation and deletion of guest user records
  * in the database and helper methods to check the state of the current User.
  *
- * @autohr David
+ * @author David
  */
 public class Users extends CRUD {
 
@@ -151,12 +151,14 @@ public class Users extends CRUD {
 
     public static void logout() {
         User user = User.find("session", session.getId()).first();
-        user.loggedIn = false;
-        session.put("loggedin", false);
-        user.token = null;
-        user.secret = null;
-        user.requestSent = false;
-        user.save();
+        if (user != null) {
+            user.loggedIn = false;
+            session.put("loggedin", false);
+            user.token = null;
+            user.secret = null;
+            user.requestSent = false;
+            user.save();
+        }
         redirect("/");
     }
 
