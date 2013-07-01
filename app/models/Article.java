@@ -35,6 +35,9 @@ public class Article extends Model {
 	public float rank;
 	public float avgScore;
 
+	@OneToMany
+	private List<Tag> tags;
+
 	public Article(String author, String title, String summary, String entry,
 			String headerPicUrl/* , Set tags */) {
 		super();
@@ -119,5 +122,13 @@ public class Article extends Model {
 
 	public void setRatings(List<Rating> ratings) {
 		this.ratings = ratings;
+	}
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
 	}
 }
