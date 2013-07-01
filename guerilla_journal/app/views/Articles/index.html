@@ -50,3 +50,26 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+$(function() {
+	// api key for filepicker
+	filepicker.setKey('AK3uFvZ9SxKyRxBB0ajWgz');
+
+	// init tinymce for all textarea elements
+	tinymce.init({selector:'textarea'});
+
+	// filepicker initialization and callback
+	$('#headerPicSelector').click(function(e) {
+		e.preventDefault();
+		filepicker.pick(function(img) {
+			if (img) {
+				$('#headerPicUrl').val(img.url);
+				$('<img src="'+img.url+'"/><br/>').prependTo('#textarea');
+				$('#headerPicSelector').text('Select a different picture');
+			}
+		})
+	});
+
+});
+</script>

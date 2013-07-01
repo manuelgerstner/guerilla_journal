@@ -19,7 +19,12 @@
 	</div>
 	
 	<div class="row-fluid" style="margin-top: 100px;">
-		<div class="span8">
+		<div class="span2">
+			#{list items:article.tags, as:'tag'}
+			${tag.tagName}<br/>
+			#{/list}
+		</div>
+		<div class="span7">
 			<h2>Overall Rating: ${article.avgScore==0 ? "not rated yet" : article.avgScore + " /5"}</h2>
 			
 			#{form @Articles.rateArticle()}
@@ -66,7 +71,7 @@
 				</div>
 			#{/form}
 		</div>
-		<div class="span4">
+		<div class="span3">
 			<h2>
 				Statistics and Information
 			</h2>
@@ -76,37 +81,34 @@
         </div>
 	</div>
 	
-	<script type="text/javascript" src="@{'/public/assets/js/jquery.raty-2.5.2.min.js'}"></script>
-	<script>
-		
-		// global var
-		ARTICLE_ID = ${article.id};
-		LOGGED_IN = ${session["loggedin"]};
-		
-		$(function() {
-			
-			$('.star').each(function() {
-				
-				var category = $(this).attr('data-category');
-				$(this).raty({
-				  path : '/public/assets/img/',
-				  scoreName: category,
-				  click: function(score) {
-				  	if(LOGGED_IN=="true"){
-					  console && console.log('rating article #%d with %d points in category %s', ARTICLE_ID, score, category);
-					  $.post('@@{Articles.rateArticle()}', {
-							  articleId: ARTICLE_ID,
-							  score: score,
-							  category: category
-					  }, function(e) {
-						  console && console.log(e); // log response
-					  });
-				  }
-				} else {
-					// TODO show info
-				}
-				});
-			});
-		});
-	</script>
+
 </div>
+
+<script>
+	//global var
+	ARTICLE_ID = ${article.id};
+	LOGGED_IN = ${session["loggedin"]};
+	
+	$(function () {
+	    $('.star').each(function () {
+	        var category = $(this).attr('data-category');
+	        $(this).raty({
+	            path: '/public/assets/img/',
+	            scoreName: category,
+	            click: function (score) {
+	                
+	                //if (LOGGED_IN == "true") {
+	                    console && console.log('rating article #%d with %d points in category %s', ARTICLE_ID, score, category);
+	                    $.post('@@{Articles.rateArticle()}', {
+	                        articleId: ARTICLE_ID,
+	                        score: score,
+	                        category: category
+	                    }, function (e) {
+	                        console && console.log(e); // log response
+	                    });
+	               // }
+	            }
+	        });
+	    });
+	});
+</script>
