@@ -102,30 +102,12 @@
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
     <script type="text/javascript">
 	    	
-    	// All javascript should be wrapped in jQuery's document.ready callback
+    	// All global javascript should be wrapped in jQuery's document.ready callback
 	    $(function() {
-	    	
-	    	// Initiate raty with new img path
-	    	$('#star').raty({ path: '/public/assets/img' });
-	    	// api key for filepicker
-	    	filepicker.setKey('AK3uFvZ9SxKyRxBB0ajWgz');
-	    	
-	    	// init tinymce for all textarea elements
-	        tinymce.init({selector:'textarea'});
-	    	
-	    	// filepicker initialization and callback
-	    	$('#headerPicSelector').click(function(e) {
-	    		e.preventDefault();
-	    		filepicker.pick(function(img) {
-	    			if (img) {
-		    			$('#headerPicUrl').val(img.url);
-		    			$('<img src="'+img.url+'"/><br/>').prependTo('#textarea');
-		    			$('#headerPicSelector').text('Select a different picture');
-	    			}
-	    		})
-	    	});
+	    	// add stuff
 	    });
     
     </script>
-  </body>
+    
+    </body>
 </html>

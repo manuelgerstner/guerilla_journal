@@ -22,7 +22,7 @@ GET     /pictures		Articles.pictures
 
 
 # REST Api
-GET     /api/articles 		rest.Articles.getAll
+GET     /api/articles 		rest.Articles.getArticles
 GET		/api/articles/{id} 	rest.Articles.getArticle(id: long)
 
 
