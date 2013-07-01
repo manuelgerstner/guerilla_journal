@@ -7,7 +7,7 @@ GET     /               Application.index
 GET     /oauthcallback  Application.authenticate
 GET		/profile		Profiles.index
 
-GET	    /admin			module:crud
+*	    /admin			module:crud
 
 GET 	/login			Application.authenticate
 POST	/ws/status		Application.setStatus
@@ -18,6 +18,16 @@ POST    /article/rate 	Articles.rateArticle(articleId: long, score: int, categor
 GET     /article		Articles.index
 GET     /detail/{id}	Articles.getArticle(id: long)
 GET     /pictures		Articles.pictures
+
+
+
+# REST Api
+GET     /api/articles 		rest.Articles.getAll
+GET		/api/articles/{id} 	rest.Articles.getArticle(id: long)
+
+
+
+
 
 # Ignore favicon requests
 GET     /favicon.ico   404
