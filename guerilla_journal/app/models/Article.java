@@ -6,38 +6,34 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import controllers.Ratings;
+import play.db.jpa.Model;
 import play.modules.search.Field;
 import play.modules.search.Indexed;
-
-import play.db.jpa.Model;
+import controllers.Ratings;
 import controllers.Users;
 
 @Entity
 @Indexed
 public class Article extends Model {
-        //necessary to make Fields public to access them with search-module.
-        @Field
+	// necessary to make Fields public to access them with search-module.
+	@Field
 	public String author;
-        @Field
+	@Field
 	public String title;
-        @Field
+	@Field
 	public String summary;
-        @Field
+	@Field
 	@Lob
 	public String entry;
 	private Date postedAt;
 	private String headerPicUrl;
-    private ArrayList<Tag> tags;
 
-
-    @OneToMany
-    private List<Rating> ratings;
-    public float rank;
-    public float avgScore;
+	@OneToMany
+	private List<Rating> ratings;
+	public float rank;
+	public float avgScore;
 
 	public Article(String author, String title, String summary, String entry,
 			String headerPicUrl/* , Set tags */) {
@@ -52,8 +48,8 @@ public class Article extends Model {
 		this.headerPicUrl = headerPicUrl;
 
 		// rating
-        this.ratings = new ArrayList<Rating>();
-        this.rank = Ratings.getFreshness(this);
+		this.ratings = new ArrayList<Rating>();
+		this.rank = Ratings.getFreshness(this);
 
 		super.create();
 	}
@@ -113,15 +109,15 @@ public class Article extends Model {
 		return articleList;
 	}
 
-    public String toString(){
-        return author +" - "+title;
-    }
+	public String toString() {
+		return author + " - " + title;
+	}
 
-    public List<Rating> getRatings() {
-        return ratings;
-    }
+	public List<Rating> getRatings() {
+		return ratings;
+	}
 
-    public void setRatings(List<Rating> ratings) {
-        this.ratings = ratings;
-    }
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
 }
