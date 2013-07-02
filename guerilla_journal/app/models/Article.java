@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
@@ -27,6 +28,10 @@ public class Article extends Model {
 	@Field
 	@Lob
 	public String entry;
+
+	@ManyToOne
+	public Category category;
+
 	private Date postedAt;
 	private String headerPicUrl;
 
@@ -39,7 +44,7 @@ public class Article extends Model {
 	private List<Tag> tags;
 
 	public Article(String author, String title, String summary, String entry,
-			String headerPicUrl/* , Set tags */) {
+			String headerPicUrl, String category /* , Set tags */) {
 		super();
 
 		this.author = author;
@@ -50,11 +55,21 @@ public class Article extends Model {
 		// this.tags = tags;
 		this.headerPicUrl = headerPicUrl;
 
+		this.category = Category.find("name", category).first();
+
 		// rating
 		this.ratings = new ArrayList<Rating>();
 		this.rank = Ratings.getFreshness(this);
 
 		super.create();
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public String getAuthor() {
