@@ -30,6 +30,11 @@
 <!--     <link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet"> -->
     <link rel="stylesheet" href="http://bootswatch.com/spacelab/bootstrap.min.css" />
     <link href="@{'/public/assets/css/bootstrap-responsive.css'}" rel="stylesheet">
+    <!-- Playfair webfont by Google for Guerilla Journal -->
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
+    
+    <!-- bootstrap select addon -->
+    <link href="@{'/public/assets/css/bootstrap-select.css'}" rel="stylesheet">
         
     <!--  guerilla styles -->
     <link rel="stylesheet" href="@{'public/assets/css/guerilla.css'}"/>
@@ -97,6 +102,7 @@
     <!--/.fluid-container-->
 
     <script src="@{'/public/assets/js/bootstrap.js'}"></script>
+    <script src="@{'/public/assets/js/bootstrap-select.js'}"></script>
     <script src="@{'/public/assets/js/jquery.raty-2.5.2.min.js'}"></script>
     <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
@@ -104,7 +110,24 @@
 	    	
     	// All global javascript should be wrapped in jQuery's document.ready callback
 	    $(function() {
-	    	// add stuff
+	    	$('#cat-international').click(function() {
+				  window.location='@@{Categories.getCategory("International")}';
+				});
+	    	$('#cat-politics').click(function() {
+				  window.location='@@{Categories.getCategory("Politics")}';
+				});
+	    	$('#cat-technology').click(function() {
+				  window.location='@@{Categories.getCategory("Technology")}';
+				});
+	    	$('#cat-sports').click(function() {
+				  window.location='@@{Categories.getCategory("Sports")}';
+				});
+	    	$('#cat-business').click(function() {
+				  window.location='@@{Categories.getCategory("Business")}';
+				});
+	    	$('#cat-culture').click(function() {
+				  window.location='@@{Categories.getCategory("Culture")}';
+				});
 	    });
     
     </script>
