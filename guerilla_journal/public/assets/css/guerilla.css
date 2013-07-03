@@ -1,1 +1,13 @@
 span.name { color: #fff; }
+
+.brandHeader {
+	font-family: 'Playfair Display SC', serif;
+	font-size: 54px;
+}
+
+.subimg-primary { height: 10px; width: 100%; background: #0088cc; }
+.subimg-inverse { height: 10px; width: 100%; background: #333333; }
+.subimg-warning { height: 10px; width: 100%; background: #fbb450; }
+.subimg-danger { height: 10px; width: 100%; background: #ee5f5b; }
+.subimg-success { height: 10px; width: 100%; background: #62c462; }
+.subimg-info { height: 10px; width: 100%; background: #2f96b4; }

@@ -16,15 +16,14 @@ public class Articles extends CRUD {
 	}
 
 	public static void createArticle(String author, String title,
-			String summary, String entry, String headerPicUrl) {
+			String summary, String entry, String headerPicUrl, String category) {
 
 		// TODO: sanity check + tags
 
 		Article article = new Article(author, title, summary, entry,
-				headerPicUrl);
+				headerPicUrl, category);
 
 		// redirect to main page
-
 		article.save();
 		Logger.info("Article " + article.getTitle() + "stored in DB.");
 		getArticle(article.id); // forward to article
