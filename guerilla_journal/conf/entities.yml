@@ -1,17 +1,20 @@
 Tag(sport):
  tagName: sport
 
-
 Tag(international):
  tagName: international
-
 
 Tag(news):
  tagName: news
 
-
 Tag(politics):
  tagName: politics
+
+Tag(culture):
+ tagName: culture
+
+Tag(business):
+ tagName: business
  
 Category(international):
  name: International
@@ -70,7 +73,7 @@ Article(article3):
  entry: INDIA’S richest man may also be its most optimistic. On June 6th Mukesh Ambani, the boss of Reliance Industries, addressed an auditorium in Mumbai watched by his glamorous wife in the front row and bodyguards with oiled submachine guns in the wings. India’s economy, he said, was in a funk but his faith was “unshakable”. Soon the country would “trigger a major transformation of the world order”. The audience rose in delight.
  postedAt: 2013-07-02
  headerPicUrl: http://i.imgur.com/Bm9QjNZ.jpg
- tags: [politics]
+ tags: [business]
  category: business
 
 Article(article4):
@@ -82,3 +85,23 @@ Article(article4):
  headerPicUrl: http://i.imgur.com/Bv1LwRm.png
  tags: [international]
  category: technology
+
+Article(article5):
+ author: Christine Nöhmeier
+ title: Hero Rides Again, With Big Boots to Fill. In ‘The Lone Ranger,’ Tonto Takes Center Stage
+ summary: Directed by Gore Verbinski; written by Justin Haythe, Ted Elliott and Terry Rossio; director of photography, Bojan Bazelli; edited by Craig Wood and James Haygood; music by Hans Zimmer
+ entry: Who was that masked man?” That is not a question likely to resonate much with young people today, unless they are asking it in earnest puzzlement. By young, I mean under 70. The Lone Ranger belongs to the ancient pop culture of the Great Depression and the early baby boom. His adventures were heard on radio, starting in the 1930s, and seen on television from 1949 to 1957, but unlike some of his cape-wearing peers, he has mostly stayed in the past, an object of fuzzy nostalgia and mocking incredulity, a symbol of simple pleasures and retrograde attitudes.
+ postedAt: 2013-06-25
+ headerPicUrl: http://graphics8.nytimes.com/images/2013/07/03/arts/03LONEjp/03LONEjp-articleLarge.jpg
+ tags: [culture]
+ category: culture
+
+Article(article6):
+ author: Christine Nöhmeier
+ title: ‘White House Down’ and Black Presidents on Screen
+ summary: At one point in the action thriller “White House Down,” which opens June 28, the president of the United States, played by Jamie Foxx, is trying to thwart a paramilitary group that has overtaken the White House. 
+ entry: It’s not a line many Hollywood versions of the leader of the free world would utter he it’s usually a he is often stuffier, a little bland maybe, and most often white. “White House Down,” directed by Roland Emmerich, doesn’t wear the race of its president on its sleeve, but it doesn’t shy away from the fact either. Before President Obama’s election, Dennis Haysbert set the standard for television presidents with his portrayal of David Palmer on “24.” But memorable black commanders in chief have been harder to come by on the big screen. And as with their real-life counterparts, they get their way only some of the time.
+ postedAt: 2013-06-18
+ headerPicUrl: http://graphics8.nytimes.com/images/2013/06/30/arts/30BLACKPREZ5_SPAN/30BLACKPREZ5_SPAN-articleLarge-v2.jpg
+ tags: [politics]
+ category: politics
