@@ -24,7 +24,6 @@ public class Articles extends CRUD {
 				headerPicUrl, category);
 
 		// redirect to main page
-
 		article.save();
 		Logger.info("Article " + article.getTitle() + "stored in DB.");
 		getArticle(article.id); // forward to article
