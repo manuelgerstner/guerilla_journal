@@ -29,8 +29,8 @@ nbproject
 project/project
 project/target
 target
-bin
 tmp
+bin/
 test-result
 server.pid
 *.iml
