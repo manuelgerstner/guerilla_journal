@@ -5,7 +5,7 @@
 
 <div class="span9">
 	<div class="well">
-		<h1 class="brandHeader">Guerilla Journal</h1></br>
+		<h1 class="brandHeader"><img src="http://i.imgur.com/J4DpiTB.png" width="64px" height="64px"/> Guerilla Journal</h1></br>
 		<div class="btn-group">
 			<button id="cat-international" class="btn btn-large btn-inverse">International</button>
   			<button id="cat-politics" class="btn btn-large btn-primary">Politics</button>
@@ -35,9 +35,9 @@
 			<div class="row-fluid">
 			#{/elseif}
 				<div class="span4">
-					<a href="detail/${article.id}"><img class="headerPicUrl" src="${article.headerPicUrl}" /></a>
+					<a href="@{Articles.getArticle(article.id)}"><img class="headerPicUrl" src="${article.headerPicUrl}" /></a>
 					<div class="subimg-${article.category.className}"></div>
-					<a href="detail/${article.id}"><h2>${article.title}</h2></a>
+					<a href="@{Articles.getArticle(article.id)}"><h2>${article.title}</h2></a>
 					<small>
 						Written on <strong>${article.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong>${article.author}</strong> 
 					</small>
@@ -48,7 +48,7 @@
 					<br/>
 					
 					<div class="details">
-						<a class="btn" href="detail/${article.id}">Read full Article</a>
+						<a class="btn" href="@{Articles.getArticle(article.id)}">Read full Article</a>
 					</div>
 				</div>
 			#{/list}	    
