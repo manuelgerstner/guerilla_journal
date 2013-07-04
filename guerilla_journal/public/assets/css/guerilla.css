@@ -11,3 +11,8 @@ span.name { color: #fff; }
 .subimg-danger { height: 10px; width: 100%; background: #ee5f5b; }
 .subimg-success { height: 10px; width: 100%; background: #62c462; }
 .subimg-info { height: 10px; width: 100%; background: #2f96b4; }
+
+.brandimg {
+	margin-top:3px;
+	margin-right: 5px;
+}
