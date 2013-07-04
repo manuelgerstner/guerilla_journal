@@ -17,16 +17,45 @@ public class Articles extends CRUD {
 
 	public static void createArticle(String author, String title,
 			String summary, String entry, String headerPicUrl, String category) {
-
 		// TODO: sanity check + tags
 
-		Article article = new Article(author, title, summary, entry,
-				headerPicUrl, category);
-
-		// redirect to main page
-		article.save();
-		Logger.info("Article " + article.getTitle() + "stored in DB.");
-		getArticle(article.id); // forward to article
+		// Validation
+		validation.required(title).message(
+				"What would your article be without a proper title?");
+		validation
+				.required(entry)
+				.message(
+						"Have some thoughts on something? Type it out! Currently your post is emptry.");
+		validation
+				.required(summary)
+				.message(
+						"To make your article more interesting we need a short summary from you.");
+		validation
+				.minSize(title, 5)
+				.message(
+						"A good title has a huge effect on the perception of your article. Think of something a little longer!");
+		validation
+				.minSize(entry, 100)
+				.message(
+						"You're post is not even as long as a tweet! There must be more you can tell us.");
+		validation
+				.minSize(summary, 20)
+				.message(
+						"The summary is essential for readers to know what you are talking about. Be more specific, please!");
+		// If there are errors, no article will be created. Form shows again
+		// with errors
+		if (validation.hasErrors()) {
+			params.flash(); // add http parameters to the flash scope
+			validation.keep(); // keep the errors for the next request
+			index();
+		} else {
+			Article article = new Article(author, title, summary, entry,
+					headerPicUrl, category);
+			// redirect to main page
+			article.save();
+			Logger.info("Article " + article.getTitle() + "stored in DB.");
+			getArticle(article.id); // forward to article
+		}
 	}
 
 	public static void rateArticle(long articleId, int score, String category) {
