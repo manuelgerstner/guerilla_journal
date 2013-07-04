@@ -17,7 +17,7 @@
 				<div class="row-fluid">
 					<div class="span3 control-group">
 						<label class="control-label" for="title" placeholder="Enter your article's title">Title:</label>
-						<input type="text" name="title" id="title" class="input-block-level"/>
+						<input type="text" name="title" id="title" class="input-block-level" value="${flash.title}"/>#{ifErrors}<span class="text-error">#{error 'title' /}</span>#{/ifErrors}
 					</div>					
 					<div class="span2 control-group">
 						<label class="control-label" for="category">Category:</label>
@@ -35,7 +35,7 @@
 				<div class="row-fluid">					
 					<div class="span5 control-group">
 						<label class="control-label" for="summary" placeholder="Summarize your article">Summary:</label>
-						<input type="text" name="summary" id="summary" class="input-block-level"/>
+						<input type="text" name="summary" id="summary" class="input-block-level" value="${flash.summary}" />#{ifErrors}<span class="text-error">#{error 'summary' /}</span>#{/ifErrors}
 					</div>
 					<div id="tags" class="span2 control-group">
 						<label for="tags" class="control-label">Tags:</label>
@@ -46,7 +46,7 @@
 				<div id="textarea" class="control-group">
 					<label for="entry" class="control-label">Article:</label>
 				
-					<textarea name="entry" id="entry" rows="16"></textarea>
+					<textarea name="entry" id="entry" rows="16">${flash.entry}</textarea>#{ifErrors}<span class="text-error">#{error 'entry' /}</span>#{/ifErrors}
 				
 				</div>
 				<input type="hidden" id="headerPicUrl" name="headerPicUrl"/>				
