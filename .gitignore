@@ -29,6 +29,7 @@ nbproject
 project/project
 project/target
 target
+bin
 tmp
 test-result
 server.pid

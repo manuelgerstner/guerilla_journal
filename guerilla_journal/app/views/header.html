@@ -1,0 +1,9 @@
+<!-- 	<div class="well"> -->
+<!-- 		<h2 class="brandHeader"><img src="http://i.imgur.com/J4DpiTB.png" width="64px" height="64px"/> Guerilla Journal</h2></br> -->
+<!-- 	</div> -->
+<ul id="categories" class="span12 btn-group row-fluid" style="margin-left: 0;">
+	#{list items:models.Category.findAll(), as:'category'}
+		<li id="cat-${category}" class="btn btn-large btn-${category.className} span2"><a href="@@{Categories.getCategory(category)}">${category}</a></li>
+	#{/list}
+</ul>
+<br/>
