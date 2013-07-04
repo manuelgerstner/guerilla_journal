@@ -3,9 +3,13 @@ package models;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -40,8 +44,8 @@ public class Article extends Model {
 	public float rank;
 	public float avgScore;
 
-	@OneToMany
-	private List<Tag> tags;
+	@ManyToMany(cascade = CascadeType.PERSIST)
+	private Set<Tag> tags;
 
 	public Article(String author, String title, String summary, String entry,
 			String headerPicUrl, String category /* , Set tags */) {
@@ -52,7 +56,7 @@ public class Article extends Model {
 		this.entry = entry;
 		this.postedAt = new Date();
 		this.title = title;
-		// this.tags = tags;
+		this.tags = new TreeSet<Tag>();
 		this.headerPicUrl = headerPicUrl;
 
 		this.category = Category.find("name", category).first();
@@ -139,11 +143,11 @@ public class Article extends Model {
 		this.ratings = ratings;
 	}
 
-	public List<Tag> getTags() {
+	public Set<Tag> getTags() {
 		return tags;
 	}
 
-	public void setTags(List<Tag> tags) {
+	public void setTags(Set<Tag> tags) {
 		this.tags = tags;
 	}
 }

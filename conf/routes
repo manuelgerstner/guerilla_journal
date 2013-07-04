@@ -20,12 +20,11 @@ GET     /detail/{id}	Articles.getArticle(id: long)
 GET     /pictures		Articles.pictures
 GET		/category/{name}		Categories.getCategory(name: String)
 
-
+GET 	/tags/{name}		Tags.findTaggedWith(name: String)
 
 # REST Api
 GET     /api/articles 		rest.Articles.getArticles
 GET		/api/articles/{id} 	rest.Articles.getArticle(id: long)
-
 
 
 

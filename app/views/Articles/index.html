@@ -14,16 +14,24 @@
 			#{list items:controllers.Users.getUser(), as:'user'}
 				<input type="hidden" name="author" value="${user.name}"/>
 			#{/list}
+			#{ifErrors}
+				<div class="alert alert-error">Oh snap! It seems some things are wrong with your article:</div>
+				<ul class="text-error">
+				#{list items:errors, as:'error'}
+					<li>${error}</li>
+				#{/list}s
+				</ul>
+			#{/ifErrors}
 				<div class="row-fluid">
 					<div class="span3 control-group">
 						<label class="control-label" for="title" placeholder="Enter your article's title">Title:</label>
-						<input type="text" name="title" id="title" class="input-block-level" value="${flash.title}"/>#{ifErrors}<span class="text-error">#{error 'title' /}</span>#{/ifErrors}
+						<input type="text" name="title" id="title" class="input-block-level" value="${flash.title}"/>
 					</div>					
 					<div class="span2 control-group">
 						<label class="control-label" for="category">Category:</label>
 						<select class="selectpicker" name="category" id="category">
 						#{list items:models.Category.findAll(), as:'category'}
-    						<option value="${category.name}">${category.name}</option>
+    						<option #{if flash.category == category.name}selected #{/if}value="${category.name}">${category.name}</option>
     					#{/list}
 						</select> 
 					</div>
@@ -35,18 +43,18 @@
 				<div class="row-fluid">					
 					<div class="span5 control-group">
 						<label class="control-label" for="summary" placeholder="Summarize your article">Summary:</label>
-						<input type="text" name="summary" id="summary" class="input-block-level" value="${flash.summary}" />#{ifErrors}<span class="text-error">#{error 'summary' /}</span>#{/ifErrors}
+						<input type="text" name="summary" id="summary" class="input-block-level" value="${flash.summary}" />
 					</div>
 					<div id="tags" class="span2 control-group">
 						<label for="tags" class="control-label">Tags:</label>
-						<input name="rawtags" type="text" class="input-xlarge"/>	
+						<input name="rawTags" type="text" class="input-xlarge" value="${flash.rawTags}"/>	
 					</div>
 				</div>
 			
 				<div id="textarea" class="control-group">
 					<label for="entry" class="control-label">Article:</label>
 				
-					<textarea name="entry" id="entry" rows="16">${flash.entry}</textarea>#{ifErrors}<span class="text-error">#{error 'entry' /}</span>#{/ifErrors}
+					<textarea name="entry" id="entry" rows="16">${flash.entry}</textarea>
 				
 				</div>
 				<input type="hidden" id="headerPicUrl" name="headerPicUrl"/>				
