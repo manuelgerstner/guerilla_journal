@@ -30,6 +30,7 @@ project/project
 project/target
 target
 tmp
+bin/
 test-result
 server.pid
 *.iml
