@@ -3,6 +3,7 @@
 #{extends 'main.html' /}
 #{set title:'Article Detail' /}
 <div class="span12">
+	
 	<div class="well">
 		<h2>${article.title}</h2>
 		<h4>${article.category}</h4>
@@ -10,15 +11,13 @@
 			${article.summary}
 		</div>
 	</div>
+	
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="pull-right mediabar">
 				<img class="headerPic" src="${article.headerPicUrl}"/>
 				<div class="subimg-${article.category.className}"></div>
-				<div class="well socialbar"><h4>Let others know about this:</h4>
-					<span id="share-google" class="g-plus" data-action="share" data-annotation="bubble" data-height="28"></span>
-            		<span id="share-twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="large" data-text="${article.title} http://www.guerilla-journal.com/">Tweet</a></span>
-            	</div>
+				
 			</div>
 			<blockquote class="entry">
 				${article.entry.raw()}
@@ -27,11 +26,7 @@
 	</div>
 	
 	<div class="row-fluid" style="margin-top: 100px;">
-		<div class="span2">
-			#{list items:article.tags, as:'tag'}
-			${tag.tagName}<br/>
-			#{/list}
-		</div>
+	
 		<div class="span7">
 			<h2>Overall Rating: ${article.avgScore==0 ? "not rated yet" : article.avgScore + " /5"}</h2>
 			
@@ -79,16 +74,23 @@
 				</div>
 			#{/form}
 		</div>
+		
+		<div class="span2">
+			<h2>Tags:</h2>
+			<div class="row-fluid">
+				#{list items:article.tags, as:'tag'}
+					<span class="label label-info">${tag.name}</span>
+				#{/list}
+			</div>
+		</div>
+		
 		<div class="span3">
-			<h2>
-				Statistics and Information
-			</h2>
-    		<div>Pageviews: 123</div>
-            <div>Published on: ${article.postedAt.format('dd.MM.yyyy HH:mm')}</div>
-            <div>Permalink: <input type="text" class="input-large" readonly value="@@{Articles.getArticle(article.id)}"/></div>            
-        </div>
-	</div>
-	
+			<h2>Share this Article:</h2>
+			<span id="share-google" class="g-plus" data-action="share" data-annotation="bubble" data-height="28"></span>
+			<span id="share-twitter">
+	         	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="large" data-text="${article.title} http://www.guerilla-journal.com/">Tweet</a>
+	         </span>
+         </div>
 
 </div>
 <!-- Google plus share button -->

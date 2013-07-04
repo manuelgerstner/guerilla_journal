@@ -1,8 +1,9 @@
 span.name { color: #fff; }
 
 .brandHeader {
-	font-family: 'Playfair Display SC', serif;
-	font-size: 54px;
+	font-family: 'Playfair Display SC', Georgia, serif;
+	font-size: 4em;
+	margin: 0;
 }
 
 .subimg-primary { height: 10px; width: 100%; background: #0088cc; }
@@ -16,3 +17,4 @@ span.name { color: #fff; }
 	margin-top:3px;
 	margin-right: 5px;
 }
+#categories li a { color: white !important; }

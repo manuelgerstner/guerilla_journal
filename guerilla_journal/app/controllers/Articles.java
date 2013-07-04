@@ -2,11 +2,23 @@ package controllers;
 
 import models.Article;
 import models.Rating;
+import models.Tag;
 import models.User;
 import play.Logger;
 
+/**
+ * Articles Controller
+ * 
+ * @author dbusser
+ * 
+ *         takes care of the creation and rating of articles
+ * 
+ */
 public class Articles extends CRUD {
 
+	/**
+	 * this page is not accessible to non-loggedin users
+	 */
 	public static void index() {
 		if (session.get("loggedin").equals("false")) {
 			Logger.info("Redirect, not logged in.");
@@ -15,8 +27,24 @@ public class Articles extends CRUD {
 		render();
 	}
 
+	/**
+	 * 
+	 * @param author
+	 *            - author's name
+	 * @param title
+	 *            - title of the article
+	 * @param summary
+	 *            - short summary of the article
+	 * @param entry
+	 *            - actual content of the article, html formatted
+	 * @param headerPicUrl
+	 *            - link to header img provided by filepicker
+	 * @param category
+	 *            - article category, @See Categories.java
+	 */
 	public static void createArticle(String author, String title,
-			String summary, String entry, String headerPicUrl, String category) {
+			String summary, String entry, String headerPicUrl, String category,
+			String rawTags) {
 		// TODO: sanity check + tags
 
 		// Validation
@@ -25,7 +53,7 @@ public class Articles extends CRUD {
 		validation
 				.required(entry)
 				.message(
-						"Have some thoughts on something? Type it out! Currently your post is emptry.");
+						"Have some thoughts on something? Type it out! Currently your post is empty.");
 		validation
 				.required(summary)
 				.message(
@@ -42,19 +70,28 @@ public class Articles extends CRUD {
 				.minSize(summary, 20)
 				.message(
 						"The summary is essential for readers to know what you are talking about. Be more specific, please!");
+		validation
+				.required(rawTags)
+				.message(
+						"Tagging your article will increase its visibility on the front page. Please think of at least one tag!");
 		// If there are errors, no article will be created. Form shows again
 		// with errors
 		if (validation.hasErrors()) {
 			params.flash(); // add http parameters to the flash scope
 			validation.keep(); // keep the errors for the next request
-			index();
+			index(); // send to article creation page
 		} else {
+			// validation passed, create new article
 			Article article = new Article(author, title, summary, entry,
 					headerPicUrl, category);
-			// redirect to main page
+			// add non-existing tags only
+			for (Tag tag : Tags.extractTags(rawTags)) {
+				article.getTags().add(tag);
+			}
+
 			article.save();
 			Logger.info("Article " + article.getTitle() + " stored in DB.");
-			getArticle(article.id); // forward to article
+			getArticle(article.id); // forward to newly created article
 		}
 	}
 
@@ -99,7 +136,7 @@ public class Articles extends CRUD {
 	}
 
 	/**
-	 * calculate the Baysian average of each rating category
+	 * calculate the Bayesian average of each rating category
 	 * 
 	 * @param article
 	 */
@@ -153,5 +190,10 @@ public class Articles extends CRUD {
 			notFound();
 		}
 	}
+
+	// public static void findTagged(String tag) {
+	// List<Article> articles = Tags.findTaggedWith(tag);
+	// render("Application/index.html", articles);
+	// }
 
 }

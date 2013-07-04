@@ -3,12 +3,36 @@ package models;
 import javax.persistence.Entity;
 
 import play.db.jpa.Model;
-import play.modules.search.Field;
+
+/**
+ * Tag Model
+ * 
+ * @author dbusser
+ * 
+ */
 
 @Entity
-public class Tag extends Model {
+public class Tag extends Model implements Comparable<Tag> {
 
-	@Field
-	public String tagName;
+	public String name;
 
+	private Tag(String name) {
+		this.name = name;
+	}
+
+	public String toString() {
+		return name;
+	}
+
+	public int compareTo(Tag otherTag) {
+		return name.compareTo(otherTag.name);
+	}
+
+	public static Tag findOrCreateByName(String name) {
+		Tag tag = Tag.find("byName", name).first();
+		if (tag == null) {
+			tag = new Tag(name);
+		}
+		return tag;
+	}
 }
