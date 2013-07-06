@@ -46,6 +46,19 @@ public class Article extends Model {
 	public float rank;
 	public float avgScore;
 
+	// avg in single category
+	public float getAvgStyle() {
+		return Ratings.getCategoryAvg(this, Ratings.Type.STYLE);
+	}
+
+	public float getAvgNonAlign() {
+		return Ratings.getCategoryAvg(this, Ratings.Type.NONALIGN);
+	}
+
+	public float getAvgOverall() {
+		return Ratings.getCategoryAvg(this, Ratings.Type.OVERALL);
+	}
+
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	private Set<Tag> tags;
 

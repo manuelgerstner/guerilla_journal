@@ -1,6 +1,9 @@
 package controllers;
 
+import java.util.List;
+
 import models.Article;
+import models.Rating;
 
 /**
  * Created with IntelliJ IDEA. User: Dave Date: 6/30/13 Time: 10:28 PM To change
@@ -42,4 +45,36 @@ public class Ratings extends CRUD {
 		return avg / (ratingsCount + Ratings.avgNoOfRating);
 	}
 
+	public static float getCategoryAvg(Article article, Type type) {
+		float avg = 0f;
+		List<Rating> ratings = article.getRatings();
+		int ratingPoints = 0;
+		int ratingCount = 0;
+		for (Rating rating : ratings) {
+			switch (type) {
+			case STYLE:
+				if (rating.writingStyle != 0) {
+					ratingPoints += rating.writingStyle;
+					ratingCount++;
+				}
+				break;
+			case NONALIGN:
+				if (rating.nonAlignment != 0) {
+					ratingPoints += rating.nonAlignment;
+					ratingCount++;
+				}
+				break;
+			case OVERALL:
+				if (rating.overall != 0) {
+					ratingPoints += rating.overall;
+					ratingCount++;
+				}
+				break;
+			}
+		}
+		if (ratingPoints != 0 && ratingCount != 0) {
+			avg = ratingPoints / ratingCount;
+		}
+		return avg;
+	}
 }
