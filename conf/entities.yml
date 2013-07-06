@@ -48,6 +48,7 @@ Category(business):
 
 Article(article1):
  author: Julian Pfaff
+ authorScreenName: julianpfaff
  title: FC Bayern Champions-League
  summary: Der FC Bayern feiert nach dem Sieg gegen Dortmund in London den Gewinn der Champions League Ribéry bunkert den Henkelpokal an seinem Tisch
  entry: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
@@ -58,6 +59,7 @@ Article(article1):
 
 Article(article2):
  author: Dominique Busser
+ authorScreenName: dombusser
  title: Ready to be Berliners too! Obama visits Berlin
  summary: Ready to be Berliners too! Michelle and the girls ditch casual clothes as Obamas land in Germany for President's landmark speech.  Comes almost exactly 50 years since JFK gave 'Ich bin ein Berliner' speech
  entry: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
@@ -68,6 +70,7 @@ Article(article2):
 
 Article(article3):
  author: Manuel Gerstner
+ authorScreenName: manuelgerstner
  title: Start me up - India’s economy is stabilizing
  summary: Despite a tumbling currency, India’s economy has got more stable in the past year. But a revival in growth remains elusive
  entry: INDIA’S richest man may also be its most optimistic. On June 6th Mukesh Ambani, the boss of Reliance Industries, addressed an auditorium in Mumbai watched by his glamorous wife in the front row and bodyguards with oiled submachine guns in the wings. India’s economy, he said, was in a funk but his faith was “unshakable”. Soon the country would “trigger a major transformation of the world order”. The audience rose in delight.
@@ -78,6 +81,7 @@ Article(article3):
 
 Article(article4):
  author: David Frey
+ authorScreenName: davidfrey
  title: An American Tech Company Is Advertising Its American-Built Smartphone On The Most American Holiday
  summary: Happy Independence Day, fellow Americans! It’s time to go to the lake, eat some red meat, and, of course, buy a cell phone from a good ol’ American company, Motorola and Google. 
  entry: Dell never completely left Texas. Lenovo recently set up shop in North Carolina. Apple is reopening US-based factories formerly shuttered when overseas manufacturing was in vogue. But please, I beg you, consumer electronic companies, do not make a mundane product, slap a Made In America sticker on the back and pawn it off on unsuspecting Americans. Americans and American companies can build world-class products so please do nothing less.
@@ -88,6 +92,7 @@ Article(article4):
 
 Article(article5):
  author: Christine Nöhmeier
+ authorScreenName: christinenoehmeier
  title: Hero Rides Again, With Big Boots to Fill. In ‘The Lone Ranger,’ Tonto Takes Center Stage
  summary: Directed by Gore Verbinski; written by Justin Haythe, Ted Elliott and Terry Rossio; director of photography, Bojan Bazelli; edited by Craig Wood and James Haygood; music by Hans Zimmer
  entry: Who was that masked man?” That is not a question likely to resonate much with young people today, unless they are asking it in earnest puzzlement. By young, I mean under 70. The Lone Ranger belongs to the ancient pop culture of the Great Depression and the early baby boom. His adventures were heard on radio, starting in the 1930s, and seen on television from 1949 to 1957, but unlike some of his cape-wearing peers, he has mostly stayed in the past, an object of fuzzy nostalgia and mocking incredulity, a symbol of simple pleasures and retrograde attitudes.
@@ -98,6 +103,7 @@ Article(article5):
 
 Article(article6):
  author: Christine Nöhmeier
+ authorScreenName: christinenoehmeier
  title: ‘White House Down’ and Black Presidents on Screen
  summary: At one point in the action thriller “White House Down,” which opens June 28, the president of the United States, played by Jamie Foxx, is trying to thwart a paramilitary group that has overtaken the White House. 
  entry: It’s not a line many Hollywood versions of the leader of the free world would utter he it’s usually a he is often stuffier, a little bland maybe, and most often white. “White House Down,” directed by Roland Emmerich, doesn’t wear the race of its president on its sleeve, but it doesn’t shy away from the fact either. Before President Obama’s election, Dennis Haysbert set the standard for television presidents with his portrayal of David Palmer on “24.” But memorable black commanders in chief have been harder to come by on the big screen. And as with their real-life counterparts, they get their way only some of the time.
@@ -105,3 +111,23 @@ Article(article6):
  headerPicUrl: http://graphics8.nytimes.com/images/2013/06/30/arts/30BLACKPREZ5_SPAN/30BLACKPREZ5_SPAN-articleLarge-v2.jpg
  tags: [politics]
  category: politics
+
+User(dombusser):
+ name: Dominique Busser
+ screenName: dombusser
+
+User(manuelgerstner):
+ name: Manuel Gerstner
+ screenName: manuelgerstner
+
+User(christinenoehmeier):
+ name: Christine Nöhmeier
+ screenName: christinenoehmeier
+
+User(davidfrey):
+ name: David Frey
+ screenName: davidfrey
+
+User(julianpfaff):
+ name: Julian Pfaff
+ screenName: julianpfaff
