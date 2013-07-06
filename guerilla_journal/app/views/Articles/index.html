@@ -13,6 +13,7 @@
 			#{form @Articles.createArticle(), enctype:'multipart/form-data'}
 			#{list items:controllers.Users.getUser(), as:'user'}
 				<input type="hidden" name="author" value="${user.name}"/>
+				<input type="hidden" name="authorScreenName" value="${user.screenName}"/>
 			#{/list}
 			#{ifErrors}
 				<div class="alert alert-error">Oh snap! It seems some things are wrong with your article:</div>

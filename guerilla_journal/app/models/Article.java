@@ -26,6 +26,8 @@ public class Article extends Model {
 	@Field
 	public String author;
 	@Field
+	public String authorScreenName;
+	@Field
 	public String title;
 	@Field
 	public String summary;
@@ -47,11 +49,16 @@ public class Article extends Model {
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	private Set<Tag> tags;
 
-	public Article(String author, String title, String summary, String entry,
-			String headerPicUrl, String category /* , Set tags */) {
+	public Article(String author, String authorScreenName, String title,
+			String summary, String entry, String headerPicUrl, String category /*
+																				 * ,
+																				 * Set
+																				 * tags
+																				 */) {
 		super();
 
 		this.author = author;
+		this.authorScreenName = authorScreenName;
 		this.summary = summary;
 		this.entry = entry;
 		this.postedAt = new Date();
@@ -128,6 +135,12 @@ public class Article extends Model {
 		User currentUser = Users.getUser();
 		List<Article> articleList = Article.find(
 				"author = '" + currentUser.name + "'").fetch();
+		return articleList;
+	}
+
+	public static List<Article> getUsersArticles(String screenName) {
+		List<Article> articleList = Article.find(
+				"authorScreenName = '" + screenName + "'").fetch();
 		return articleList;
 	}
 

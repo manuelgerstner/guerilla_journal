@@ -42,9 +42,9 @@ public class Articles extends CRUD {
 	 * @param category
 	 *            - article category, @See Categories.java
 	 */
-	public static void createArticle(String author, String title,
-			String summary, String entry, String headerPicUrl, String category,
-			String rawTags) {
+	public static void createArticle(String author, String authorScreenName,
+			String title, String summary, String entry, String headerPicUrl,
+			String category, String rawTags) {
 		// TODO: sanity check + tags
 
 		// Validation
@@ -82,8 +82,8 @@ public class Articles extends CRUD {
 			index(); // send to article creation page
 		} else {
 			// validation passed, create new article
-			Article article = new Article(author, title, summary, entry,
-					headerPicUrl, category);
+			Article article = new Article(author, authorScreenName, title,
+					summary, entry, headerPicUrl, category);
 			// add non-existing tags only
 			for (Tag tag : Tags.extractTags(rawTags)) {
 				article.getTags().add(tag);

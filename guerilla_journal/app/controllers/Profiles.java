@@ -13,4 +13,10 @@ public class Profiles extends Controller {
 		render();
 	}
 
+	public static void getUserProfileByScreenName(String screenName) {
+		// get user by screenName
+		User user = User.find("screenName", screenName).first();
+		render("Profiles/publicProfile.html", user);
+	}
+
 }

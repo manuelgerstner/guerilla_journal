@@ -30,7 +30,7 @@
 					<div class="subimg-${article.category.className}"></div>
 					<a href="@{Articles.getArticle(article.id)}"><h2>${article.title}</h2></a>
 					<small>
-						Written on <strong>${article.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong>${article.author}</strong> 
+						Written on <strong>${article.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong><a href="/profile/${article.authorScreenName}">${article.author}</a></strong> 
 					</small>
 					<p class="lead">
 						${article.summary}

@@ -16,17 +16,18 @@ public class User extends Model {
 	// public String email;
 	@Required
 	public String name;
+	@Required
 	public String screenName;
-	public String token; 	// oauth
-	public String secret; 	// oauth
+	public String token; // oauth
+	public String secret; // oauth
 	public String iconUrl;
 	public String session;
-    public boolean loggedIn;
-    public boolean requestSent;
+	public boolean loggedIn;
+	public boolean requestSent;
 
 	public User(String fullname) {
 		this.name = fullname;
-        loggedIn=false;
+		loggedIn = false;
 	}
 
 	public static User findOrCreate(String name) {
@@ -39,7 +40,7 @@ public class User extends Model {
 
 	public String toString() {
 		return name + " : " + (screenName == null ? " " : screenName) + " : "
-				+ (loggedIn ? "logged in via twitter" : "no twitter login") + " : "
-				+ session;
+				+ (loggedIn ? "logged in via twitter" : "no twitter login")
+				+ " : " + session;
 	}
 }
