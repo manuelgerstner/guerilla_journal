@@ -4,9 +4,10 @@
 #{set title:'Your profile' /}
 
 <div class="span9">
-	<div class="well">
-		<h2>Guerilla Journal</h2>
-	</div>
+	#{include 'header.html' /}
+	
+	<br/>
+	<br/>
 	<div class="row-fluid">
 	#{list items:controllers.Users.getUser(), as:'user'}
 		<div class="span9">
@@ -14,23 +15,23 @@
 			<img class="usericon" src="${user.iconUrl}"/>
 			</div>
 			<div class="span8">
-				<h3>${user.name}'s articles:</h3>
+				<h3>These are your articles:</h3>
 				<ul>
 				#{list items:models.Article.getUsersArticles(), as:'article'}
 					<li>
 						<div class="well">	
-							<a href="detail/${article.id}">${article.title}</a> 
+							<a href="detail/${article.id}">${article.title}</a> (${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}) 
 							<div>
 								<dl>Writing style:</dl>
-								<dt><div class="star"></div></dt>
+								<dt><div class="star" data-category="writingStyle" data-score="${article.getAvgStyle()}"></div></dt>
 							 </div>
 							<div>
 								<dl>Non-Alignment:</dl>
-								<dt><div class="star"></div></dt>
+								<dt><div class="star" data-category="nonAlignment" data-score="${article.getAvgNonAlign()}"></div></dt>
 							 </div>
 							 <div>
 								<dl>Overall:</dl>
-								<dt><div class="star"></div></dt>
+								<dt><div class="star" data-category="overall" data-score="${article.getAvgOverall()}"></div></dt>
 							 </div>
 						</div>
 					</li>
@@ -58,3 +59,18 @@
 		</ul>
 	</div>
 </div>
+
+<script>
+	
+	$(function () {
+	    $('.star').each(function () {
+	        var category = $(this).attr('data-category');
+	        $(this).raty({
+	            path: '/public/assets/img/',
+	            score: function () {
+	            	return $(this).attr('data-score');
+	            }
+	        });
+	    });
+	});
+</script>

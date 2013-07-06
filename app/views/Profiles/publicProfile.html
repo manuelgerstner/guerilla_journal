@@ -27,18 +27,18 @@
 				#{list items:models.Article.getUsersArticles(user.screenName), as:'article'}
 					<li>
 						<div class="well">	
-							<a href="detail/${article.id}">${article.title}</a> 
+							<a href="detail/${article.id}">${article.title}</a> (${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}) 
 							<div>
 								<dl>Writing style:</dl>
-								<dt><div class="star"></div></dt>
+								<dt><div class="star" data-category="writingStyle" data-score="${article.getAvgStyle()}"></div></dt>
 							 </div>
 							<div>
 								<dl>Non-Alignment:</dl>
-								<dt><div class="star"></div></dt>
+								<dt><div class="star" data-category="nonAlignment" data-score="${article.getAvgNonAlign()}"></div></dt>
 							 </div>
 							 <div>
 								<dl>Overall:</dl>
-								<dt><div class="star"></div></dt>
+								<dt><div class="star" data-category="overall" data-score="${article.getAvgOverall()}"></div></dt>
 							 </div>
 						</div>
 					</li>
@@ -81,3 +81,22 @@
 	</div>
 </div>
 #{/else}
+
+<script>
+	$(function () {
+		/*$('head').append('<meta property="og:title" content="${article.title}" />');
+		$('#share-facebook').click(function(e) {
+			window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('@{Articles.getArticle(article.id)}'),'facebook-share-dialog','width=626,height=436');
+		});*/
+	    $('.star').each(function () {
+	        var category = $(this).attr('data-category');
+	        $(this).raty({
+	            path: '/public/assets/img/',
+	            scoreName: category,
+	            click: function (score) {
+	                
+	            }
+	        });
+	    });
+	});
+</script>
