@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import controllers.util.ArticleUtil;
 import play.db.jpa.Model;
 import play.modules.search.Field;
 import play.modules.search.Indexed;
@@ -46,21 +47,24 @@ public class Article extends Model {
 	public float rank;
 	public float avgScore;
 
-	// avg in single category
-	public float getAvgStyle() {
-		return Ratings.getCategoryAvg(this, Ratings.Type.STYLE);
-	}
-
-	public float getAvgNonAlign() {
-		return Ratings.getCategoryAvg(this, Ratings.Type.NONALIGN);
-	}
-
-	public float getAvgOverall() {
-		return Ratings.getCategoryAvg(this, Ratings.Type.OVERALL);
-	}
+    public int rankInt;
+    public int avgScoreInt;
 
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	private Set<Tag> tags;
+
+	// avg in single category
+	public float getAvgStyle() {
+		return ArticleUtil.getCategoryAvg(this, ArticleUtil.Type.STYLE);
+	}
+
+	public float getAvgNonAlign() {
+		return ArticleUtil.getCategoryAvg(this, ArticleUtil.Type.NONALIGN);
+	}
+
+	public float getAvgOverall() {
+		return ArticleUtil.getCategoryAvg(this, ArticleUtil.Type.OVERALL);
+	}
 
 	public Article(String author, String authorScreenName, String title,
 			String summary, String entry, String headerPicUrl, String category /*
@@ -83,7 +87,7 @@ public class Article extends Model {
 
 		// rating
 		this.ratings = new ArrayList<Rating>();
-		this.rank = Ratings.getFreshness(this);
+		this.rank = ArticleUtil.getFreshness(this);
 
 		super.create();
 	}
@@ -158,7 +162,7 @@ public class Article extends Model {
 	}
 
 	public String toString() {
-		return author + " - " + title;
+		return id + " - rank:"+rank+" - " +"rating: "+avgScore+" - "+author + " - " + title;
 	}
 
 	public List<Rating> getRatings() {
