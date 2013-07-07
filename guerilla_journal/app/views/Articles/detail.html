@@ -12,7 +12,7 @@
 	</div>
 	<div class="well">
 		<h2>${article.title}</h2>
-		<h4>${article.category}</h4>
+		<h4 class="bottomborder-${article.category.className}">${article.category}</h4>
 		<div class="summary">
 			${article.summary}
 		</div>
@@ -27,11 +27,12 @@
 			</div>
 			<blockquote class="entry">
 				${article.entry.raw()}
+				<small>${article.author}</small>
 			</blockquote>
 		</div>
 	</div>
 	
-	<div class="row-fluid" style="margin-top: 100px;">
+	<div class="row-fluid topborder-${article.category.className}" style="margin-top: 100px;">
 	
 		<div class="span7">
 			
@@ -96,7 +97,7 @@
 			<h2>Share this Article:</h2>
 			<span id="share-google" class="g-plus" data-action="share" data-annotation="bubble" data-height="28"></span>
 			<span id="share-twitter">
-	         	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="large" data-text="${article.title} http://www.guerilla-journal.com/">Tweet</a>
+	         	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="large" data-text="${article.title} @@{Articles.getArticle(article.id)}">Tweet</a>
 	         </span>
          </div>
 
