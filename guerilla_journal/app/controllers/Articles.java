@@ -1,5 +1,6 @@
 package controllers;
 
+import controllers.util.ArticleUtil;
 import models.Article;
 import models.Rating;
 import models.Tag;
@@ -130,52 +131,9 @@ public class Articles extends CRUD {
 			return;
 		}
 		rating.save();
-		updateRank(article);
+		ArticleUtil.updateRank(article);
 		// TODO: return new scores for the category in
 		// JSON using renderJSON()
-	}
-
-	/**
-	 * calculate the Bayesian average of each rating category
-	 * 
-	 * @param article
-	 */
-	private static void updateRank(Article article) {
-
-		float totNonAl = 0;
-		float totStyle = 0;
-		float totOverall = 0;
-
-		// calculate the sum of each rating category for rank and avgScore
-		// calculation
-		for (Rating rat : article.getRatings()) {
-			totNonAl += rat.nonAlignment;
-			totStyle += rat.writingStyle;
-			totOverall += rat.overall;
-		}
-
-		float avgNonAl = Ratings.getBayesAvg(totNonAl, article.getRatings()
-				.size(), Ratings.Type.NONALIGN);
-		float avgStyle = Ratings.getBayesAvg(totStyle, article.getRatings()
-				.size(), Ratings.Type.STYLE);
-		float avgOverall = Ratings.getBayesAvg(totOverall, article.getRatings()
-				.size(), Ratings.Type.OVERALL);
-
-		// no we've got the baysian average of the categories
-		// as average score we will display the arithmetic avg of the basian
-		// avg's
-		// TODO reevaluate the baysian average...
-		article.avgScore = (float) Math
-				.round(((avgNonAl + avgOverall + avgStyle) / 3) * 100) / 100;
-
-		// now lets calculate the rank of the page
-		// following reddit's hot rank method
-		// see http://amix.dk/blog/post/19588
-		float freshness = Ratings.getFreshness(article);
-		float order = (float) Math.log10(totNonAl + totOverall + totStyle);
-		article.rank = freshness + order;
-		article.save();
-		Logger.info("Set rank and score for article.");
 	}
 
 	public static void getArticle(long id) {

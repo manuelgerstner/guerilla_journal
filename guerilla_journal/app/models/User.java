@@ -15,9 +15,9 @@ public class User extends Model {
 	// @Required
 	// public String email;
 	@Required
-	public String name;
+	public String name; // Twitter user name
 	@Required
-	public String screenName;
+	public String screenName; // Twitter screen name (@xyz)
 	public String token; // oauth
 	public String secret; // oauth
 	public String iconUrl;
