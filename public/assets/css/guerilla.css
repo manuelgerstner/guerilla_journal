@@ -17,4 +17,7 @@ span.name { color: #fff; }
 	margin-top:3px;
 	margin-right: 5px;
 }
-#categories li a { color: white !important; }
+#categories li a { 
+	color: white !important;
+	text-decoration: none;
+}

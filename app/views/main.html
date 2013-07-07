@@ -112,7 +112,13 @@
 	    	
     	// All global javascript should be wrapped in jQuery's document.ready callback
    	    $(function() {
-	   
+   	    	// Adds a link to all category buttons
+   	    	$('[id^="cat-"]').each(function () {   	    		
+   		        var category = $(this).attr('id').split('-')[1];
+   		        $(this).click(function() {
+   		         	document.location.href=$(this).find('a:first').attr('href');
+   		         });
+   		    });
 	    });
     
     </script>
