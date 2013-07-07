@@ -45,6 +45,8 @@ public class Article extends Model {
 
 	@OneToMany
 	private List<Rating> ratings;
+	@OneToMany
+	private List<Comment> comments;
 	public float rank;
 	public float avgScore;
 
@@ -84,13 +86,25 @@ public class Article extends Model {
 		this.tags = new TreeSet<Tag>();
 		this.headerPicUrl = headerPicUrl;
 
+		// category
 		this.category = Category.find("name", category).first();
 
 		// rating
 		this.ratings = new ArrayList<Rating>();
 		this.rank = ArticleUtil.getFreshness(this);
 
+		// comments
+		this.comments = new ArrayList<Comment>();
+
 		super.create();
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	public Category getCategory() {
