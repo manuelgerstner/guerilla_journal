@@ -16,6 +16,9 @@ Tag(culture):
 Tag(business):
  name: business
  
+Tag(tech):
+ name: tech
+ 
 Category(world):
  name: World
  description: News from around the world
@@ -111,6 +114,50 @@ Article(article6):
  headerPicUrl: http://graphics8.nytimes.com/images/2013/06/30/arts/30BLACKPREZ5_SPAN/30BLACKPREZ5_SPAN-articleLarge-v2.jpg
  tags: [politics]
  category: politics
+
+Article(article7):
+ author: Julian Pfaff
+ authorScreenName: julianpfaff
+ title: Andy Murray must crush Wimbledon history as well as Novak Djokovic
+ summary: Long-running rivalry of Murray and Djokovic guarantees these combatants will deliver a men's singles final of brutal intensity 
+ entry: Whether or not Andy Murray can break through the next level of shackles the nation has wrapped around his psyche – the 77-year wait for a Wimbledon men's champion – his final against Novak Djokovic on Sunday will almost certainly be an ordeal. We will love it. The winner will too. For the loser, the pain will be considerable, to heart and body. The odds are overwhelmingly that this final will be similar to each of their past three battles for a grand slam title. In all four of their big clashes – the first was a relative blitz in three sets in Melbourne two years ago – they have spent nearly a thousand minutes across the net from each other, but the others, again for the Australian title in 2012 and this year, as well as the US Open last September, were the most brutal examinations of their commitment to the demands of the modern game.
+ postedAt: 2013-07-07
+ headerPicUrl: http://static.guim.co.uk/sys-images/Sport/Pix/pictures/2013/7/6/1373134991926/Andy-Murray-on-the-eve-of-008.jpg
+ tags: [sport]
+ category: sports
+
+Article(article8):
+ author: Manuel Gerstner
+ authorScreenName: manuelgerstner
+ title: Stones refuse to fade away, with historic return to Hyde Park
+ summary: 65,000 turn out in scorching central London as rock'n'roll veterans play landmark concert
+ entry: The set began naturally enough with Start Me Up and then, 44 years after they first invited 200,000 fans to listen to them for free in Hyde Park, the Rolling Stones were off. And it sounded like – as if they really had never stopped. Next song up and Sir Micks voice was calling out the hallowed lyric Its only Rock n Roll (but I like it). And they did even the most sunburned and dehydrated in the crowd of 65000 found the strength to cheer and scream.
+ postedAt: 2013-07-07
+ headerPicUrl: http://static.guim.co.uk/sys-images/Observer/Pix/pictures/2013/7/6/1373147215606/Mick-Jagger-010.jpg
+ tags: [culture]
+ category: culture
+
+Article(article9):
+ author: Dominique Busser
+ authorScreenName: dombusser
+ title: In Cargo Delivery, the Three-Wheelers That Could
+ summary: B-Line Sustainable Delivery moves freight around downtown Portland, Ore., on electric-assisted tricycles.
+ entry: IT’S well-known that Portland really likes its bicycles. But its embrace of bike culture goes beyond its catering to commuters leisure riders and athletes. So bike-centric is Portland that its residents can have any of the following delivered to their doorsteps by cycle a pizza, a keg of pilsner, plumbing services or a hot tub. And the list grows from there. It’s logical, then, that a Portland entrepreneur, Franklin Jones, would have helped pioneer the new field of pedal-powered freight delivery. In 2009, Mr. Jones, a former teacher, founded B-Line Sustainable Urban Delivery, a company that delivers produce, baked goods, coffee beans, bike parts and office supplies to restaurants, bike shops and other businesses throughout Portland’s downtown area using electric-assisted tricycles that pull 60-cubic-foot cargo boxes with a 600-pound capacity.
+ postedAt: 2013-07-07
+ headerPicUrl: http://graphics8.nytimes.com/images/2013/07/07/business/07-PROTO5/07-PROTO5-articleLarge.jpg
+ tags: [business]
+ category: business
+
+Article(article10):
+ author: David Frey
+ authorScreenName: davidfrey
+ title: A Painful Mix of Fire, Wind and Questions
+ summary: The Yarnell Hill fire burned on June 30, around the time when officials believe the fire expanded.
+ entry: PRESCOTT Ariz. They trained their eyes on the mountain that smoldered in the distance as they carved a path through a forest choked by fire and drought. The ground crackled underfoot. Packs sagged from their backs heavy with the gear frontline firefighters must carry pickaxes temperature gauges, spades, radios, plenty of water. Down in the valley, a village burned. “This is pretty wild,” one of the firefighters, Andrew Ashcraft, wrote in a text message to his wife, Juliann, at 202 p.m. that Sunday as the team continued its fateful march through the wilderness.
+ postedAt: 2013-07-07
+ headerPicUrl: http://graphics8.nytimes.com/packages/images/multimedia/bundles/projects/2013/AZFirefighters/lede-photo.jpg
+ tags: [tech]
+ category: technology
 
 User(dombusser):
  name: Dominique Busser
