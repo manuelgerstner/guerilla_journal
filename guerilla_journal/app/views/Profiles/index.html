@@ -4,6 +4,12 @@
 #{set title:'Your profile' /}
 
 <div class="span9">
+	<div class="row-fluid">
+			<ul class="breadcrumb">
+			  Orientation: <li><a href="/">Frontpage</a> <span class="divider">/</span></li>
+			  <li class="active">My Profile</li>
+			</ul>
+	</div>
 	#{include 'header.html' /}
 	
 	<br/>
@@ -16,11 +22,10 @@
 			</div>
 			<div class="span8">
 				<h3>These are your articles:</h3>
-				<ul>
+				<div class="row-fluid">
 				#{list items:models.Article.getUsersArticles(), as:'article'}
-					<li>
-						<div class="well">	
-							<a href="detail/${article.id}">${article.title}</a> (${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}) 
+						<div class="span6 well">	
+							<a href="@{Articles.getArticle(article.id)}">${article.title}</a> (${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}) 
 							<div>
 								<dl>Writing style:</dl>
 								<dt><div class="star" data-category="writingStyle" data-score="${article.getAvgStyle()}"></div></dt>
@@ -34,9 +39,8 @@
 								<dt><div class="star" data-category="overall" data-score="${article.getAvgOverall()}"></div></dt>
 							 </div>
 						</div>
-					</li>
 				#{/list}
-				</ul>
+				</div>
 			</div>
 		</div>
 	#{/list}
@@ -66,6 +70,7 @@
 	    $('.star').each(function () {
 	        var category = $(this).attr('data-category');
 	        $(this).raty({
+	        	readOnly: true,
 	            path: '/public/assets/img/',
 	            score: function () {
 	            	return $(this).attr('data-score');
