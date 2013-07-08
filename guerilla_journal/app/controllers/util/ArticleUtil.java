@@ -63,7 +63,18 @@ public class ArticleUtil {
     }
 
     /**
-     * Will return the average rating of an article calculated by baysian averaging
+     * Determines how "trending" the article is
+     *
+     * @param article
+     * @return
+     */
+    public static float getTrendingFreshness(Article article) {
+        // one day:     24*60*60*1000 = 86 400 000
+        return (float) (article.getPostedAt().getTime() - ArticleUtil.timeOffset) / 450000000;
+    }
+
+    /**
+     * Will return the average rating of an article calculated by some algorithm
      *
      * @param total
      * @param ratingsCount
@@ -71,6 +82,18 @@ public class ArticleUtil {
      * @return
      */
     public static float getAvg(float total, int ratingsCount, Type type) {
+        return baysianAvg(total,ratingsCount,type);
+    }
+
+    /**
+     * Calculate the Baysian average, neutralizes 5 star average produced by a single rating
+     * but needs continuous rating updates
+     * @param total
+     * @param ratingsCount
+     * @param type
+     * @return
+     */
+    private static float baysianAvg(float total, int ratingsCount, Type type){
         float avg = 0f;
         switch (type) {
             case STYLE:
@@ -84,6 +107,18 @@ public class ArticleUtil {
                 break;
         }
         return avg / (ratingsCount + expectedNoOfRating);
+    }
+
+    /**
+     * Simple arithmetic average, not very stable (i.e. may be manipulated by few biased votes)
+     * but elimiates the need to update ratings and rank (because we use the hot rank algorithm)
+     * @param total
+     * @param ratingsCount
+     * @param type
+     * @return
+     */
+    private static float aritheticAvg(float total, int ratingsCount, Type type){
+        return total/ratingsCount;
     }
 
     public static float getCategoryAvg(Article article, Type type) {
@@ -154,17 +189,17 @@ public class ArticleUtil {
         // avg's
         article.avgScore = (float) Math
                 .round(((avgNonAl + avgOverall + avgStyle) / 3) * 100) / 100;
-        article.avgScoreInt = Math.round(article.avgScore);
 
         // now lets calculate the rank of the page
         // following reddit's hot rank method
         // see http://amix.dk/blog/post/19588
-        float freshness = getFreshness(article);
         float rawRank = totNonAl + totOverall + totStyle - (2f * (totOv + totNA + totSt)); // offset ratings from -2 to 2
         float sign = rawRank < 0 ? -1 : 1;
         float order = (float) Math.log10(Math.abs(rawRank));
-        article.rank = order + sign * freshness;
-        article.rankInt = Math.round(article.rank);
+        article.rank = order + sign * getFreshness(article);
+        article.trendingRank = order + sign * getTrendingFreshness(article);
+
+
         article.save();
         Logger.info("Set rank and score for article.");
     }

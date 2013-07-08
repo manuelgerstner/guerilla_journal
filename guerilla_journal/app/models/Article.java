@@ -46,11 +46,10 @@ public class Article extends Model {
 	private List<Rating> ratings;
 	@OneToMany
 	private List<Comment> comments;
+
 	public float rank;
 	public float avgScore;
-
-	public int rankInt;
-	public int avgScoreInt;
+    public float trendingRank;
 
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	public Set<Tag> tags;

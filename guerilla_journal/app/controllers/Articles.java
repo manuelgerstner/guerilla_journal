@@ -6,6 +6,9 @@ import models.Rating;
 import models.Tag;
 import models.User;
 import play.Logger;
+import play.db.jpa.GenericModel;
+
+import java.util.List;
 
 /**
  * Articles Controller
@@ -160,9 +163,8 @@ public class Articles extends CRUD {
 		}
 	}
 
-	// public static void findTagged(String tag) {
-	// List<Article> articles = Tags.findTaggedWith(tag);
-	// render("Application/index.html", articles);
-	// }
+	public static List<Article> getTrending() {
+        return Article.find("order by trendingRank desc ").from(0).fetch(10);
+    }
 
 }
