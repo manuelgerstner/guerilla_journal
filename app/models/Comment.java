@@ -3,6 +3,7 @@ package models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 
 import play.db.jpa.Model;
 
@@ -12,6 +13,7 @@ public class Comment extends Model {
 	public long articleId;
 	public String author;
 	public String authorScreenName;
+	@Lob
 	public String commentString;
 	private Date postedAt;
 
