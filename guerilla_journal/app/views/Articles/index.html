@@ -3,6 +3,12 @@
 #{extends 'main.html' /}
 #{set title:'Submit new Article' /}
 <div class="span12">
+	<div class="row-fluid">
+			<ul class="breadcrumb">
+			  Orientation: <li><a href="/">Frontpage</a> <span class="divider">/</span></li>
+			  <li class="active">Submit article</li>
+			</ul>
+	</div>
 	<div class="well">
 		<h2>
 			Submit your Article
@@ -13,13 +19,14 @@
 			#{form @Articles.createArticle(), enctype:'multipart/form-data'}
 			#{list items:controllers.Users.getUser(), as:'user'}
 				<input type="hidden" name="author" value="${user.name}"/>
+				<input type="hidden" name="authorScreenName" value="${user.screenName}"/>
 			#{/list}
 			#{ifErrors}
 				<div class="alert alert-error">Oh snap! It seems some things are wrong with your article:</div>
 				<ul class="text-error">
 				#{list items:errors, as:'error'}
 					<li>${error}</li>
-				#{/list}s
+				#{/list}
 				</ul>
 			#{/ifErrors}
 				<div class="row-fluid">

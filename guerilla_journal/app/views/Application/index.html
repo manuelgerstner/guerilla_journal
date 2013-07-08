@@ -4,15 +4,22 @@
 #{set title:'All articles' /}
 
 <div class="span9">
+
+	<div class="row-fluid">
+			<ul class="breadcrumb">
+			  Orientation:  <li class="active">Frontpage</li>
+			</ul>
+	</div>
 	
 	#{include 'header.html' /}
 	
-
+	
 	<br/>
 	<br/>
 	<!-- When more than three articles are present a new row needs to be created -->
 	<div class="row-fluid">
-	#{list items:models.Article.findAll(), as:'article'}
+    <!-- added articles renderArg instead of Article.findAll to make use of article ranks - david -->
+	#{list items:articles, as:'article'}
 	
 	#{if article_index % 3 == 1}
 		</div>
@@ -23,7 +30,7 @@
 				<div class="subimg-${article.category.className}"></div>
 				<a href="detail/${article.id}"><h2>${article.title}</h2></a>
 				<small>
-					Written on <strong>${article.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong>${article.author}</strong> 
+					Written on <strong>${article.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong><a href="#{if article.authorScreenName == controllers.Users.getUser().screenName}/profile#{/if}#{else}/profile/${article.authorScreenName}#{/else}">${article.author}</a></strong> 
 				</small>
 				<p class="lead">
 					${article.summary}
