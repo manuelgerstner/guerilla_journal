@@ -18,7 +18,10 @@ POST    /article/rate 	Articles.rateArticle(articleId: long, score: int, categor
 GET     /article		Articles.index
 GET     /detail/{id}	Articles.getArticle(id: long)
 GET     /pictures		Articles.pictures
+
 GET		/category/{categoryName}		Categories.renderByCategory(categoryName: String)
+GET		/profile/{screenName}			Profiles.getUserProfileByScreenName(screenName: String)
+
 
 GET 	/tags/{tagName}		Tags.findTaggedWith(tagName: String)
 

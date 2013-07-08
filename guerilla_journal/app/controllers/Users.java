@@ -26,15 +26,13 @@ public class Users extends CRUD {
             "0yy3WiJZESGeDeg2xGJq87I4OwFBSz0lHoBmjZAvEnA");
 
     /**
-     * Handel all Twitter login events:
-     * -> Unkonwn user tries to log in
-     * -> OAuth callback (from Twitter API)
+     * Handles all Twitter login events:
+     * - Unkonwn user tries to log in -> redirect to Twitter authorization page
+     * - OAuth callback (from Twitter API) -> process twitter api data
      */
     public static void authenticate() {
         User user = getUser();
-
         Logger.info("Authenticating user " + user.name);
-
 
         // TWITTER is a OAuth.ServiceInfo object
         // getUser() is a method returning the current user
@@ -145,10 +143,19 @@ public class Users extends CRUD {
         return usr.name.equals("guest" + session.getId()) && !usr.loggedIn;
     }
 
+    /**
+     * Utility mehtods to check if a user user was redirected to the twitter authorization page but we have not
+     * processed the twitter api callback data yet.
+     * @param usr
+     * @return
+     */
     public static boolean authorizeRequestSent(User usr) {
         return !usr.loggedIn && usr.token != null && usr.secret != null;
     }
 
+    /**
+     * log out the current user
+     */
     public static void logout() {
         User user = User.find("session", session.getId()).first();
         if (user != null) {

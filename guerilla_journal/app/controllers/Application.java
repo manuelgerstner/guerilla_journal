@@ -5,6 +5,7 @@ import java.util.List;
 import models.Article;
 import models.User;
 import play.Logger;
+import play.db.jpa.GenericModel;
 import play.mvc.Controller;
 
 public class Application extends Controller {
@@ -24,14 +25,16 @@ public class Application extends Controller {
 		session.put("loggedin", user.loggedIn);
 		Logger.info("User is logged in = " + user.loggedIn);
 
-		// find newest article
-		Article frontPost = Article.find("order by rank desc").first();
+        GenericModel.JPAQuery articles = Article.find("order by rank desc ");
+        // find newest article
+		Article frontPost = articles.first();
 
 		// find latest articles
-		List<Article> olderPosts = Article.find("order by rank desc").from(1)
+		List<Article> olderPosts = articles.from(1)
 				.fetch(10);
 		Logger.info("Got posts for show all view");
-		render(frontPost, olderPosts);
+        renderArgs.put("articles", articles.from(0).fetch(10));
+		render();//frontPost, olderPosts);
 	}
 
 }
