@@ -19,13 +19,51 @@ public class Search extends Controller {
          * for exactly the given string.
          */
 	public static void search(String query) {
-		Logger.info("Query " + query);
-		String request = "author:\"" + query + "\"  title:\"" + query
-				+ "\" summary:\"" + query + "\" entry:\"" + query + "\"";
-
+		Logger.info("Got Query: " + query);
+                String request = parseSearchStringToRequest(query);
+                Logger.info("Request after parse " + request);
 		Query q = play.modules.search.Search.search(request, Article.class);
 		List<Article> articles = q.fetch();
-		Logger.info("Found " + articles.size() + " articles.");
+		Logger.info("Found " + articles.size() + " fitting article(s).");
 		render(articles, query);
-	}        
+	}   
+        
+        /**
+         * Parse search string into lucene-conform string.
+         * @param query Querystring as given by user
+         * @return parsing string as necessary for starting a lucene query.
+         */
+        public static String parseSearchStringToRequest(String query){            
+            String optTag = " or ";
+            String andTag = " and ";
+            String newQuery = "";
+            String escapedQuery ="";
+            String[] queryParts;
+            Logger.info("Start parsing");
+            //case 1: necessary to find all params in one of the fields
+            if(query.contains(andTag)){ 
+               query = query.replaceAll(andTag, " && ");
+               escapedQuery = "(" + query + ")";
+               newQuery += "author: " + escapedQuery + " title: " + escapedQuery
+				+ " summary: " + escapedQuery + " entry: " + escapedQuery;            
+               return newQuery;
+            }
+            // case 2: give all results which contain one of the given params
+            if (query.contains(optTag)){
+                queryParts = query.split(optTag);                
+                for (String part : queryParts){
+                    escapedQuery += "\""+ part + "\" ";
+                }
+                escapedQuery = "(" + escapedQuery + ")";
+            }
+            //Take the whole input as one string. Only when this string matches the article will be shown.
+            else{
+                escapedQuery = "\""+ query + "\""; 
+            }
+            
+            newQuery += "author: " + escapedQuery + "  title: " + escapedQuery
+				+ " summary: " + escapedQuery + " entry: " + escapedQuery;
+            
+            return newQuery;
+        }
 }
