@@ -1,9 +1,11 @@
 package models.rest;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import models.Comment;
 import models.Tag;
 import play.db.Model;
 
@@ -21,7 +23,7 @@ public class Article extends AbstractRestResource implements RestResource {
 	private String restUrl;
 	private String weburl;
 
-	// public List<Comment> comments;
+	public List<Comment> comments;
 
 	// public List<String> comments;
 
