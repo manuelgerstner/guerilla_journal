@@ -33,9 +33,9 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span12">
-		<h4>Comments:</h4>
+			<h4>Comments:</h4>
 			#{list items:controllers.Comments.getCommentsForArticle(article.id), as:'comment'}
-				<div class="comment">
+				<div class="span6 comment">
 					<small>
 					Comment written on <strong>${comment.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong><a href="#{if comment.authorScreenName == controllers.Users.getUser().screenName}/profile#{/if}#{else}/profile/${comment.authorScreenName}#{/else}">${comment.author}</a></strong> 
 					</small>
