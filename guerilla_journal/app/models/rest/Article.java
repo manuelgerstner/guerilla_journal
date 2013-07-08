@@ -22,6 +22,7 @@ public class Article extends AbstractRestResource implements RestResource {
 	public Set<Tag> tags;
 	private String restUrl;
 	private String weburl;
+    private String imgUrl;
 
 	public List<Comment> comments;
 
@@ -37,6 +38,8 @@ public class Article extends AbstractRestResource implements RestResource {
 		this.rank = article.rank;
 		this.tags = article.tags;
 		this.avgScore = article.avgScore;
+        this.title = article.title;
+        this.imgUrl = article.getHeaderPicUrl();
 
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id", id);
