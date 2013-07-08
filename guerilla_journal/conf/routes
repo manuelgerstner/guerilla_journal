@@ -6,11 +6,9 @@
 GET     /               Application.index
 GET     /oauthcallback  Application.authenticate
 GET		/profile		Profiles.index
+GET 	/{page}			Application.nextPage(int: page)
 
 *	    /admin			module:crud
-
-GET 	/login			Application.authenticate
-POST	/ws/status		Application.setStatus
 
 # Ajax rating
 POST    /article/rate 	Articles.rateArticle(articleId: long, score: int, category: String)

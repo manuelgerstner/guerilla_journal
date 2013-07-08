@@ -25,12 +25,13 @@ public class Application extends Controller {
 		session.put("loggedin", user.loggedIn);
 		Logger.info("User is logged in = " + user.loggedIn);
 
-        GenericModel.JPAQuery articles = Article.find("order by rank desc ");
-		Logger.info("Got posts for show all view");
-        renderArgs.put("articles", articles.from(0).fetch(12));
-        renderArgs.put("page", 1);
-        renderArgs.put("hasMore",Article.count() > 12 ? true : false);
-		render();//frontPost, olderPosts);
+  //       GenericModel.JPAQuery articles = Article.find("order by rank desc ");
+		// Logger.info("Got posts for show all view");
+  //       renderArgs.put("articles", articles.from(0).fetch(12));
+  //       renderArgs.put("page", 1);
+  //       renderArgs.put("hasMore",Article.count() > 12 ? true : false);
+		// render();//frontPost, olderPosts);
+		nextPage(1);
 	}
 
     public static void nextPage(int page) {
@@ -38,10 +39,10 @@ public class Application extends Controller {
         GenericModel.JPAQuery articles = Article.find("order by rank desc ");
 
         Logger.info("Got posts for show all view");
-        renderArgs.put("articles", articles.from(page * 12).fetch((page + 1) * 12));
-        renderArgs.put("page", page+1);
+        renderArgs.put("articles", articles.from((page-1) * 12).fetch(page * 12));
+        renderArgs.put("page", page);
 
-        renderArgs.put("hasMore",Article.count() > 12*(page+1) ? true : false);
+        renderArgs.put("hasMore",Article.count() > 12*(page) ? true : false);
         renderTemplate("Application/index.html");
     }
 

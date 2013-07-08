@@ -26,7 +26,7 @@
 		<div class="row-fluid">
 	#{/if}
 			<div class="span4">
-				<a href="detail/${article.id}"><img class="headerPicUrl" src="${article.headerPicUrl}" /></a>
+				<a href="@{Articles.getArticle(article.id)}"><img class="headerPicUrl" src="${article.headerPicUrl}" /></a>
 				<div class="subimg-${article.category.className}"></div>
 				<a href="detail/${article.id}"><h2>${article.title}</h2></a>
 				<small>
@@ -40,7 +40,7 @@
 				<br/>
 				
 				<div class="details">
-					<a class="btn" href="detail/${article.id}">Read full Article</a>
+					<a class="btn" href="@{Articles.getArticle(article.id)}">Read full Article</a>
 				</div>
 				</br>
 			</div>
@@ -56,7 +56,7 @@
 		#{/else}
 	</div>
 	#{if hasMore}
-	<a href="@{Application.nextPage(page)}" class="btn pull-right">Next Page</a>
+	<a href="@{Application.nextPage(page+1)}" class="btn pull-right">Next Page</a>
 	#{/if}
 	<!--/row-->
 #{if models.Article.count() > 0}
