@@ -164,7 +164,7 @@ public class Articles extends CRUD {
 	}
 
 	public static List<Article> getTrending() {
-        return Article.find("order by trendingRank desc ").from(0).fetch(10);
+        return Article.find("order by trendingRank desc ").from(0).fetch(6);
     }
 
 }
