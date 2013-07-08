@@ -24,7 +24,7 @@ public class Articles extends CRUD {
 			Logger.info("Redirect, not logged in.");
 			redirect("/");
 		}
-		render();
+		render("Articles/submit.html");
 	}
 
 	/**

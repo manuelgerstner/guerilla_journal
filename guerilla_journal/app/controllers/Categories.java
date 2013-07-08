@@ -9,17 +9,25 @@ import play.Logger;
 @CRUD.For(Category.class)
 public class Categories extends CRUD {
 
-	public static void getCategory(String name) {
-		Category category = Category.find("name", name).first();
-		List<Article> articleList = Article.find("category", category).fetch();
-		if (category != null) {
-			Logger.info("Show articles in category " + name);
-			render("Categories/index.html", articleList);
-		}
-		// not found
-		else {
-			Logger.warn("There is no category by the name " + name);
+	public static void renderByCategory(String categoryName) {
+		Category category = Category.find("name", categoryName).first();
+		if (category == null) {
+			Logger.error("Unknown category by the name of " + categoryName);
 			notFound();
 		}
+
+		List<Article> articleList = findByCategory(category);
+
+		Logger.info("Show articles in category " + categoryName);
+		render("Categories/index.html", articleList, categoryName);
+
+	}
+
+	public static List<Article> findByCategory(Category category) {
+		return Article.find("category", category).fetch();
+	}
+
+	public static List<Category> getCategories() {
+		return Category.findAll();
 	}
 }

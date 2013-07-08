@@ -45,7 +45,7 @@ public class Article extends Model {
 	public float avgScore;
 
 	@ManyToMany(cascade = CascadeType.PERSIST)
-	private Set<Tag> tags;
+	public Set<Tag> tags;
 
 	public Article(String author, String title, String summary, String entry,
 			String headerPicUrl, String category /* , Set tags */) {
