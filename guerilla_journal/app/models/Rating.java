@@ -8,33 +8,18 @@ import play.db.jpa.Model;
  */
 @Entity
 public class Rating extends Model{
-    private int writingStyle;
-    private int nonAlignment;
-    private int overall;
-    
-    
-    public int getWritingStyle() {
-	return writingStyle;
+
+    public int writingStyle;
+    public int nonAlignment;
+    public int overall;
+
+    @ManyToOne
+    public Article article;
+
+    @ManyToOne
+    public User user;
+
+    public String toString(){
+        return "By " +user.name+ " on " + article.title + " rating: " +writingStyle +" "+nonAlignment+" "+overall;
     }
-    
-    public void setWritingStyle(int writingStyle){
-        this.writingStyle = writingStyle;
-    }
-    
-    public int getNonAlignment() {
-	return nonAlignment;
-    }
-    
-    public void setnonAlignment(int nonAlignment){
-        this.nonAlignment = nonAlignment;
-    }
-    
-    public int getOverall() {
-	return overall;
-    }
-    
-    public void setOverall(int overall){
-        this.overall = overall;
-    }
-    
 }

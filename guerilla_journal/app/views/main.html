@@ -27,10 +27,18 @@
       }
       
     </style>
+    <link rel="shortcut icon" type="image/png" href="@{'public/assets/img/favicon.png'}" />
 <!--     <link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet"> -->
     <link rel="stylesheet" href="http://bootswatch.com/spacelab/bootstrap.min.css" />
     <link href="@{'/public/assets/css/bootstrap-responsive.css'}" rel="stylesheet">
+    <!-- Playfair webfont by Google for Guerilla Journal -->
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
+    
+    <!-- bootstrap select addon -->
+    <link href="@{'/public/assets/css/bootstrap-select.css'}" rel="stylesheet">
         
+    <!--  guerilla styles -->
+    <link rel="stylesheet" href="@{'public/assets/css/guerilla.css'}"/>
     
   </head>
 
@@ -38,6 +46,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
     	<div class="navbar-inner">
     		<div class="container-fluid">
+    			<a href="/"><img class="brandimg pull-left" height="34" width="34" src="http://i.imgur.com/jB1VFWp.png"/></a>
     			<a class="brand" href="/">Guerilla Journal</a>
     			<div class="nav">
                     
@@ -95,35 +104,24 @@
     <!--/.fluid-container-->
 
     <script src="@{'/public/assets/js/bootstrap.js'}"></script>
+    <script src="@{'/public/assets/js/bootstrap-select.js'}"></script>
     <script src="@{'/public/assets/js/jquery.raty-2.5.2.min.js'}"></script>
     <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
     <script type="text/javascript">
 	    	
-    	// All javascript should be wrapped in jQuery's document.ready callback
-	    $(function() {
-	    	
-	    	// Initiate raty with new img path
-	    	$('#star').raty({ path: '/public/assets/img' });
-	    	// api key for filepicker
-	    	filepicker.setKey('AK3uFvZ9SxKyRxBB0ajWgz');
-	    	
-	    	// init tinymce for all textarea elements
-	        tinymce.init({selector:'textarea'});
-	    	
-	    	// filepicker initialization and callback
-	    	$('#headerPicSelector').click(function(e) {
-	    		e.preventDefault();
-	    		filepicker.pick(function(img) {
-	    			if (img) {
-		    			$('#headerPicUrl').val(img.url);
-		    			$('<img src="'+img.url+'"/><br/>').prependTo('#textarea');
-		    			$('#headerPicSelector').text('Select a different picture');
-	    			}
-	    		})
-	    	});
+    	// All global javascript should be wrapped in jQuery's document.ready callback
+   	    $(function() {
+   	    	// Adds a link to all category buttons
+   	    	$('[id^="cat-"]').each(function () {   	    		
+   		        var category = $(this).attr('id').split('-')[1];
+   		        $(this).click(function() {
+   		         	document.location.href=$(this).find('a:first').attr('href');
+   		         });
+   		    });
 	    });
     
     </script>
-  </body>
+    
+    </body>
 </html>

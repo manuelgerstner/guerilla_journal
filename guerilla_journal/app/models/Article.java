@@ -3,57 +3,110 @@ package models;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
-
-import play.modules.search.Field;
-import play.modules.search.Indexed;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
+import play.modules.search.Field;
+import play.modules.search.Indexed;
 import controllers.Users;
+import controllers.util.ArticleUtil;
 
 @Entity
 @Indexed
 public class Article extends Model {
-        //necessary to make Fields public to access them with search-module.
-        @Field
+	// necessary to make Fields public to access them with search-module.
+	@Field
 	public String author;
-        @Field
+	@Field
+	public String authorScreenName;
+	@Field
 	public String title;
-        @Field
+	@Field
+	@Lob
 	public String summary;
-        @Field
+	@Field
 	@Lob
 	public String entry;
+
+	@ManyToOne
+	public Category category;
+
 	private Date postedAt;
 	private String headerPicUrl;
 
-	private ArrayList<Tag> tags;
+	@OneToMany
+	private List<Rating> ratings;
+	@OneToMany
+	private List<Comment> comments;
 
-	// Rating
-	private Integer nonAlignment;
-	private Integer nonAlignmentCount;
-	private Integer writingStyle;
-	private Integer writingStyleCount;
-	private Integer overall;
-	private Integer overallCount;
+	public float rank;
+	public float avgScore;
+    public float trendingRank;
 
-	public Article(String author, String title, String summary, String entry,
-			String headerPicUrl/* , Set tags */) {
+	@ManyToMany(cascade = CascadeType.PERSIST)
+	public Set<Tag> tags;
+
+	// avg in single category
+	public float getAvgStyle() {
+		return ArticleUtil.getCategoryAvg(this, ArticleUtil.Type.STYLE);
+	}
+
+	public float getAvgNonAlign() {
+		return ArticleUtil.getCategoryAvg(this, ArticleUtil.Type.NONALIGN);
+	}
+
+	public float getAvgOverall() {
+		return ArticleUtil.getCategoryAvg(this, ArticleUtil.Type.OVERALL);
+	}
+
+	public Article(String author, String authorScreenName, String title,
+			String summary, String entry, String headerPicUrl, String category) {
 		super();
 
 		this.author = author;
+		this.authorScreenName = authorScreenName;
 		this.summary = summary;
 		this.entry = entry;
 		this.postedAt = new Date();
 		this.title = title;
-		// this.tags = tags;
+		this.tags = new TreeSet<Tag>();
 		this.headerPicUrl = headerPicUrl;
 
+		// category
+		this.category = Category.find("name", category).first();
+
 		// rating
+		this.ratings = new ArrayList<Rating>();
+		this.rank = ArticleUtil.getFreshness(this);
+
+		// comments
+		this.comments = new ArrayList<Comment>();
 
 		super.create();
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public String getAuthor() {
@@ -104,54 +157,6 @@ public class Article extends Model {
 		this.headerPicUrl = headerPicUrl;
 	}
 
-	public Integer getNonAlignment() {
-		return nonAlignment;
-	}
-
-	public void setNonAlignment(Integer nonAlignment) {
-		this.nonAlignment = nonAlignment;
-	}
-
-	public Integer getNonAlignmentCount() {
-		return nonAlignmentCount;
-	}
-
-	public void setNonAlignmentCount(Integer nonAlignmentCount) {
-		this.nonAlignmentCount = nonAlignmentCount;
-	}
-
-	public Integer getWritingStyle() {
-		return writingStyle;
-	}
-
-	public void setWritingStyle(Integer writingStyle) {
-		this.writingStyle = writingStyle;
-	}
-
-	public Integer getWritingStyleCount() {
-		return writingStyleCount;
-	}
-
-	public void setWritingStyleCount(Integer writingStyleCount) {
-		this.writingStyleCount = writingStyleCount;
-	}
-
-	public Integer getOverall() {
-		return overall;
-	}
-
-	public void setOverall(Integer overall) {
-		this.overall = overall;
-	}
-
-	public Integer getOverallCount() {
-		return overallCount;
-	}
-
-	public void setOverallCount(Integer overallCount) {
-		this.overallCount = overallCount;
-	}
-
 	public static List<Article> getUsersArticles() {
 		User currentUser = Users.getUser();
 		List<Article> articleList = Article.find(
@@ -159,4 +164,30 @@ public class Article extends Model {
 		return articleList;
 	}
 
+	public static List<Article> getUsersArticles(String screenName) {
+		List<Article> articleList = Article.find(
+				"authorScreenName = '" + screenName + "'").fetch();
+		return articleList;
+	}
+
+	public String toString() {
+		return id + " - rank:" + rank + " - " + "rating: " + avgScore + " - "
+				+ author + " - " + title;
+	}
+
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
+
+	public Set<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
+	}
 }

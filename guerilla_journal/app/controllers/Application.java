@@ -5,23 +5,47 @@ import java.util.List;
 import models.Article;
 import models.User;
 import play.Logger;
+import play.db.jpa.GenericModel;
 import play.mvc.Controller;
 
 public class Application extends Controller {
 
+	/**
+	 * initiates the web application takes care of:
+	 * - user login
+	 * - user session
+	 * - front page posts
+	 */
 	public static void index() {
 		User user = Users.getUser();
 		user.session = session.getId();
 		user.save();
 
-		session.put("loggedin", user.isLoggedIn());
-		Logger.info("User has logged in", null);
+		// store user's login status
+		session.put("loggedin", user.loggedIn);
+		Logger.info("User is logged in = " + user.loggedIn);
 
-		Article frontPost = Article.find("order by postedAt desc").first();
-		List<Article> olderPosts = Article.find("order by postedAt desc")
-				.from(1).fetch(10);
-		Logger.info("Got posts for show all view", null);
-		render(frontPost, olderPosts);
+  //       GenericModel.JPAQuery articles = Article.find("order by rank desc ");
+		// Logger.info("Got posts for show all view");
+  //       renderArgs.put("articles", articles.from(0).fetch(12));
+  //       renderArgs.put("page", 1);
+  //       renderArgs.put("hasMore",Article.count() > 12 ? true : false);
+		// render();//frontPost, olderPosts);
+		nextPage(1);
 	}
+
+    public static void nextPage(int page) {
+
+        GenericModel.JPAQuery articles = Article.find("order by rank desc ");
+
+        Logger.info("Got posts for show all view");
+        renderArgs.put("articles", articles.from((page-1) * 12).fetch(page * 12));
+        renderArgs.put("page", page);
+
+        renderArgs.put("hasMore",Article.count() > 12*(page) ? true : false);
+        renderTemplate("Application/index.html");
+    }
+
+
 
 }

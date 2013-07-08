@@ -1,16 +1,38 @@
 package models;
 
+import javax.persistence.Entity;
+
 import play.db.jpa.Model;
 
-public class Tag extends Model {
+/**
+ * Tag Model
+ * 
+ * @author dbusser
+ * 
+ */
 
-	private String tag;
+@Entity
+public class Tag extends Model implements Comparable<Tag> {
 
-	public final String getTag() {
-		return tag;
+	public String name;
+
+	private Tag(String name) {
+		this.name = name;
 	}
 
-	public final void setTag(String tag) {
-		this.tag = tag;
+	public String toString() {
+		return name;
+	}
+
+	public int compareTo(Tag otherTag) {
+		return name.compareTo(otherTag.name);
+	}
+
+	public static Tag findOrCreateByName(String name) {
+		Tag tag = Tag.find("byName", name).first();
+		if (tag == null) {
+			tag = new Tag(name);
+		}
+		return tag;
 	}
 }

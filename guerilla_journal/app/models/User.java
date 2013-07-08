@@ -15,15 +15,19 @@ public class User extends Model {
 	// @Required
 	// public String email;
 	@Required
-	public String name;
-	public String screenName;
+	public String name; // Twitter user name
+	@Required
+	public String screenName; // Twitter screen name (@xyz)
 	public String token; // oauth
 	public String secret; // oauth
 	public String iconUrl;
 	public String session;
+	public boolean loggedIn;
+	public boolean requestSent;
 
 	public User(String fullname) {
 		this.name = fullname;
+		loggedIn = false;
 	}
 
 	public static User findOrCreate(String name) {
@@ -36,11 +40,7 @@ public class User extends Model {
 
 	public String toString() {
 		return name + " : " + (screenName == null ? " " : screenName) + " : "
-				+ (token == null ? "no twitter" : "twitter ok") + " : "
-				+ session;
-	}
-
-	public boolean isLoggedIn() {
-		return (token == null ? false : true);
+				+ (loggedIn ? "logged in via twitter" : "no twitter login")
+				+ " : " + session;
 	}
 }

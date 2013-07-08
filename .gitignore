@@ -4,6 +4,19 @@
 # except for .gitignore
 !.gitignore
 
+# ignore intellij files
+*.iml
+*.ipr
+*.iws
+
+# ignore eclipse settings
+.settings
+.classpath
+.project
+
+# ignore search index
+data
+
 # Ignore Play! working directory #
 db
 eclipse
@@ -17,6 +30,7 @@ project/project
 project/target
 target
 tmp
+bin/
 test-result
 server.pid
 *.iml
