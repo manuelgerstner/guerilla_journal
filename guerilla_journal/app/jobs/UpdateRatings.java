@@ -10,11 +10,9 @@ import java.util.List;
 import play.Logger;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Dave
- * Date: 7/7/13
- * Time: 10:30 PM
- * To change this template use File | Settings | File Templates.
+ * @author Dave
+ * Hourly job that updates the rating constants for baysian averaging and
+ * ranks of all articles accordingly
  */
 @Every("1h")
 public class UpdateRatings extends Job {

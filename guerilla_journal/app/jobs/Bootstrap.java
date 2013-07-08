@@ -22,15 +22,7 @@ public class Bootstrap extends Job {
             Fixtures.loadModels("entities.yml");
             Logger.info("All Entities loaded");
 
-            List<Rating> allRatings = Rating.findAll();
-            for (Rating rating : allRatings) {
-                rating.article.getRatings().add(rating);
-                rating.article.save();
-            }
-
-            List<Article> allArticles = Article.findAll();
-            ArticleUtil.updateRanks(allArticles);
-            Logger.info("Processed all ratings");
+            new InitRatings().now();
 
         } catch (Exception e) {
             Logger.error("Loading of entities failed: " + e.getMessage());

@@ -12,9 +12,8 @@ import java.util.List;
 /**
  * Extracted the rating logic to an Util class, so it can be accessed from Jobs
  * (controllers can not).
- * User: Dave
+ * @author Dave
  * Date: 7/7/13
- * Time: 10:01 PM
  */
 public class ArticleUtil {
     // Constants used in baysian averaging, do not necessarily need to update
