@@ -1,0 +1,81 @@
+<!-- index.html -->
+
+#{extends 'main.html' /}
+#{set title:'Your profile' /}
+
+<div class="span9">
+	<div class="row-fluid">
+			<ul class="breadcrumb">
+			  Orientation: <li><a href="/">Frontpage</a> <span class="divider">/</span></li>
+			  <li class="active">My Profile</li>
+			</ul>
+	</div>
+	#{include 'header.html' /}
+	
+	<br/>
+	<br/>
+	<div class="row-fluid">
+	#{list items:controllers.Users.getUser(), as:'user'}
+		<div class="span9">
+			<div class="span1">
+			<img class="usericon" src="${user.iconUrl}"/>
+			</div>
+			<div class="span8">
+				<h3>These are your articles:</h3>
+				<div class="row-fluid">
+				#{list items:models.Article.getUsersArticles(), as:'article'}
+						<div class="span6 well">	
+							<a href="@{Articles.getArticle(article.id)}">${article.title}</a> (${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}) 
+							<div>
+								<dl>Writing style:</dl>
+								<dt><div class="star" data-category="writingStyle" data-score="${article.getAvgStyle()}"></div></dt>
+							 </div>
+							<div>
+								<dl>Non-Alignment:</dl>
+								<dt><div class="star" data-category="nonAlignment" data-score="${article.getAvgNonAlign()}"></div></dt>
+							 </div>
+							 <div>
+								<dl>Overall:</dl>
+								<dt><div class="star" data-category="overall" data-score="${article.getAvgOverall()}"></div></dt>
+							 </div>
+						</div>
+				#{/list}
+				</div>
+			</div>
+		</div>
+	#{/list}
+	</div>
+</div>
+
+<div class="span3">
+	
+	<div class="well sidebar-nav">
+		<h4>
+			Your rating:
+		</h4>
+		<ul class="nav nav-list">
+			<li>
+				<a href="#">Article #1</a>
+			</li>
+			<li>
+				<a href="#">Article #2</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<script>
+	
+	$(function () {
+	    $('.star').each(function () {
+	        var category = $(this).attr('data-category');
+	        $(this).raty({
+	        	readOnly: true,
+	            path: '/public/assets/img/',
+	            score: function () {
+	            	return $(this).attr('data-score');
+	            }
+	        });
+	    });
+	});
+</script>

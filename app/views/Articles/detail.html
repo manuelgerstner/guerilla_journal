@@ -1,0 +1,191 @@
+<!-- article.html -->
+
+#{extends 'main.html' /}
+#{set title:'Article Detail' /}
+<div class="span12">
+	<div class="row-fluid">
+			<ul class="breadcrumb">
+			  Orientation: <li><a href="/">Frontpage</a> <span class="divider">/</span></li>
+			  <li><a href="@@{Categories.renderByCategory(article.category)}">${article.category}</a> <span class="divider">/</span></li>
+			  <li class="active">${article.title}</li>
+			</ul>
+	</div>
+	<div class="well">
+		<h2>${article.title}</h2>
+		<h4 class="bottomborder-${article.category.className}">${article.category}</h4>
+		<div class="summary">
+			${article.summary}
+		</div>
+	</div>
+	
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="pull-right mediabar">
+				<img class="headerPic" src="${article.headerPicUrl}"/>
+				<div class="subimg-${article.category.className}"></div>
+				
+			</div>
+			<blockquote class="entry">
+				${article.entry.raw()}
+				<small>${article.author}</small>
+			</blockquote>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<h4>Comments:</h4>
+			#{list items:controllers.Comments.getCommentsForArticle(article.id), as:'comment'}
+				<div class="span6 comment">
+					<small>
+					Comment written on <strong>${comment.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong><a href="#{if comment.authorScreenName == controllers.Users.getUser().screenName}/profile#{/if}#{else}/profile/${comment.authorScreenName}#{/else}">${comment.author}</a></strong> 
+					</small>
+					<div class="commentString"><blockquote>${comment.commentString}</blockquote></div>
+				</div>
+			#{/list}
+		</div>
+		<div class="span12">
+				#{if session["loggedin"]=="true"}
+				#{form @Comments.createComment(), enctype:'multipart/form-data'}
+					<input type="hidden" name="articleId" value="${article.id}"/>
+				#{list items:controllers.Users.getUser(), as:'user'}					
+					<input type="hidden" name="author" value="${user.name}"/>
+					<input type="hidden" name="authorScreenName" value="${user.screenName}"/>
+				#{/list}
+				#{ifErrors}
+					<ul class="text-error">
+					#{list items:errors, as:'error'}
+						<li>${error}</li>
+					#{/list}
+					</ul>
+				#{/ifErrors}
+					<div class="row-fluid">		
+						<div id="textarea" class="span6 control-group">
+							<label for="commentString" class="control-label">Comment:</label>					
+							<textarea class="field span12" name="commentString" id="commentString" rows="4">${flash.entry}</textarea>
+											
+						</div>
+					</div>
+					<button class="btn" type="submit">Create</button>	
+				#{/form}
+				#{/if}
+				#{else}
+				<h5>You need to be logged in to write a comment!</h5>
+				#{/else}
+		</div>
+	</div>
+	
+	<div class="row-fluid topborder-${article.category.className}" style="margin-top: 100px;">
+	
+		<div class="span7">
+			
+			<h2>Overall Rating: ${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}</h2>
+			<h4>Author: <strong><a href="#{if article.authorScreenName == controllers.Users.getUser().screenName}/profile#{/if}#{else}/profile/${article.authorScreenName}#{/else}">${article.author}</a></strong></h4>
+			
+			#{form @Articles.rateArticle()}
+				<div class="row-fluid">
+					<div class="span4">
+						<h3>
+							Writing Style
+						</h3>
+						<div class="control-group">
+							<label class="control-label">
+								How well was the article written?
+							</label>
+							<div class="controls">
+								<div class="star" data-category="writingStyle"></div>
+							</div>
+						</div>
+					</div>
+					<div class="span4">
+						<h3>
+							Non-Alignment
+						</h3>
+						<div class="control-group">
+							<label class="control-label">
+								How non-aligned was the article?
+							</label>
+							<div class="controls">
+								<div class="star" data-category="nonAlignment"></div>
+							</div>
+						</div>
+					</div>
+					<div class="span4">
+						<h3>
+							Overall
+						</h3>
+						<div class="control-group">
+							<label class="control-label">
+							Overall, how did you like the article?
+							</label>
+							<div class="controls">
+								<div class="star" data-category="overall"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			#{/form}
+		</div>	
+		
+		<div class="span2">
+			<h2>Tags:</h2>
+			<div class="row-fluid">
+				#{list items:article.tags, as:'tag'}
+					<span class="label label-info">${tag.name}</span>
+				#{/list}
+			</div>
+		</div>
+		
+		<div class="span3">
+			<h2>Share this Article:</h2>
+			<span id="share-google" class="g-plus" data-action="share" data-annotation="bubble" data-height="28"></span>
+			<span id="share-twitter">
+	         	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="large" data-text="${article.title} @@{Articles.getArticle(article.id)}">Tweet</a>
+	         </span>
+         </div>
+
+</div>
+<!-- Google plus share button -->
+<script type="text/javascript">
+  (function() {
+	window.___gcfg = {
+		lang: 'en-US'
+	};
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<!-- Twitter share button -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script>
+	//global var
+	ARTICLE_ID = ${article.id};
+	LOGGED_IN = ${session["loggedin"]};
+	
+	$(function () {
+		/*$('head').append('<meta property="og:title" content="${article.title}" />');
+		$('#share-facebook').click(function(e) {
+			window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('@{Articles.getArticle(article.id)}'),'facebook-share-dialog','width=626,height=436');
+		});*/
+	    $('.star').each(function () {
+	        var category = $(this).attr('data-category');
+	        $(this).raty({
+	            path: '/public/assets/img/',
+	            scoreName: category,
+	            click: function (score) {
+	                
+	                //if (LOGGED_IN == "true") {
+	                    console && console.log('rating article #%d with %d points in category %s', ARTICLE_ID, score, category);
+	                    $.post('@@{Articles.rateArticle()}', {
+	                        articleId: ARTICLE_ID,
+	                        score: score,
+	                        category: category
+	                    }, function (e) {
+	                        console && console.log(e); // log response
+	                    });
+	               // }
+	            }
+	        });
+	    });
+	});
+</script>

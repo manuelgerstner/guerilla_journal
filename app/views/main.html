@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <title>#{get 'title' /}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+      
+    </style>
+    <link rel="shortcut icon" type="image/png" href="@{'public/assets/img/favicon.png'}" />
+<!--     <link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet"> -->
+    <link rel="stylesheet" href="http://bootswatch.com/spacelab/bootstrap.min.css" />
+    <link href="@{'/public/assets/css/bootstrap-responsive.css'}" rel="stylesheet">
+    <!-- Playfair webfont by Google for Guerilla Journal -->
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
+    
+    <!-- bootstrap select addon -->
+    <link href="@{'/public/assets/css/bootstrap-select.css'}" rel="stylesheet">
+        
+    <!--  guerilla styles -->
+    <link rel="stylesheet" href="@{'public/assets/css/guerilla.css'}"/>
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+    	<div class="navbar-inner">
+    		<div class="container-fluid">
+    			<a href="/"><img class="brandimg pull-left" height="34" width="34" src="http://i.imgur.com/jB1VFWp.png"/></a>
+    			<a class="brand" href="/">Guerilla Journal</a>
+    			<div class="nav">
+                    
+    				<ul class="nav">
+    					<li>
+    						<a href="/">View Articles</a>
+    					</li>
+    				#{if session["loggedin"]=="true"}
+    					
+    					<li>
+    						<a href="/article">Submit</a>
+    					</li>
+    					
+    					<li>
+    						<a href="/profile">My Profile</a>
+    					</li>
+    					
+    				#{/if}
+    				</ul>
+                    
+    			</div>
+
+                #{if session["loggedin"]=="false"}
+                    <a href="@{Users.authenticate()}" class="btn pull-right">Sign in</a>
+                #{/if}
+                
+                #{else}
+                    #{list items:controllers.Users.getUser(), as:'user'}
+
+	                   	 	
+   						#{form @Users.logout(), style: 'height: 0px', class: 'pull-right form-inline'}
+							<a href="/profile">
+								<img height="24" width="24" src="${user.iconUrl}" />
+		                   		<span class="name">${user.screenName}</span>
+		                   	</a>
+   							<button type="submit" class="btn" name="logout">Logout</button>
+   						#{/form}
+                    #{/list}
+                #{/else}
+                
+    		</div>
+    	</div>
+    </div>
+    <div class="container-fluid">
+    	<div class="row-fluid">
+            <!-- layout begin -->
+                #{doLayout /}
+            <!-- layout end -->
+        </div>
+        <hr>
+        <footer>
+                @ Guerilla Journal 2013
+        </footer>
+    </div>
+    <!--/.fluid-container-->
+
+    <script src="@{'/public/assets/js/bootstrap.js'}"></script>
+    <script src="@{'/public/assets/js/bootstrap-select.js'}"></script>
+    <script src="@{'/public/assets/js/jquery.raty-2.5.2.min.js'}"></script>
+    <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+    <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+    <script type="text/javascript">
+	    	
+    	// All global javascript should be wrapped in jQuery's document.ready callback
+   	    $(function() {
+   	    	// Adds a link to all category buttons
+   	    	$('[id^="cat-"]').each(function () {   	    		
+   		        var category = $(this).attr('id').split('-')[1];
+   		        $(this).click(function() {
+   		         	document.location.href=$(this).find('a:first').attr('href');
+   		         });
+   		    });
+	    });
+    
+    </script>
+    
+    </body>
+</html>
