@@ -25,6 +25,11 @@ public class ArticleUtil {
     public static float avgNonAlRating = 2.5f;
     public static float avgOverallRating = 2.5f;
 
+    /**
+     * Update all ratings and ranks of a list of Articles
+     *
+     * @param articles
+     */
     public static void updateRanks(List<Article> articles) {
         for(Article art : articles){
             updateRank(art);
@@ -47,12 +52,26 @@ public class ArticleUtil {
         }
     }
 
+    /**
+     * Determines how "new" the article is
+     *
+     * @param article
+     * @return
+     */
     public static float getFreshness(Article article) {
         // one day:     24*60*60*1000 = 86 400 000
         return (float) (article.getPostedAt().getTime() - ArticleUtil.timeOffset) / 1100000000;
     }
 
-    public static float getBayesAvg(float total, int ratingsCount, Type type) {
+    /**
+     * Will return the average rating of an article calculated by baysian averaging
+     *
+     * @param total
+     * @param ratingsCount
+     * @param type
+     * @return
+     */
+    public static float getAvg(float total, int ratingsCount, Type type) {
         float avg = 0f;
         switch (type) {
             case STYLE:
@@ -127,9 +146,9 @@ public class ArticleUtil {
             if(rat.overall > 0) totOv++;
         }
 
-        float avgNonAl = getBayesAvg(totNonAl, totNA, Type.NONALIGN);
-        float avgStyle = getBayesAvg(totStyle, totSt, Type.STYLE);
-        float avgOverall = getBayesAvg(totOverall, totOv, Type.OVERALL);
+        float avgNonAl = getAvg(totNonAl, totNA, Type.NONALIGN);
+        float avgStyle = getAvg(totStyle, totSt, Type.STYLE);
+        float avgOverall = getAvg(totOverall, totOv, Type.OVERALL);
 
         // no we've got the baysian average of the categories
         // as average score we will display the arithmetic avg of the basian
@@ -151,6 +170,12 @@ public class ArticleUtil {
         Logger.info("Set rank and score for article.");
     }
 
+    /**
+     * Iterate over all ratings to determine the overall ratings averages used in
+     * baysian averaging of articles
+     *
+     * @param ratings
+     */
     public static void updateRatingConstants(List<Rating> ratings){
         float newAvgStyle = 0;
         float newAvgNonAlign = 0;

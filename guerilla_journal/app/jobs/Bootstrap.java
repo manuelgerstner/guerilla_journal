@@ -30,7 +30,7 @@ public class Bootstrap extends Job {
 
             List<Article> allArticles = Article.findAll();
             ArticleUtil.updateRanks(allArticles);
-            Logger.info("Processed all ratiings");
+            Logger.info("Processed all ratings");
 
         } catch (Exception e) {
             Logger.error("Loading of entities failed: " + e.getMessage());

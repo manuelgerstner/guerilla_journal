@@ -96,14 +96,25 @@ public class Articles extends CRUD {
 		}
 	}
 
+    /**
+     * Rate one aspect of an article and update article avg rating and rank
+     *
+     * @param articleId     db id of the article to be rated
+     * @param score         score of the article in a category. Values from 1-5 are accepted
+     * @param category      specifies which category (i.e. aspect) of the article is rated.
+     *                      Accepted values are: writingStyle, nonAlignment, overall
+     */
 	public static void rateArticle(long articleId, int score, String category) {
 		User usr = Users.getUser();
 		if (Users.isGuest(usr)) {
-			// TODO let the user know it did not work, probably even before the
-			// request is sent.
+			// TODO let the user know it did not work, probably even before the request is sent.
 			Logger.info("Rating rejected, not a registered user");
 			return;
-		}
+		} if(score < 0 || score > 5) {
+            // TODO let the user know it did not work, probably even before the request is sent.
+            Logger.info("Rating rejected, attempt to save invalid score = " + score);
+            return;
+        }
 
 		Article article = Article.find("id", articleId).first();
 		Rating rating = Rating.find(
