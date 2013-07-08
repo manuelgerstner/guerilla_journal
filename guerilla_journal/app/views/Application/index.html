@@ -46,6 +46,7 @@
 			</div>
 			
 		#{/list}
+		
 		#{else}
 			<div class="span4">
 					<h2>No articles to display!</h2>
@@ -54,10 +55,14 @@
 			</div>
 		#{/else}
 	</div>
+	#{if hasMore}
+	<a href="@{Application.nextPage(page)}" class="btn pull-right">Next Page</a>
+	#{/if}
 	<!--/row-->
 #{if models.Article.count() > 0}
     </div>
 #{/if}	
 <!--/span-->
+
 
 #{include 'sidebar.html'/}

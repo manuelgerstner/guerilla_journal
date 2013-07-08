@@ -26,15 +26,25 @@ public class Application extends Controller {
 		Logger.info("User is logged in = " + user.loggedIn);
 
         GenericModel.JPAQuery articles = Article.find("order by rank desc ");
-        // find newest article
-		Article frontPost = articles.first();
-
-		// find latest articles
-		List<Article> olderPosts = articles.from(1)
-				.fetch(10);
 		Logger.info("Got posts for show all view");
-        renderArgs.put("articles", articles.from(0).fetch(10));
+        renderArgs.put("articles", articles.from(0).fetch(12));
+        renderArgs.put("page", 1);
+        renderArgs.put("hasMore",Article.count() > 12 ? true : false);
 		render();//frontPost, olderPosts);
 	}
+
+    public static void nextPage(int page) {
+
+        GenericModel.JPAQuery articles = Article.find("order by rank desc ");
+
+        Logger.info("Got posts for show all view");
+        renderArgs.put("articles", articles.from(page * 12).fetch((page + 1) * 12));
+        renderArgs.put("page", page+1);
+
+        renderArgs.put("hasMore",Article.count() > 12*(page+1) ? true : false);
+        renderTemplate("Application/index.html");
+    }
+
+
 
 }
