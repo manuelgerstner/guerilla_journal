@@ -193,7 +193,7 @@ public class ArticleUtil {
         // now lets calculate the rank of the page
         // following reddit's hot rank method
         // see http://amix.dk/blog/post/19588
-        float rawRank = totNonAl + totOverall + totStyle - (2f * (totOv + totNA + totSt)); // offset ratings from -2 to 2
+        float rawRank = totNonAl + totOverall + totStyle - (3f * (totOv + totNA + totSt)); // offset ratings from -2 to 2
         float sign = rawRank < 0 ? -1 : 1;
         float order = (float) Math.log10(Math.abs(rawRank));
         article.rank = order + sign * getFreshness(article);
