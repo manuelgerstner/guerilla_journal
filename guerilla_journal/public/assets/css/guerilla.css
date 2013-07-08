@@ -35,6 +35,6 @@ span.name { color: #fff; }
 	color: white !important;
 	text-decoration: none;
 }
-.breadcrumbs li.active {
+.breadcrumb li.active {
 	color: #000;
 }
