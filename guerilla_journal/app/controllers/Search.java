@@ -13,6 +13,11 @@ import play.mvc.Controller;
  * @author Christine
  */
 public class Search extends Controller {
+        /**
+         * Search for given query string with basic lucene search.
+         * This method searches in author, title, summary and entry
+         * for exactly the given string.
+         */
 	public static void search(String query) {
 		Logger.info("Query " + query);
 		String request = "author:\"" + query + "\"  title:\"" + query
@@ -22,5 +27,5 @@ public class Search extends Controller {
 		List<Article> articles = q.fetch();
 		Logger.info("Found " + articles.size() + " articles.");
 		render(articles, query);
-	}
+	}        
 }
