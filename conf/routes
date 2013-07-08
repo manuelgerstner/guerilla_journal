@@ -18,13 +18,17 @@ POST    /article/rate 	Articles.rateArticle(articleId: long, score: int, categor
 GET     /article		Articles.index
 GET     /detail/{id}	Articles.getArticle(id: long)
 GET     /pictures		Articles.pictures
-GET		/category/{name}		Categories.getCategory(name: String)
+GET		/category/{categoryName}		Categories.renderByCategory(categoryName: String)
 
-GET 	/tags/{name}		Tags.findTaggedWith(name: String)
+GET 	/tags/{tagName}		Tags.findTaggedWith(tagName: String)
 
 # REST Api
-GET     /api/articles 		rest.Articles.getArticles
-GET		/api/articles/{id} 	rest.Articles.getArticle(id: long)
+GET     /api/articles 					rest.REST.getArticles
+GET		/api/articles/{id} 				rest.REST.getArticle(id: long)
+GET		/api/tags						rest.REST.getTags
+GET		/api/tags/{tagName}				rest.REST.findByTag(tagName: String)
+GET		/api/categories					rest.REST.getCategories
+GET		/api/categories/{categoryName}	rest.REST.findByCategory(categoryName: String)
 
 
 

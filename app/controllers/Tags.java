@@ -5,9 +5,12 @@ import java.util.List;
 import java.util.TreeSet;
 
 import models.Article;
+import models.Category;
 import models.Tag;
 
 import org.apache.commons.lang.StringUtils;
+
+import play.Logger;
 
 /**
  * Tags Controller
@@ -18,32 +21,6 @@ import org.apache.commons.lang.StringUtils;
  * 
  */
 public class Tags extends CRUD {
-
-	public static final Double MIN_FONT_SIZE = 12.0;
-	public static final Double MAX_FONT_SIZE = 30.0;
-
-	/**
-	 * calculates the font size for a specific tag
-	 * 
-	 * @param tagName
-	 * @return the tag's font size
-	 */
-	// public static Double getFontSize(String tagName) {
-	// Tag tag = Tag.find("tagName", tagName).first();
-	// if (tag != null) {
-	//
-	// int total = Integer.parseInt(Tag.em()
-	// .createNativeQuery("SELECT SUM(t.count) FROM Tag t")
-	// .getSingleResult().toString());
-	//
-	// Double size = (tag.count / total)
-	// * ((MAX_FONT_SIZE - MIN_FONT_SIZE) + MIN_FONT_SIZE);
-	//
-	// return size;
-	// }
-	//
-	// return MIN_FONT_SIZE; // default
-	// }
 
 	/**
 	 * extracts a set of tags from a raw string
@@ -61,19 +38,41 @@ public class Tags extends CRUD {
 		return tags;
 	}
 
+	public static void renderByTag(String tagName) {
+		Tag tag = Category.find("name", tagName).first();
+		if (tag == null) {
+			Logger.error("Unknown tag by the name of " + tagName);
+			notFound();
+		}
+
+		List<Article> articleList = findTaggedWith(tagName);
+
+		Logger.info("Show articles tagged with " + tagName);
+		render("Articles/index.html", articleList);
+
+	}
+
 	/**
 	 * find all articles that have been tagged with a tag
 	 * 
 	 * @param tags
 	 *            - array of tags as strings
-	 * @return - all articles that have been tagged with at least one of the
-	 *         specified tags
+	 * @return - all articles that have been tagged with the specified tag
 	 */
-	public static List<Article> findTaggedWith(String tag) {
-		// The tricky part is that we have to use a having count statement to
-		// filter only posts that have exactly all tags from the joined view.
+	public static List<Article> findTaggedWith(String tagName) {
 		return Article
-				.find("select distinct a from Article a join a.tags as t where t.name = :tag group by a.id, a.author, a.title, a.summary, a.entry, a.postedAt having count(t.id) = :size")
-				.bind("tag", tag).bind("size", tag.length()).fetch();
+				.find("select distinct a from Article a join a.tags as t where t.name = ?",
+						tagName).fetch();
 	}
+
+	/**
+	 * find all tags
+	 * 
+	 * @return a list of Tag objects which contains every tag present in
+	 *         database
+	 */
+	public static List<Tag> getTags() {
+		return Tag.findAll();
+	}
+
 }
