@@ -14,9 +14,10 @@ import play.mvc.Controller;
  */
 public class Search extends Controller {
         /**
-         * Search for given query string with basic lucene search.
+         * Search for given query string with basic lucene search.         
          * This method searches in author, title, summary and entry
          * for exactly the given string.
+         * @param query Querystring as given by user
          */
 	public static void search(String query) {
 		Logger.info("Got Query: " + query);
@@ -31,7 +32,7 @@ public class Search extends Controller {
         /**
          * Parse search string into lucene-conform string.
          * @param query Querystring as given by user
-         * @return parsing string as necessary for starting a lucene query.
+         * @return parsing string as necessary for starting a query.
          */
         public static String parseSearchStringToRequest(String query){            
             String optTag = " or ";
