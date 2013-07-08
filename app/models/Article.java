@@ -31,6 +31,7 @@ public class Article extends Model {
 	@Field
 	public String title;
 	@Field
+    @Lob
 	public String summary;
 	@Field
 	@Lob
