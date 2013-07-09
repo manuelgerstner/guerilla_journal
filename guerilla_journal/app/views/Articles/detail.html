@@ -37,7 +37,7 @@
 		<div class="span7">
 			
 			<h2>Overall Rating: ${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}</h2>
-			<h4>Author: <strong><a href="#{if article.authorScreenName == controllers.Users.getUser().screenName}/profile#{/if}#{else}/profile/${article.authorScreenName}#{/else}">${article.author}</a></strong></h4>
+			<h4>Author: <strong><a href="#{if article.authorTwitterHandle == controllers.Users.getUser().twitterHandle}/profile#{/if}#{else}/profile/${article.authorTwitterHandle}#{/else}">${article.author}</a></strong></h4>
 			
 			#{form @Articles.rateArticle()}
 				<div class="row-fluid">
@@ -107,7 +107,7 @@
 			#{list items:controllers.Comments.getCommentsForArticle(article.id), as:'comment'}
 				<div class="span6 comment">
 					<small>
-					Comment written on <strong>${comment.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong><a href="#{if comment.authorScreenName == controllers.Users.getUser().screenName}/profile#{/if}#{else}/profile/${comment.authorScreenName}#{/else}">${comment.author}</a></strong> 
+					Comment written on <strong>${comment.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong><a href="#{if comment.authorTwitterHandle == controllers.Users.getUser().twitterHandle}/profile#{/if}#{else}/profile/${comment.authorTwitterHandle}#{/else}">${comment.author}</a></strong>
 					</small>
 					<div class="commentString"><blockquote>${comment.commentString}</blockquote></div>
 				</div>
@@ -119,7 +119,7 @@
 					<input type="hidden" name="articleId" value="${article.id}"/>
 				#{list items:controllers.Users.getUser(), as:'user'}					
 					<input type="hidden" name="author" value="${user.name}"/>
-					<input type="hidden" name="authorScreenName" value="${user.screenName}"/>
+					<input type="hidden" name="authorTwitterHandle" value="${user.twitterHandle}"/>
 				#{/list}
 				#{ifErrors}
 					<ul class="text-error">

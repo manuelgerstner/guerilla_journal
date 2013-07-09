@@ -26,7 +26,7 @@
 			#{if user}
 				<h3>${user.name}'s articles:</h3>
 				<div class="row-fluid">
-				#{list items:models.Article.getUsersArticles(user.screenName), as:'article'}
+				#{list items:models.Article.getUsersArticles(user.twitterHandle), as:'article'}
 						<div class="span6 well">	
 							<a href="@{Articles.getArticle(article.id)}">${article.title}</a> (${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}) 
 							<div>
@@ -57,9 +57,9 @@
 
 <script>
 	$(function () {
-		/*$('head').append('<meta property="og:title" content="${article.title}" />');
+		/*$('head').append('<meta property="og:title" content="${article?.title}" />');
 		$('#share-facebook').click(function(e) {
-			window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('@{Articles.getArticle(article.id)}'),'facebook-share-dialog','width=626,height=436');
+			    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('@{Articles.getArticle(article?.id)}'),'facebook-share-dialog','width=626,height=436');
 		});*/
 	    $('.star').each(function () {
 	        var category = $(this).attr('data-category');

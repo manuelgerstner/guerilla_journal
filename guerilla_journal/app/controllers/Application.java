@@ -43,6 +43,7 @@ public class Application extends Controller {
         renderArgs.put("page", page);
 
         renderArgs.put("hasMore",Article.count() > 12*(page) ? true : false);
+        renderArgs.put("user",Users.getUser());
         renderTemplate("Application/index.html");
     }
 

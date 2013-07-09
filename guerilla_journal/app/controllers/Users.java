@@ -73,7 +73,7 @@ public class Users extends CRUD {
                     // store user info
                     user.name = userName;
                     user.iconUrl = iconUrl;
-                    user.screenName = screenName;
+                    user.twitterHandle = screenName;
 
                     user.session = session.getId();
                     user.loggedIn = true;

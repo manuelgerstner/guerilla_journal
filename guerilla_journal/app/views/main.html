@@ -28,8 +28,8 @@
       
     </style>
     <link rel="shortcut icon" type="image/png" href="@{'public/assets/img/favicon.png'}" />
-<!--     <link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet"> -->
-    <link rel="stylesheet" href="http://bootswatch.com/spacelab/bootstrap.min.css" />
+     <link href="@{'/public/assets/css/bootstrap.css'}" rel="stylesheet">
+    <!--<link rel="stylesheet" href="http://bootswatch.com/spacelab/bootstrap.min.css" />-->
     <link href="@{'/public/assets/css/bootstrap-responsive.css'}" rel="stylesheet">
     <!-- Playfair webfont by Google for Guerilla Journal -->
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
@@ -46,22 +46,22 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
     	<div class="navbar-inner">
     		<div class="container-fluid">
-    			<a href="/"><img class="brandimg pull-left" height="34" width="34" src="http://i.imgur.com/jB1VFWp.png"/></a>
-    			<a class="brand" href="/">Guerilla Journal</a>
+    			<a href="@{Application.index()}"><img class="brandimg pull-left" height="34" width="34" src="http://i.imgur.com/jB1VFWp.png"/></a>
+    			<a class="brand" href="@{Application.index()}">Guerilla Journal</a>
     			<div class="nav">
                     
     				<ul class="nav">
     					<li>
-    						<a href="/">View Articles</a>
+    						<a href="@{Application.index()}">View Articles</a>
     					</li>
     				#{if session["loggedin"]=="true"}
     					
     					<li>
-    						<a href="/article">Submit</a>
+    						<a href="@{Articles.index()}">Submit</a>
     					</li>
     					
     					<li>
-    						<a href="/profile">My Profile</a>
+    						<a href="@{Profiles.index()}">My Profile</a>
     					</li>
     					
     				#{/if}
@@ -74,15 +74,15 @@
                 #{/if}
                 
                 #{else}
-                    #{list items:controllers.Users.getUser(), as:'user'}
+
    						#{form @Users.logout(), style: 'height: 0px', class: 'pull-right form-inline'}
-							<a href="@{Profiles.getUserProfileByScreenName(user.name)}">
+							<a href="@{Profiles.getUserProfileByTwitterHandle(user.twitterHandle)}">
 								<img height="24" width="24" src="${user.iconUrl}" />
-		                   		<span class="name">${user.screenName}</span>
+		                   		<span class="name">${user.twitterHandle}</span>
 		                   	</a>
    							<button type="submit" class="btn" name="logout">Logout</button>
    						#{/form}
-                    #{/list}
+
                 #{/else}
                 
     		</div>

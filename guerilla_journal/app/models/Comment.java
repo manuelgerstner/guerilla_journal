@@ -12,18 +12,18 @@ public class Comment extends Model {
 
 	public long articleId;
 	public String author;
-	public String authorScreenName;
+	public String authorTwitterHandle;
 	@Lob
 	public String commentString;
 	private Date postedAt;
 
-	public Comment(long articleId, String author, String authorScreenName,
+	public Comment(long articleId, String author, String authorTwitterHandle,
 			String commentString) {
 		super();
 
 		this.articleId = articleId;
 		this.author = author;
-		this.authorScreenName = authorScreenName;
+		this.authorTwitterHandle = authorTwitterHandle;
 		this.commentString = commentString;
 		this.postedAt = new Date();
 

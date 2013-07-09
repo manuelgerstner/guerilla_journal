@@ -9,12 +9,13 @@ public class Profiles extends CRUD {
 		User currentUser = Users.getUser();
 		// TODO use User
 		Logger.info("Show profile of user " + currentUser.name);
+        renderArgs.put("user",currentUser);
 		render();
 	}
 
-	public static void getUserProfileByScreenName(String screenName) {
-		// get user by screenName
-		User user = User.find("screenName", screenName).first();
+	public static void getUserProfileByTwitterHandle(String twitterHandle) {
+		// get user by twitterHandle
+		User user = User.find("twitterHandle", twitterHandle).first();
 		if (user == null) {
 			notFound();
 		} else {

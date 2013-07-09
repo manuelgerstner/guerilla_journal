@@ -3,23 +3,29 @@
 # ~~~~
 
 # Home page
-GET     /               Application.index
-GET     /oauthcallback  Application.authenticate
-GET		/profile		Profiles.index
-GET 	/articles/{page}			Application.nextPage(int: page)
+GET     /                               Application.index
+GET 	/page/{page}                    Application.nextPage(int: page)
 
-*	    /admin			module:crud
+# Profiles
+GET		/profile		                Profiles.index
+GET		/profile/{twitterHandle}		Profiles.getUserProfileByTwitterHandle(twitterHandle: String)
 
-# Ajax rating
-POST    /article/rate 	Articles.rateArticle(articleId: long, score: int, category: String)
+#Articles
+GET     /article/new		            Articles.index
+GET     /article/{id}	                Articles.getArticle(id: long)
+POST    /article/rate 	                Articles.rateArticle(articleId: long, score: int, category: String)
 
-GET     /article		Articles.index
-GET     /detail/{id}	Articles.getArticle(id: long)
-GET     /pictures		Articles.pictures
+#Pictures
+GET     /pictures		                Articles.pictures
 
+#Categories
 GET		/category/{categoryName}		Categories.renderByCategory(categoryName: String)
-GET		/profile/{screenName}			Profiles.getUserProfileByScreenName(screenName: String)
 
+#Tags
+GET 	/tags/{tagName}					Tags.renderByTag(tagName: String)
+
+# DEBUG CRUD
+*	    /admin			    module:crud
 
 # REST Api
 GET     /api/articles 					rest.REST.getArticles
@@ -29,10 +35,6 @@ GET		/api/tags/{tagName}				rest.REST.findByTag(tagName: String)
 GET		/api/categories					rest.REST.getCategories
 GET		/api/categories/{categoryName}	rest.REST.findByCategory(categoryName: String)
 GET		/api/articles/{articleId}/comments		rest.REST.getComments(articleId: long)
-
-
-GET 	/tags/{tagName}					Tags.renderByTag(tagName: String)
-
 
 # Ignore favicon requests
 GET     /favicon.ico   404

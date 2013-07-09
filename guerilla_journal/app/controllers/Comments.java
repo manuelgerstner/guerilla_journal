@@ -8,7 +8,7 @@ import play.Logger;
 public class Comments extends CRUD {
 
 	public static void createComment(long articleId, String author,
-			String authorScreenName, String commentString) {
+			String authorTwitterHandle, String commentString) {
 		// TODO: sanity check + tags
 
 		// Validation
@@ -20,7 +20,7 @@ public class Comments extends CRUD {
 			Articles.getArticle(articleId);
 		} else {
 			// validation passed, create new article
-			Comment comment = new Comment(articleId, author, authorScreenName,
+			Comment comment = new Comment(articleId, author, authorTwitterHandle,
 					commentString);
 
 			comment.save();

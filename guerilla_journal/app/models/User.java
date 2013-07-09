@@ -17,7 +17,7 @@ public class User extends Model {
 	@Required
 	public String name; // Twitter user name
 	@Required
-	public String screenName; // Twitter screen name (@xyz)
+	public String twitterHandle; // Twitter screen name (@xyz)
 	public String token; // oauth
 	public String secret; // oauth
 	public String iconUrl;
@@ -39,7 +39,7 @@ public class User extends Model {
 	}
 
 	public String toString() {
-		return name + " : " + (screenName == null ? " " : screenName) + " : "
+		return name + " : " + (twitterHandle == null ? " " : twitterHandle) + " : "
 				+ (loggedIn ? "logged in via twitter" : "no twitter login")
 				+ " : " + session;
 	}

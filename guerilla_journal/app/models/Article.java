@@ -26,7 +26,7 @@ public class Article extends Model {
 	@Field
 	public String author;
 	@Field
-	public String authorScreenName;
+	public String authorTwitterHandle;
 	@Field
 	public String title;
 	@Field
@@ -67,12 +67,12 @@ public class Article extends Model {
 		return ArticleUtil.getCategoryAvg(this, ArticleUtil.Type.OVERALL);
 	}
 
-	public Article(String author, String authorScreenName, String title,
+	public Article(String author, String authorTwitterHandle, String title,
 			String summary, String entry, String headerPicUrl, String category) {
 		super();
 
 		this.author = author;
-		this.authorScreenName = authorScreenName;
+		this.authorTwitterHandle = authorTwitterHandle;
 		this.summary = summary;
 		this.entry = entry;
 		this.postedAt = new Date();
@@ -164,9 +164,10 @@ public class Article extends Model {
 		return articleList;
 	}
 
-	public static List<Article> getUsersArticles(String screenName) {
+	public static List<Article> getUsersArticles(String twitterHandle) {
 		List<Article> articleList = Article.find(
-				"authorScreenName = '" + screenName + "'").fetch();
+				"authorTwitterHandle = '" + twitterHandle + "'").fetch();
+//        Article.find("byAuthorTwitterHandle",twitterHandle)
 		return articleList;
 	}
 
