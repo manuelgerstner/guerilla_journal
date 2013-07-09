@@ -14,10 +14,6 @@
 			  <li class="active">${user.name}'s Profile</li>
 			</ul>
 	</div>
-	#{include 'header.html' /}
-	
-	<br/>
-	<br/>
 	<div class="row-fluid">
 		<div class="span9">
 			<div class="span8">
@@ -57,34 +53,7 @@
 		</div>
 	</div>
 </div>
-#{if user}
-	<div class="span3">
-	
-	<div class="well sidebar-nav">
-		<h4>
-			${user.name}'s rating:
-		</h4>
-		<ul class="nav nav-list">
-			<li>
-				<a href="#">Article #1</a>
-			</li>
-			<li>
-				<a href="#">Article #2</a>
-			</li>
-		</ul>
-	</div>
-</div>
-#{/if}
-#{else}
-	<div class="span3">
-	
-	<div class="well sidebar-nav">
-		<h4>
-			No user no rating! Only existing users can get ratings!
-		</h4>
-	</div>
-</div>
-#{/else}
+#{include 'sidebar.html'/}
 
 <script>
 	$(function () {
