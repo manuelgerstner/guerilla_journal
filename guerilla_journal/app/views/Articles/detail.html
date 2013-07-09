@@ -17,13 +17,13 @@
 			${article.summary}
 		</div>
 	</div>
-	
+
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="pull-right mediabar">
 				<img class="headerPic" src="${article.headerPicUrl}"/>
 				<div class="subimg-${article.category.className}"></div>
-				
+
 			</div>
 			<blockquote class="entry">
 				${article.entry.raw()}
@@ -31,14 +31,14 @@
 			</blockquote>
 		</div>
 	</div>
-	
+
 	<div class="row-fluid topborder-${article.category.className}" style="margin-top: 100px;">
-	
+
 		<div class="span7">
-			
+
 			<h2>Overall Rating: ${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}</h2>
 			<h4>Author: <strong><a href="#{if article.authorTwitterHandle == controllers.Users.getUser().twitterHandle}/profile#{/if}#{else}/profile/${article.authorTwitterHandle}#{/else}">${article.author}</a></strong></h4>
-			
+
 			#{form @Articles.rateArticle()}
 				<div class="row-fluid">
 					<div class="span4">
@@ -82,8 +82,8 @@
 					</div>
 				</div>
 			#{/form}
-		</div>	
-		
+		</div>
+
 		<div class="span2">
 			<h2>Tags:</h2>
 			<div class="row-fluid">
@@ -92,7 +92,7 @@
 				#{/list}
 			</div>
 		</div>
-		
+
 		<div class="span3">
 			<h2>Share this Article:</h2>
 			<span id="share-google" class="g-plus" data-action="share" data-annotation="bubble" data-height="28"></span>
@@ -100,8 +100,8 @@
 	         	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="large" data-text="${article.title} @@{Articles.getArticle(article.id)}">Tweet</a>
 	         </span>
          </div>
-         
-         <div class="row-fluid">
+
+
 		<div class="span12 topborder-${article.category.className}">
 			<h2>Comments (${controllers.Comments.getCommentsForArticle(article.id).size()}):</h2>
 			#{list items:controllers.Comments.getCommentsForArticle(article.id), as:'comment'}
@@ -117,7 +117,7 @@
 				#{if session["loggedin"]=="true"}
 				#{form @Comments.createComment(), enctype:'multipart/form-data'}
 					<input type="hidden" name="articleId" value="${article.id}"/>
-				#{list items:controllers.Users.getUser(), as:'user'}					
+				#{list items:controllers.Users.getUser(), as:'user'}
 					<input type="hidden" name="author" value="${user.name}"/>
 					<input type="hidden" name="authorTwitterHandle" value="${user.twitterHandle}"/>
 				#{/list}
@@ -128,14 +128,14 @@
 					#{/list}
 					</ul>
 				#{/ifErrors}
-					<div class="row-fluid">		
+					<div class="row-fluid">
 						<div id="textarea" class="span6 control-group">
-							<label for="commentString" class="control-label">Comment:</label>					
+							<label for="commentString" class="control-label">Comment:</label>
 							<textarea class="field span12" name="commentString" id="commentString" rows="4">${flash.entry}</textarea>
-											
+
 						</div>
 					</div>
-					<button class="btn" type="submit">Create</button>	
+					<button class="btn" type="submit">Create</button>
 				#{/form}
 				#{/if}
 				#{else}
@@ -162,7 +162,7 @@
 	//global var
 	ARTICLE_ID = ${article.id};
 	LOGGED_IN = ${session["loggedin"]};
-	
+
 	$(function () {
 		/*$('head').append('<meta property="og:title" content="${article.title}" />');
 		$('#share-facebook').click(function(e) {
@@ -177,7 +177,7 @@
 	            	return $(this).attr('data-score');
 	            },
 	            click: function (score) {
-	                
+
 	                //if (LOGGED_IN == "true") {
 	                    console && console.log('rating article #%d with %d points in category %s', ARTICLE_ID, score, category);
 	                    $.post('@@{Articles.rateArticle()}', {

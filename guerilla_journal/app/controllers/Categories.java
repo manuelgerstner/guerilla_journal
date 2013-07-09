@@ -19,6 +19,7 @@ public class Categories extends CRUD {
 		List<Article> articleList = findByCategory(category);
 
 		Logger.info("Show articles in category " + categoryName);
+        renderArgs.put("user",Users.getUser());
 		render("Categories/index.html", articleList, categoryName);
 
 	}
