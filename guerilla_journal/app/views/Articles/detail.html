@@ -50,7 +50,7 @@
 								How well was the article written?
 							</label>
 							<div class="controls">
-								<div class="star" data-category="writingStyle"></div>
+								<div class="star" data-category="writingStyle" data-score="${article.getAvgStyle()}"></div>
 							</div>
 						</div>
 					</div>
@@ -63,7 +63,7 @@
 								How non-aligned was the article?
 							</label>
 							<div class="controls">
-								<div class="star" data-category="nonAlignment"></div>
+								<div class="star" data-category="nonAlignment" data-score="${article.getAvgNonAlign()}"></div>
 							</div>
 						</div>
 					</div>
@@ -76,7 +76,7 @@
 							Overall, how did you like the article?
 							</label>
 							<div class="controls">
-								<div class="star" data-category="overall"></div>
+								<div class="star" data-category="overall" data-score="${article.getAvgOverall()}"></div>
 							</div>
 						</div>
 					</div>
@@ -173,6 +173,9 @@
 	        $(this).raty({
 	            path: '/public/assets/img/',
 	            scoreName: category,
+	            score: function () {
+	            	return $(this).attr('data-score');
+	            },
 	            click: function (score) {
 	                
 	                //if (LOGGED_IN == "true") {
