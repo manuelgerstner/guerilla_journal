@@ -66,3 +66,6 @@ span.name { color: #fff; }
 	color: #fff;
 	font-weight: bold;
 }
+#articleContent .headerPic {
+	margin-left: 10px;
+}
