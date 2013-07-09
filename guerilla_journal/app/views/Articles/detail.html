@@ -55,7 +55,7 @@
 								How well was the article written?
 							</label>
 							<div class="controls">
-								<div class="star" data-category="writingStyle" data-score="${(rating && user.loggedIn) ? rating.writingStyle : article.getAvgStyle()}"></div>
+								<div class="star writingStyle" data-category="writingStyle" data-score="${(rating && user.loggedIn) ? rating.writingStyle : article.getAvgStyle()}"></div>
 							</div>
 						</div>
 					</div>
@@ -68,7 +68,7 @@
 								How non-aligned was the article?
 							</label>
 							<div class="controls">
-								<div class="star" data-category="nonAlignment" data-score="${(rating && user.loggedIn) ? rating.nonAlignment :article.getAvgNonAlign()}"></div>
+								<div class="star nonAlignment" data-category="nonAlignment" data-score="${(rating && user.loggedIn) ? rating.nonAlignment :article.getAvgNonAlign()}"></div>
 							</div>
 						</div>
 					</div>
@@ -81,7 +81,7 @@
 							Overall, how did you like the article?
 							</label>
 							<div class="controls">
-								<div class="star" data-category="overall" data-score="${(rating && user.loggedIn) ? rating.overall :article.getAvgOverall()}"></div>
+								<div class="star overall" data-category="overall" data-score="${(rating && user.loggedIn) ? rating.overall :article.getAvgOverall()}"></div>
 							</div>
 						</div>
 					</div>
@@ -188,6 +188,7 @@
 	            },
 	            click: function (score) {
                     console && console.log('rating article #%d with %d points in category %s', ARTICLE_ID, score, category);
+                    $('.' + category).append('<i class="icon-ok"></i>');
                     $.post('@@{Articles.rateArticle()}', {
                         articleId: ARTICLE_ID,
                         score: score,

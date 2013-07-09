@@ -3,7 +3,7 @@
            <form class="form" action="@{Search.search()}" method="GET">
                 <div class="control-group">
                 	<h4>
-	                	<label class="control-label" for="query">Find Articles:</label>
+	                	<label class="control-label" for="query"><h4>Find Articles:</h4></label>
 	                </h4>
                 </div>
                 <div class="input-append">
@@ -13,9 +13,7 @@
             </form> 
         </div>	
 	<div class="well sidebar-nav">
-		<h4>
-			Trending Articles
-		</h4>
+		<h4>Trending Articles</h4>
 		<ul class="nav nav-list">
 			
 			#{list items:controllers.Articles.getTrending(), as:'article'}
