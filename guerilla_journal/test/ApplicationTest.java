@@ -3,8 +3,10 @@ import java.util.List;
 import java.util.Map;
 
 import models.Article;
+import models.Rating;
 import models.Tag;
 import models.User;
+import jobs.UpdateRatings;
 
 import org.junit.Test;
 
@@ -37,30 +39,10 @@ public class ApplicationTest extends FunctionalTest {
 	    Map<String, String> params = new HashMap();
 	    params.put("test", "test"); 
 		Response response = POST("/Users/fakeLogin",params);
-		Request request = newRequest();
-	    request.cookies = response.cookies;
-	 //   request.cookies.
-		Users users = new Users();
-		User user = users.getUser();
-	    User knownUser = User.findOrCreate("dummyuser1");
-	    if (knownUser != null) { // check if we already know this user
-	    	
-	    	/*while (User.find("session",Scope.Session.current().getId()).first()!=null ){
-	    		User user2 = User.find("session",Scope.Session.current().getId()).first();
-	    		user2.delete();
-	    	}*/
-	        if (users.isGuest(user)) {
-	            user.delete();  // if so delete the guest user created for him
-	        } 
-	        user = knownUser; // and work on the know User db record from now on
-	    }		
-	    user.session = Scope.Session.current().getId();
-		Scope.Session.current().put("loggedin", true);
-		user.save();
-		Logger.info("user name and session: "+user.name+" "+user.session);;
-		String token = Scope.Session.current().getAuthenticityToken(); // this makes the request authenticated
-		response = GET("/profile");
 		User cUser = (User) renderArgs("user");
+		Logger.info("user name and session: "+cUser.name+" "+cUser.session);;
+		response = GET("/profile");
+		 cUser = (User) renderArgs("user");
 		Logger.info("user name and session: "+cUser.name+" "+cUser.session);;
 
         assertStatus(200, response);
@@ -103,42 +85,33 @@ public class ApplicationTest extends FunctionalTest {
 @Test
 	public void testRateArticle(){
     
-	Users users = new Users();
-	User user = users.getUser();
-    User knownUser = User.find("name", "dummyuser1").first();
-    if (knownUser != null) { // check if we already know this user
-        if (users.isGuest(user)) {
-            user.delete();  // if so delete the guest user created for him
-        } else {
-            user.session = null;
-            user.secret = null;
-            user.token = null;
-            user.save();
-        }
-        user = knownUser; // and work on the know User db record from now on
-    }
-	user.name="dummyuser1";
-	user.twitterHandle="dummyuser1";
-    user.session = Scope.Session.current().getId();
-	user.token ="frhiefe";
-	user.secret="rhirehfrei";
-	user.loggedIn = true;
-	user.save();
-	Scope.Session.current().put("loggedin", true);
+    Map<String, String> params2 = new HashMap();
+    params2.put("test", "test"); 
+	Response response = POST("/Users/fakeLogin",params2);
+	User cUser = (User) renderArgs("user");
 
 		long lon = 1;
 		Article retrieved = Article.findById(lon);
-		float help = retrieved.getAvgStyle();
+		float help = retrieved.getAvgOverall();
+		User user = User.find("name", "dummyuser1").first();
 
+		Rating rate = Rating.find ("user",user).first();
+		Logger.info("rating at start: "+rate.overall);
 	    Map<String, String> params = new HashMap();
 	    params.put("articleId", "1");
 	    params.put("score", "5");
-	    params.put("category", "writingStyle");
-	    Response response = POST("/Articles/rateArticle",params);
+	    params.put("category", "overall");
+	    response = POST("/Articles/rateArticle",params);
         assertStatus(200, response);
+        
 		Article retrieved2 = Article.findById(lon);
-		float help2 = retrieved2.getAvgStyle();
-	    assertTrue( help2 >= help );
+		float help2 = retrieved2.getAvgOverall();
+		UpdateRatings up = new UpdateRatings();
+		up.doJob();
+		Logger.info("help 2 and help: "+help2+" "+help);
+		rate = Rating.find ("user",user).first();
+		Logger.info("rating at end: "+rate.overall);
+	    assertTrue( help2 > help );
 	}
 
 /**

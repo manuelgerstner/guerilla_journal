@@ -194,6 +194,9 @@ public class Users extends CRUD {
 	    user.twitterHandle="dummyuser1";
 	    user.loggedIn = true;
 	    session.put("loggedin", true);
+		Logger.info("user name and session: "+user.name+" "+user.session);;
+
+	    user.save();
     	renderArgs.put("user", user);
     }
 
