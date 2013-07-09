@@ -109,7 +109,7 @@ public class Articles extends CRUD {
      */
 	public static void rateArticle(long articleId, int score, String category) {
 		User usr = Users.getUser();
-		if (Users.isGuest(usr)) {
+		if (Users.isGuest(usr) || !usr.loggedIn) {
 			// TODO let the user know it did not work, probably even before the request is sent.
 			Logger.info("Rating rejected, not a registered user");
 			return;
@@ -154,6 +154,12 @@ public class Articles extends CRUD {
 		Article article = Article.find("id", id).first();
 		if (article != null) {
 			Logger.info("Show selected article.");
+            User user = Users.getUser();
+            Rating rating = Rating.find(
+                    "SELECT r FROM Rating r where r.user.id = " + user.getId()
+                            + " AND r.article.id = " + article.getId()).first();
+            renderArgs.put("user",user);
+            renderArgs.put("rating",rating);
 			render("Articles/detail.html", article);
 		}
 		// not found

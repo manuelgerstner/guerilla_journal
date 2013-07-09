@@ -50,7 +50,7 @@
 								How well was the article written?
 							</label>
 							<div class="controls">
-								<div class="star" data-category="writingStyle" data-score="${article.getAvgStyle()}"></div>
+								<div class="star" data-category="writingStyle" data-score="${(rating && user.loggedIn) ? rating.writingStyle : article.getAvgStyle()}"></div>
 							</div>
 						</div>
 					</div>
@@ -63,7 +63,7 @@
 								How non-aligned was the article?
 							</label>
 							<div class="controls">
-								<div class="star" data-category="nonAlignment" data-score="${article.getAvgNonAlign()}"></div>
+								<div class="star" data-category="nonAlignment" data-score="${(rating && user.loggedIn) ? rating.nonAlignment :article.getAvgNonAlign()}"></div>
 							</div>
 						</div>
 					</div>
@@ -76,7 +76,7 @@
 							Overall, how did you like the article?
 							</label>
 							<div class="controls">
-								<div class="star" data-category="overall" data-score="${article.getAvgOverall()}"></div>
+								<div class="star" data-category="overall" data-score="${(rating && user.loggedIn) ? rating.overall :article.getAvgOverall()}"></div>
 							</div>
 						</div>
 					</div>
@@ -187,7 +187,7 @@
 	                    }, function (e) {
 	                        console && console.log(e); // log response
 	                    });
-	               // }
+	               //}
 	            }
 	        });
 	    });

@@ -76,9 +76,9 @@
                 #{else}
 
    						#{form @Users.logout(), style: 'height: 0px', class: 'pull-right form-inline'}
-							<a href="@{Profiles.getUserProfileByTwitterHandle(user.twitterHandle)}">
-								<img height="24" width="24" src="${user.iconUrl}" />
-		                   		<span class="name">${user.twitterHandle}</span>
+							<a href="@{Profiles.getUserProfileByTwitterHandle(user?.twitterHandle)}">
+								<img height="24" width="24" src="${user?.iconUrl}" />
+		                   		<span class="name">${user?.twitterHandle}</span>
 		                   	</a>
    							<button type="submit" class="btn" name="logout">Logout</button>
    						#{/form}
