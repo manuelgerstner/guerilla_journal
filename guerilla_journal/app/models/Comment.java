@@ -33,5 +33,9 @@ public class Comment extends Model {
 	public Date getPostedAt() {
 		return postedAt;
 	}
+	
+	public void setPostedAt(Date postedAt){
+		this.postedAt=postedAt;
+	}
 
 }

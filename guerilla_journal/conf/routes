@@ -9,6 +9,10 @@ GET 	/page/{page}                    Application.nextPage(int: page)
 # Profiles
 GET		/profile		                Profiles.index
 GET		/profile/{twitterHandle}		Profiles.getUserProfileByTwitterHandle(twitterHandle: String)
+GET		/Users							Users.index
+POST	/Users/fakeLogin{test}			Users.fakeLogin(test: String)
+GET		/Search							Search.index
+GET		/search/search{query}			Search.search(query: String)							
 
 #Articles
 GET     /article/new		            Articles.index

@@ -168,5 +168,33 @@ public class Users extends CRUD {
         }
         redirect("/");
     }
+    public static void fakeLogin(String test){
+        User user = getUser();
+	    User knownUser = User.findOrCreate("dummyuser1");
+	    if (knownUser != null) { // check if we already know this user
+	    	
+	    	/*while (User.find("session",Scope.Session.current().getId()).first()!=null ){
+	    		User user2 = User.find("session",Scope.Session.current().getId()).first();
+	    		user2.delete();
+	    	}*/
+	        if (isGuest(user)) {
+	            user.delete();  // if so delete the guest user created for him
+	        } else {
+                user.session = null;
+                user.secret = null;
+                user.token = null;
+                user.save();
+            }
+	        user = knownUser; // and work on the know User db record from now on
+	    }	
+	    user.session = session.getId();
+	    user.secret ="rgrehige";
+	    user.token = "gheirfft";
+	    user.name = "dummyuser1";
+	    user.twitterHandle="dummyuser1";
+	    user.loggedIn = true;
+	    session.put("loggedin", true);
+    	renderArgs.put("user", user);
+    }
 
 }

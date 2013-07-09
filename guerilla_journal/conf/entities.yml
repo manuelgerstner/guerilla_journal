@@ -386,6 +386,296 @@ User(dummyuser19):
 User(dummyuser20):
  name: dummyuser20
  twitterHandlee: dummyuser20
+ 
+Comment(pj-art1):
+ articleId: 1
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+Comment(pj-art2):
+ articleId: 2
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+Comment(pj-art3):
+ articleId: 3
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+Comment(pj-art4):
+ articleId: 4
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+
+Comment(pj-art5):
+ articleId: 5
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art6):
+ articleId: 6
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art7):
+ articleId: 7
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art8):
+ articleId: 8
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art9):
+ articleId: 9
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art10):
+ articleId: 10
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art11):
+ articleId: 11
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art12):
+ articleId: 12
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art13):
+ articleId: 13
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art14):
+ articleId: 14
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art15):
+ articleId: 15
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art16):
+ articleId: 16
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art17):
+ articleId: 17
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art18):
+ articleId: 18
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art19):
+ articleId: 19
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(pj-art20):
+ articleId: 201
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ commentString: Wundervoller Beitrag!
+ postedAt: 2013-07-14
+ 
+ 
+Comment(cn-art1):
+ articleId: 1
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art2):
+ articleId: 2
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art3):
+ articleId: 3
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art4):
+ articleId: 4
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art5):
+ articleId: 5
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art6):
+ articleId: 6
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art7):
+ articleId: 7
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art8):
+ articleId: 8
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15  
+ 
+Comment(cn-art9):
+ articleId: 9
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art10):
+ articleId: 10
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art11):
+ articleId: 11
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art12):
+ articleId: 12
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art13):
+ articleId: 13
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art14):
+ articleId: 14
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art15):
+ articleId: 15
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art16):
+ articleId: 16
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art17):
+ articleId: 17
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art18):
+ articleId: 18
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15
+ 
+Comment(cn-art19):
+ articleId: 19
+ author: Christine Nöhmeier
+ authorTwitterHandle: christinenoehmeier
+ commentString: Ja wirklisch super geschrieben!
+ postedAt: 2013-07-15               
+ 
 Rating(dombusser-article1):
  writingStyle: 1
  nonAlignment: 1

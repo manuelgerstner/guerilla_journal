@@ -1,3 +1,5 @@
+import java.util.List;
+
 import models.Article;
 import models.Comment;
 
@@ -24,14 +26,6 @@ public class BasicTest extends UnitTest {
 		assertEquals(retrieved.authorTwitterHandle, "dummyuser1");
 		assertEquals(retrieved.title, "dummy article title");
 	}
-	@Test
-	public void createValidatedArticle (){
-		Articles arts = new Articles ();
-		arts.createArticle("dummyuser1", "dummyuser1", "dummy article title", "just a test article",
-				"this is the entry, but it isnt supposed to make much sense", 
-				"http://www.erfolgreiche-diät.de/wp-content/uploads/2012/07/test.gif", "World", "sport");
-	}
-	
 	
 	@Test
 	public void createAndRetrieveComment(){
@@ -43,4 +37,22 @@ public class BasicTest extends UnitTest {
 		assertEquals(retrieved.authorTwitterHandle, "dummyuser1");
 		assertEquals(retrieved.commentString, "wow das ist echt spannend!");
 	}
+	
+	@Test
+	public void getUsersArticlesTest(){
+		 List<Article> list=  Article.getUsersArticles( "julianpfaff");
+		 
+		 for ( int i =0;i<list.size();i++){
+			 Article art = list.get(i);
+			 assertEquals("julianpfaff",art.authorTwitterHandle);
+		 }
+		 
+		 
+
+		
+		
+		
+		
+	}
+	
 }

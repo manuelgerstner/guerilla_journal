@@ -93,7 +93,7 @@ public class Articles extends CRUD {
 			for (Tag tag : Tags.extractTags(rawTags)) {
 				article.getTags().add(tag);
 			}
-
+            renderArgs.put("id", article.id);
 			article.save();
 			Logger.info("Article " + article.getTitle() + " stored in DB.");
 			getArticle(article.id); // forward to newly created article
