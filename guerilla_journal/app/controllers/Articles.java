@@ -28,6 +28,7 @@ public class Articles extends CRUD {
 			Logger.info("Redirect, not logged in.");
 			redirect("/");
 		}
+        renderArgs.put("user",Users.getUser());
 		render("Articles/submit.html");
 	}
 

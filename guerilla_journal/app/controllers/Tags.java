@@ -48,6 +48,7 @@ public class Tags extends CRUD {
 		List<Article> articleList = findTaggedWith(tagName);
 
 		Logger.info("Show articles tagged with " + tagName);
+        renderArgs.put("user",Users.getUser());
 		render("Tags/index.html", articleList, tagName);
 
 	}

@@ -26,6 +26,7 @@ public class Search extends Controller {
 		Query q = play.modules.search.Search.search(request, Article.class);
 		List<Article> articles = q.fetch();
 		Logger.info("Found " + articles.size() + " fitting article(s).");
+        renderArgs.put("user",Users.getUser());
 		render(articles, query);
 	}   
         
