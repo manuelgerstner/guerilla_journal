@@ -21,8 +21,6 @@ GET		/category/{categoryName}		Categories.renderByCategory(categoryName: String)
 GET		/profile/{screenName}			Profiles.getUserProfileByScreenName(screenName: String)
 
 
-GET 	/tags/{tagName}		Tags.findTaggedWith(tagName: String)
-
 # REST Api
 GET     /api/articles 					rest.REST.getArticles
 GET		/api/articles/{id} 				rest.REST.getArticle(id: long)
@@ -31,7 +29,7 @@ GET		/api/tags/{tagName}				rest.REST.findByTag(tagName: String)
 GET		/api/categories					rest.REST.getCategories
 GET		/api/categories/{categoryName}	rest.REST.findByCategory(categoryName: String)
 
-
+GET 	/tags/{tagName}					Tags.renderByTag(tagName: String)
 
 
 # Ignore favicon requests

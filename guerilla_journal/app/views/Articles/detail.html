@@ -88,7 +88,7 @@
 			<h2>Tags:</h2>
 			<div class="row-fluid">
 				#{list items:article.tags, as:'tag'}
-					<span class="label label-info">${tag.name}</span>
+					<a href="@{Tags.renderByTag(tag.name)}"><span class="label label-info">${tag.name}</span></a>
 				#{/list}
 			</div>
 		</div>

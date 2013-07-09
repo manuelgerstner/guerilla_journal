@@ -39,7 +39,7 @@ public class Tags extends CRUD {
 	}
 
 	public static void renderByTag(String tagName) {
-		Tag tag = Category.find("name", tagName).first();
+		Tag tag = Tag.find("name", tagName).first();
 		if (tag == null) {
 			Logger.error("Unknown tag by the name of " + tagName);
 			notFound();
@@ -48,7 +48,7 @@ public class Tags extends CRUD {
 		List<Article> articleList = findTaggedWith(tagName);
 
 		Logger.info("Show articles tagged with " + tagName);
-		render("Articles/index.html", articleList);
+		render("Tags/index.html", articleList, tagName);
 
 	}
 

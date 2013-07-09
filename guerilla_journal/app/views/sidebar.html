@@ -29,7 +29,7 @@
 	<div class="well sidebar-nav" id="tagcloud">
 		<h4>TagCloud</h4>
 		#{list items:models.Tag.getCloud(), as:'tag'}
-			<a href="#" rel="${tag.pound}">${tag.name}</a>
+			<a href="@@{Tags.renderByTag(tag.name)}" rel="${tag.pound}">${tag.name}</a>
 		#{/list}
 
 	</div>
