@@ -21,7 +21,7 @@ public class BasicTest extends UnitTest {
 			"http://www.erfolgreiche-diät.de/wp-content/uploads/2012/07/test.gif", "World");
 		Article retrieved = Article.findById(article.id);
 		assertEquals(retrieved.author, "dummyuser1");
-		assertEquals(retrieved.authorScreenName, "dummyuser1");
+		assertEquals(retrieved.authorTwitterHandle, "dummyuser1");
 		assertEquals(retrieved.title, "dummy article title");
 	}
 	@Test
@@ -40,7 +40,7 @@ public class BasicTest extends UnitTest {
 		Comment comment = new Comment (lon, "dummyuser1", "dummyuser1", "wow das ist echt spannend!");
 		Comment retrieved = Comment.findById(comment.id);
 		assertEquals(retrieved.author, "dummyuser1");
-		assertEquals(retrieved.authorScreenName, "dummyuser1");
+		assertEquals(retrieved.authorTwitterHandle, "dummyuser1");
 		assertEquals(retrieved.commentString, "wow das ist echt spannend!");
 	}
 }

@@ -49,7 +49,7 @@ public class ApplicationTest extends FunctionalTest {
 	        user = knownUser; // and work on the know User db record from now on
 	    }
 		user.name="dummyuser1";
-		user.screenName="dummyuser1";
+		user.twitterHandle="dummyuser1";
 	    user.session = Scope.Session.current().getId();
 		user.loggedIn = true;
 		user.token ="frhiefe";
@@ -103,7 +103,7 @@ public class ApplicationTest extends FunctionalTest {
         user = knownUser; // and work on the know User db record from now on
     }
 	user.name="dummyuser1";
-	user.screenName="dummyuser1";
+	user.twitterHandle="dummyuser1";
     user.session = Scope.Session.current().getId();
 	user.token ="frhiefe";
 	user.secret="rhirehfrei";
@@ -134,7 +134,7 @@ public void testSearchFunction (){
 	Users users = new Users();
 	User user = users.getUser();
 	user.name="dummyuser1";
-	user.screenName="dummyuser1";
+	user.twitterHandle="dummyuser1";
 	user.loggedIn = true;
     user.requestSent = false;
 	user.token ="frhiefe";
@@ -174,7 +174,7 @@ public void testTagFunction (){
         user = knownUser; // and work on the know User db record from now on
     }
 	user.name="dummyuser1";
-	user.screenName="dummyuser1";
+	user.twitterHandle="dummyuser1";
     user.session = Scope.Session.current().getId();
 	user.loggedIn = true;
 	user.save();
