@@ -5,6 +5,7 @@ import java.util.List;
 import models.Article;
 import models.Category;
 import play.Logger;
+import play.mvc.Controller;
 
 /**
  * @author Manuel
@@ -13,7 +14,7 @@ import play.Logger;
  * 
  */
 @CRUD.For(Category.class)
-public class Categories extends CRUD {
+public class Categories extends Controller {
 
 	/**
 	 * Renders a category HTML template containing all articles in the category

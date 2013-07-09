@@ -11,13 +11,26 @@ GET		/profile		                Profiles.index
 GET		/profile/{twitterHandle}		Profiles.getUserProfileByTwitterHandle(twitterHandle: String)
 GET		/Users							Users.index
 POST	/Users/fakeLogin{test}			Users.fakeLogin(test: String)
+
+# Search
 GET		/Search							Search.index
-GET		/search/search{query}			Search.search(query: String)							
+GET		/search/search{query}			Search.search(query: String)
+GET		/search/			            Search.search()
+
+#Users
+GET     /authenticate                   Users.authenticate()
+GET     /logout                         Users.logout()
 
 #Articles
 GET     /article/new		            Articles.index
 GET     /article/{id}	                Articles.getArticle(id: long)
 POST    /article/rate 	                Articles.rateArticle(articleId: long, score: int, category: String)
+POST    /article/create/                Articles.createArticle()
+POST    /article/create/{author}{authorTwitterHandle}{title}{summary}{entry}{headerPicUrl}{category}{rawTags}              Articles.createArticle(author: String, authorTwitterHandle: String, title: String, summary: String, entry: String, headerPicUrl: String, category: String, rawTags: String)
+
+# Comments
+POST    /comments/create/{id}{author}{authorTwitterHandle}{commentString}                Comments.createComment(id: long, author: String, authorTwitterHandle: String, commentString: String)
+POST    /comments/create                Comments.createComment()
 
 #Pictures
 GET     /pictures		                Articles.pictures
@@ -29,15 +42,15 @@ GET		/category/{categoryName}		Categories.renderByCategory(categoryName: String)
 GET 	/tags/{tagName}					Tags.renderByTag(tagName: String)
 
 # DEBUG CRUD
-*	    /admin			    module:crud
+#*	    /admin			    module:crud
 
 # REST Api
-GET     /api/articles 					rest.REST.getArticles
-GET		/api/articles/{id} 				rest.REST.getArticle(id: long)
-GET		/api/tags						rest.REST.getTags
-GET		/api/tags/{tagName}				rest.REST.findByTag(tagName: String)
-GET		/api/categories					rest.REST.getCategories
-GET		/api/categories/{categoryName}	rest.REST.findByCategory(categoryName: String)
+GET     /api/articles 					        rest.REST.getArticles
+GET		/api/articles/{id} 				        rest.REST.getArticle(id: long)
+GET		/api/tags						        rest.REST.getTags
+GET		/api/tags/{tagName}				        rest.REST.findByTag(tagName: String)
+GET		/api/categories					        rest.REST.getCategories
+GET		/api/categories/{categoryName}	        rest.REST.findByCategory(categoryName: String)
 GET		/api/articles/{articleId}/comments		rest.REST.getComments(articleId: long)
 
 # Ignore favicon requests
@@ -47,4 +60,4 @@ GET     /favicon.ico   404
 GET     /public/       staticDir:public
 
 # Catch all
-*       /{controller}/{action} {controller}.{action}
+#   *       /{controller}/{action} {controller}.{action}

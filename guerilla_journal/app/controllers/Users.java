@@ -1,9 +1,11 @@
 package controllers;
 
 import models.User;
+import play.Play;
 import play.libs.OAuth;
 import play.libs.OAuth.ServiceInfo;
 import play.libs.WS;
+import play.mvc.Controller;
 import play.mvc.Router;
 import play.Logger;
 
@@ -16,7 +18,7 @@ import com.google.gson.JsonObject;
  *
  * @author David
  */
-public class Users extends CRUD {
+public class Users extends Controller {
 
     private static final ServiceInfo TWITTER = new ServiceInfo(
             "https://api.twitter.com/oauth/request_token",
@@ -169,6 +171,7 @@ public class Users extends CRUD {
         redirect("/");
     }
     public static void fakeLogin(String test){
+        if(Play.mode.isProd()) return;// don't allow fake login on prod system
         User user = getUser();
 	    User knownUser = User.findOrCreate("dummyuser1");
 	    if (knownUser != null) { // check if we already know this user

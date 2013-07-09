@@ -11,6 +11,7 @@ import models.Tag;
 import org.apache.commons.lang.StringUtils;
 
 import play.Logger;
+import play.mvc.Controller;
 
 /**
  * Tags Controller
@@ -20,7 +21,7 @@ import play.Logger;
  *         handles creation and assignment of tags to articles
  * 
  */
-public class Tags extends CRUD {
+public class Tags extends Controller {
 
 	/**
 	 * extracts a set of tags from a raw string

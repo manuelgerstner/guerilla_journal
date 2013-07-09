@@ -8,11 +8,12 @@ import java.util.List;
 
 import models.Article;
 import models.Rating;
+import play.mvc.Controller;
 
 /**
  * Created with IntelliJ IDEA. User: Dave Date: 6/30/13 Time: 10:28 PM To change
  * this template use File | Settings | File Templates.
  */
-public class Ratings extends CRUD {
+public class Ratings extends Controller {
 
 }

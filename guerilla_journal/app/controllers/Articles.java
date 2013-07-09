@@ -7,6 +7,7 @@ import models.Tag;
 import models.User;
 import play.Logger;
 import play.db.jpa.GenericModel;
+import play.mvc.Controller;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ import java.util.List;
  *         takes care of the creation and rating of articles
  * 
  */
-public class Articles extends CRUD {
+public class Articles extends Controller {
 
 	/**
 	 * this page is not accessible to non-loggedin users
@@ -28,7 +29,7 @@ public class Articles extends CRUD {
 			Logger.info("Redirect, not logged in.");
 			redirect("/");
 		}
-        renderArgs.put("user",Users.getUser());
+        renderArgs.put("user", Users.getUser());
 		render("Articles/submit.html");
 	}
 

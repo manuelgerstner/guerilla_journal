@@ -4,6 +4,7 @@ import java.util.List;
 
 import models.Comment;
 import play.Logger;
+import play.mvc.Controller;
 
 /**
  * @author Manuel
@@ -11,7 +12,7 @@ import play.Logger;
  *         Handles the comments for articles.
  * 
  */
-public class Comments extends CRUD {
+public class Comments extends Controller {
 
 	/**
 	 * Creates a new comment and ads it to the article specified by the id.

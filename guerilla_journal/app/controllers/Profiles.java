@@ -2,6 +2,7 @@ package controllers;
 
 import models.User;
 import play.Logger;
+import play.mvc.Controller;
 
 /**
  * @author Manuel
@@ -9,7 +10,7 @@ import play.Logger;
  *         Handles a users profile view.
  * 
  */
-public class Profiles extends CRUD {
+public class Profiles extends Controller {
 
 	public static void index() {
 		User currentUser = Users.getUser();
