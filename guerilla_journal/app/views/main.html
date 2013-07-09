@@ -69,8 +69,8 @@
                     
     			</div>
 
-                #{if session["loggedin"]=="false"}
-                    <a href="@{Users.authenticate()}" class="btn pull-right">Sign in</a>
+                #{if !user.loggedIn}
+                    <a href="@{Users.authenticate()}" class="btn pull-right">Log in</a>
                 #{/if}
                 
                 #{else}

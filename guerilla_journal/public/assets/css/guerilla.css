@@ -45,3 +45,24 @@ span.name { color: #fff; }
 .breadcrumb li.active {
 	color: #000;
 }
+#rateForm {
+	position: relative;
+}
+#rateForm .notloggedin {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #111;
+	opacity: 0.7;
+	height: 100%;
+}
+#rate-login { 
+	padding-top: 40px;
+	text-align: center;
+}
+#rate-login h4 {
+	color: #fff;
+	font-weight: bold;
+}

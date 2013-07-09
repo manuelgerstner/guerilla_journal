@@ -39,7 +39,12 @@
 			<h2>Overall Rating: ${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}</h2>
 			<h4>Author: <strong><a href="#{if article.authorTwitterHandle == controllers.Users.getUser().twitterHandle}/profile#{/if}#{else}/profile/${article.authorTwitterHandle}#{/else}">${article.author}</a></strong></h4>
 
-			#{form @Articles.rateArticle()}
+			#{form @Articles.rateArticle(), id:'rateForm'}
+				<div class="notloggedin">
+					<div id="rate-login" class="row-fluid">
+						<h4>You must be loggedin to rate an article.</h4>
+					</div>
+				</div>
 				<div class="row-fluid">
 					<div class="span4">
 						<h3>
@@ -100,7 +105,8 @@
 	         	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="large" data-text="${article.title} @@{Articles.getArticle(article.id)}">Tweet</a>
 	         </span>
          </div>
-
+	</div>
+	<div class="row-fluid">
 
 		<div class="span12 topborder-${article.category.className}">
 			<h2>Comments (${controllers.Comments.getCommentsForArticle(article.id).size()}):</h2>
@@ -113,6 +119,8 @@
 				</div>
 			#{/list}
 		</div>
+	</div>
+	<div class="row-fluid">
 		<div class="span12">
 				#{if session["loggedin"]=="true"}
 				#{form @Comments.createComment(), enctype:'multipart/form-data'}
@@ -161,33 +169,32 @@
 <script>
 	//global var
 	ARTICLE_ID = ${article.id};
-	LOGGED_IN = ${session["loggedin"]};
+	LOGGED_IN = ${user.loggedIn};//#{if session.loggedin} true #{/if}#{else} false #{/else};
 
 	$(function () {
-		/*$('head').append('<meta property="og:title" content="${article.title}" />');
-		$('#share-facebook').click(function(e) {
-			window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('@{Articles.getArticle(article.id)}'),'facebook-share-dialog','width=626,height=436');
-		});*/
+	
+	    if (!LOGGED_IN) {
+	    	$('#rateForm .notloggedin').show();
+	    }
+		
 	    $('.star').each(function () {
 	        var category = $(this).attr('data-category');
 	        $(this).raty({
 	            path: '/public/assets/img/',
+	            readOnly: !LOGGED_IN, // only logged in users can rate
 	            scoreName: category,
 	            score: function () {
 	            	return $(this).attr('data-score');
 	            },
 	            click: function (score) {
-
-	                //if (LOGGED_IN == "true") {
-	                    console && console.log('rating article #%d with %d points in category %s', ARTICLE_ID, score, category);
-	                    $.post('@@{Articles.rateArticle()}', {
-	                        articleId: ARTICLE_ID,
-	                        score: score,
-	                        category: category
-	                    }, function (e) {
-	                        console && console.log(e); // log response
-	                    });
-	               //}
+                    console && console.log('rating article #%d with %d points in category %s', ARTICLE_ID, score, category);
+                    $.post('@@{Articles.rateArticle()}', {
+                        articleId: ARTICLE_ID,
+                        score: score,
+                        category: category
+                    }, function (e) {
+                        console && console.log(e); // log response
+                    });
 	            }
 	        });
 	    });
