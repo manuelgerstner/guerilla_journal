@@ -386,24 +386,25 @@ User(dummyuser19):
 User(dummyuser20):
  name: dummyuser20
  twitterHandlee: dummyuser20
+
 Rating(dombusser-article1):
- writingStyle: 1
- nonAlignment: 1
- overall: 2
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 3
  user: dombusser
  article: article1
  
 Rating(dombusser-article2):
- writingStyle: 3
- nonAlignment: 1
+ writingStyle: 2
+ nonAlignment: 4
  overall: 4
  user: dombusser
  article: article2
  
 Rating(dombusser-article3):
- writingStyle: 5
- nonAlignment: 2
- overall: 5
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 1
  user: dombusser
  article: article3
  
@@ -417,98 +418,133 @@ Rating(dombusser-article4):
 Rating(dombusser-article5):
  writingStyle: 1
  nonAlignment: 3
- overall: 1
+ overall: 5
  user: dombusser
  article: article5
  
 Rating(dombusser-article6):
- writingStyle: 2
- nonAlignment: 5
- overall: 5
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 2
  user: dombusser
  article: article6
  
 Rating(dombusser-article7):
- writingStyle: 2
- nonAlignment: 2
- overall: 1
+ writingStyle: 4
+ nonAlignment: 4
+ overall: 5
  user: dombusser
  article: article7
  
 Rating(dombusser-article8):
- writingStyle: 4
- nonAlignment: 1
- overall: 1
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 4
  user: dombusser
  article: article8
  
 Rating(dombusser-article9):
- writingStyle: 3
+ writingStyle: 4
  nonAlignment: 1
- overall: 2
+ overall: 3
  user: dombusser
  article: article9
  
 Rating(dombusser-article10):
- writingStyle: 2
- nonAlignment: 2
- overall: 3
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 2
  user: dombusser
  article: article10
  
 Rating(dombusser-article11):
  writingStyle: 1
- nonAlignment: 2
- overall: 1
+ nonAlignment: 5
+ overall: 5
  user: dombusser
  article: article11
  
 Rating(dombusser-article12):
- writingStyle: 1
- nonAlignment: 5
- overall: 4
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 3
  user: dombusser
  article: article12
  
 Rating(dombusser-article13):
- writingStyle: 3
- nonAlignment: 5
- overall: 2
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 3
  user: dombusser
  article: article13
  
 Rating(dombusser-article14):
  writingStyle: 3
- nonAlignment: 1
- overall: 4
+ nonAlignment: 5
+ overall: 3
  user: dombusser
  article: article14
  
 Rating(dombusser-article15):
  writingStyle: 4
- nonAlignment: 3
- overall: 5
+ nonAlignment: 4
+ overall: 3
  user: dombusser
  article: article15
  
 Rating(dombusser-article16):
- writingStyle: 1
- nonAlignment: 1
- overall: 2
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 1
  user: dombusser
  article: article16
  
-Rating(manuelgerstner-article1):
+Rating(dombusser-article17):
+ writingStyle: 1
+ nonAlignment: 2
+ overall: 2
+ user: dombusser
+ article: article17
+ 
+Rating(dombusser-article18):
  writingStyle: 4
- nonAlignment: 3
- overall: 1
+ nonAlignment: 4
+ overall: 4
+ user: dombusser
+ article: article18
+ 
+Rating(dombusser-article19):
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 5
+ user: dombusser
+ article: article19
+ 
+Rating(dombusser-article20):
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 2
+ user: dombusser
+ article: article20
+ 
+Rating(dombusser-article21):
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 5
+ user: dombusser
+ article: article21
+ 
+Rating(manuelgerstner-article1):
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 3
  user: manuelgerstner
  article: article1
  
 Rating(manuelgerstner-article2):
- writingStyle: 2
+ writingStyle: 3
  nonAlignment: 4
- overall: 3
+ overall: 4
  user: manuelgerstner
  article: article2
  
@@ -520,16 +556,16 @@ Rating(manuelgerstner-article3):
  article: article3
  
 Rating(manuelgerstner-article4):
- writingStyle: 5
- nonAlignment: 3
- overall: 1
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 3
  user: manuelgerstner
  article: article4
  
 Rating(manuelgerstner-article5):
- writingStyle: 3
- nonAlignment: 3
- overall: 5
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 4
  user: manuelgerstner
  article: article5
  
@@ -541,107 +577,142 @@ Rating(manuelgerstner-article6):
  article: article6
  
 Rating(manuelgerstner-article7):
- writingStyle: 5
- nonAlignment: 5
+ writingStyle: 1
+ nonAlignment: 4
  overall: 5
  user: manuelgerstner
  article: article7
  
 Rating(manuelgerstner-article8):
- writingStyle: 1
+ writingStyle: 3
  nonAlignment: 4
- overall: 5
+ overall: 3
  user: manuelgerstner
  article: article8
  
 Rating(manuelgerstner-article9):
- writingStyle: 4
- nonAlignment: 3
- overall: 4
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 1
  user: manuelgerstner
  article: article9
  
 Rating(manuelgerstner-article10):
  writingStyle: 3
- nonAlignment: 2
- overall: 1
+ nonAlignment: 5
+ overall: 3
  user: manuelgerstner
  article: article10
  
 Rating(manuelgerstner-article11):
- writingStyle: 2
+ writingStyle: 3
  nonAlignment: 3
  overall: 4
  user: manuelgerstner
  article: article11
  
 Rating(manuelgerstner-article12):
- writingStyle: 4
- nonAlignment: 2
+ writingStyle: 1
+ nonAlignment: 1
  overall: 1
  user: manuelgerstner
  article: article12
  
 Rating(manuelgerstner-article13):
- writingStyle: 5
+ writingStyle: 4
  nonAlignment: 1
- overall: 2
+ overall: 4
  user: manuelgerstner
  article: article13
  
 Rating(manuelgerstner-article14):
- writingStyle: 1
- nonAlignment: 2
- overall: 5
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 4
  user: manuelgerstner
  article: article14
  
 Rating(manuelgerstner-article15):
- writingStyle: 3
+ writingStyle: 5
  nonAlignment: 2
- overall: 4
+ overall: 1
  user: manuelgerstner
  article: article15
  
 Rating(manuelgerstner-article16):
- writingStyle: 1
+ writingStyle: 2
  nonAlignment: 4
  overall: 4
  user: manuelgerstner
  article: article16
  
-Rating(christinenoehmeier-article1):
+Rating(manuelgerstner-article17):
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 3
+ user: manuelgerstner
+ article: article17
+ 
+Rating(manuelgerstner-article18):
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 2
+ user: manuelgerstner
+ article: article18
+ 
+Rating(manuelgerstner-article19):
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 2
+ user: manuelgerstner
+ article: article19
+ 
+Rating(manuelgerstner-article20):
  writingStyle: 4
- nonAlignment: 1
+ nonAlignment: 4
  overall: 5
+ user: manuelgerstner
+ article: article20
+ 
+Rating(manuelgerstner-article21):
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 5
+ user: manuelgerstner
+ article: article21
+ 
+Rating(christinenoehmeier-article1):
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 4
  user: christinenoehmeier
  article: article1
  
 Rating(christinenoehmeier-article2):
  writingStyle: 4
  nonAlignment: 3
- overall: 3
+ overall: 2
  user: christinenoehmeier
  article: article2
  
 Rating(christinenoehmeier-article3):
  writingStyle: 4
- nonAlignment: 2
+ nonAlignment: 4
  overall: 2
  user: christinenoehmeier
  article: article3
  
 Rating(christinenoehmeier-article4):
- writingStyle: 2
- nonAlignment: 4
- overall: 5
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 3
  user: christinenoehmeier
  article: article4
  
 Rating(christinenoehmeier-article5):
- writingStyle: 1
- nonAlignment: 1
- overall: 4
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 1
  user: christinenoehmeier
  article: article5
  
@@ -653,308 +724,413 @@ Rating(christinenoehmeier-article6):
  article: article6
  
 Rating(christinenoehmeier-article7):
- writingStyle: 5
- nonAlignment: 3
- overall: 3
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 4
  user: christinenoehmeier
  article: article7
  
 Rating(christinenoehmeier-article8):
  writingStyle: 4
- nonAlignment: 3
- overall: 5
+ nonAlignment: 4
+ overall: 2
  user: christinenoehmeier
  article: article8
  
 Rating(christinenoehmeier-article9):
- writingStyle: 1
- nonAlignment: 3
- overall: 2
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 4
  user: christinenoehmeier
  article: article9
  
 Rating(christinenoehmeier-article10):
- writingStyle: 5
- nonAlignment: 1
+ writingStyle: 4
+ nonAlignment: 2
  overall: 3
  user: christinenoehmeier
  article: article10
  
 Rating(christinenoehmeier-article11):
- writingStyle: 3
- nonAlignment: 1
- overall: 2
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 1
  user: christinenoehmeier
  article: article11
  
 Rating(christinenoehmeier-article12):
- writingStyle: 1
- nonAlignment: 1
- overall: 2
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 3
  user: christinenoehmeier
  article: article12
  
 Rating(christinenoehmeier-article13):
  writingStyle: 2
- nonAlignment: 5
- overall: 2
+ nonAlignment: 3
+ overall: 5
  user: christinenoehmeier
  article: article13
  
 Rating(christinenoehmeier-article14):
- writingStyle: 4
- nonAlignment: 2
+ writingStyle: 5
+ nonAlignment: 4
  overall: 5
  user: christinenoehmeier
  article: article14
  
 Rating(christinenoehmeier-article15):
- writingStyle: 1
- nonAlignment: 2
- overall: 5
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 1
  user: christinenoehmeier
  article: article15
  
 Rating(christinenoehmeier-article16):
- writingStyle: 3
+ writingStyle: 1
  nonAlignment: 5
- overall: 3
+ overall: 5
  user: christinenoehmeier
  article: article16
  
-Rating(davidfrey-article1):
- writingStyle: 5
- nonAlignment: 3
+Rating(christinenoehmeier-article17):
+ writingStyle: 3
+ nonAlignment: 5
  overall: 5
+ user: christinenoehmeier
+ article: article17
+ 
+Rating(christinenoehmeier-article18):
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 1
+ user: christinenoehmeier
+ article: article18
+ 
+Rating(christinenoehmeier-article19):
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 2
+ user: christinenoehmeier
+ article: article19
+ 
+Rating(christinenoehmeier-article20):
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 1
+ user: christinenoehmeier
+ article: article20
+ 
+Rating(christinenoehmeier-article21):
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 5
+ user: christinenoehmeier
+ article: article21
+ 
+Rating(davidfrey-article1):
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 2
  user: davidfrey
  article: article1
  
 Rating(davidfrey-article2):
- writingStyle: 4
- nonAlignment: 1
- overall: 4
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 1
  user: davidfrey
  article: article2
  
 Rating(davidfrey-article3):
  writingStyle: 2
  nonAlignment: 4
- overall: 4
+ overall: 1
  user: davidfrey
  article: article3
  
 Rating(davidfrey-article4):
- writingStyle: 5
- nonAlignment: 1
+ writingStyle: 2
+ nonAlignment: 5
  overall: 4
  user: davidfrey
  article: article4
  
 Rating(davidfrey-article5):
- writingStyle: 3
- nonAlignment: 5
- overall: 2
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 5
  user: davidfrey
  article: article5
  
 Rating(davidfrey-article6):
- writingStyle: 5
- nonAlignment: 5
- overall: 3
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 4
  user: davidfrey
  article: article6
  
 Rating(davidfrey-article7):
- writingStyle: 1
- nonAlignment: 5
+ writingStyle: 3
+ nonAlignment: 4
  overall: 5
  user: davidfrey
  article: article7
  
 Rating(davidfrey-article8):
- writingStyle: 2
- nonAlignment: 2
+ writingStyle: 5
+ nonAlignment: 1
  overall: 5
  user: davidfrey
  article: article8
  
 Rating(davidfrey-article9):
- writingStyle: 2
+ writingStyle: 1
  nonAlignment: 3
- overall: 2
+ overall: 3
  user: davidfrey
  article: article9
  
 Rating(davidfrey-article10):
- writingStyle: 2
+ writingStyle: 5
  nonAlignment: 5
- overall: 3
+ overall: 2
  user: davidfrey
  article: article10
  
 Rating(davidfrey-article11):
- writingStyle: 2
- nonAlignment: 4
- overall: 3
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 5
  user: davidfrey
  article: article11
  
 Rating(davidfrey-article12):
  writingStyle: 2
- nonAlignment: 2
+ nonAlignment: 5
  overall: 4
  user: davidfrey
  article: article12
  
 Rating(davidfrey-article13):
- writingStyle: 5
+ writingStyle: 1
  nonAlignment: 1
- overall: 3
+ overall: 2
  user: davidfrey
  article: article13
  
 Rating(davidfrey-article14):
- writingStyle: 4
+ writingStyle: 1
  nonAlignment: 5
- overall: 2
+ overall: 3
  user: davidfrey
  article: article14
  
 Rating(davidfrey-article15):
- writingStyle: 5
- nonAlignment: 3
- overall: 1
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 5
  user: davidfrey
  article: article15
  
 Rating(davidfrey-article16):
  writingStyle: 4
- nonAlignment: 4
- overall: 5
+ nonAlignment: 5
+ overall: 3
  user: davidfrey
  article: article16
  
-Rating(dummyuser1-article1):
+Rating(davidfrey-article17):
  writingStyle: 1
- nonAlignment: 3
- overall: 3
+ nonAlignment: 2
+ overall: 2
+ user: davidfrey
+ article: article17
+ 
+Rating(davidfrey-article18):
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 5
+ user: davidfrey
+ article: article18
+ 
+Rating(davidfrey-article19):
+ writingStyle: 4
+ nonAlignment: 4
+ overall: 2
+ user: davidfrey
+ article: article19
+ 
+Rating(davidfrey-article20):
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 2
+ user: davidfrey
+ article: article20
+ 
+Rating(davidfrey-article21):
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 2
+ user: davidfrey
+ article: article21
+ 
+Rating(dummyuser1-article1):
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 2
  user: dummyuser1
  article: article1
  
 Rating(dummyuser1-article2):
  writingStyle: 2
- nonAlignment: 2
- overall: 3
+ nonAlignment: 1
+ overall: 2
  user: dummyuser1
  article: article2
  
 Rating(dummyuser1-article3):
  writingStyle: 4
- nonAlignment: 4
- overall: 5
+ nonAlignment: 3
+ overall: 2
  user: dummyuser1
  article: article3
  
 Rating(dummyuser1-article4):
- writingStyle: 1
+ writingStyle: 4
  nonAlignment: 3
- overall: 4
+ overall: 2
  user: dummyuser1
  article: article4
  
 Rating(dummyuser1-article5):
- writingStyle: 1
- nonAlignment: 2
- overall: 3
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 1
  user: dummyuser1
  article: article5
  
 Rating(dummyuser1-article6):
- writingStyle: 5
- nonAlignment: 5
- overall: 1
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 4
  user: dummyuser1
  article: article6
  
 Rating(dummyuser1-article7):
- writingStyle: 5
- nonAlignment: 4
- overall: 2
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 1
  user: dummyuser1
  article: article7
  
 Rating(dummyuser1-article8):
- writingStyle: 1
- nonAlignment: 2
- overall: 5
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 2
  user: dummyuser1
  article: article8
  
 Rating(dummyuser1-article9):
  writingStyle: 3
- nonAlignment: 5
- overall: 5
+ nonAlignment: 3
+ overall: 2
  user: dummyuser1
  article: article9
  
 Rating(dummyuser1-article10):
- writingStyle: 3
+ writingStyle: 4
  nonAlignment: 2
- overall: 1
+ overall: 2
  user: dummyuser1
  article: article10
  
 Rating(dummyuser1-article11):
- writingStyle: 1
- nonAlignment: 4
- overall: 1
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 2
  user: dummyuser1
  article: article11
  
 Rating(dummyuser1-article12):
- writingStyle: 2
- nonAlignment: 4
+ writingStyle: 4
+ nonAlignment: 5
  overall: 4
  user: dummyuser1
  article: article12
  
 Rating(dummyuser1-article13):
- writingStyle: 4
- nonAlignment: 3
- overall: 5
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 1
  user: dummyuser1
  article: article13
  
 Rating(dummyuser1-article14):
- writingStyle: 3
- nonAlignment: 5
- overall: 2
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 4
  user: dummyuser1
  article: article14
  
 Rating(dummyuser1-article15):
- writingStyle: 5
- nonAlignment: 5
+ writingStyle: 2
+ nonAlignment: 3
  overall: 5
  user: dummyuser1
  article: article15
  
 Rating(dummyuser1-article16):
  writingStyle: 5
- nonAlignment: 2
- overall: 3
+ nonAlignment: 4
+ overall: 4
  user: dummyuser1
  article: article16
  
-Rating(dummyuser2-article1):
+Rating(dummyuser1-article17):
  writingStyle: 4
- nonAlignment: 5
+ nonAlignment: 3
  overall: 1
+ user: dummyuser1
+ article: article17
+ 
+Rating(dummyuser1-article18):
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 1
+ user: dummyuser1
+ article: article18
+ 
+Rating(dummyuser1-article19):
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 4
+ user: dummyuser1
+ article: article19
+ 
+Rating(dummyuser1-article20):
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 3
+ user: dummyuser1
+ article: article20
+ 
+Rating(dummyuser1-article21):
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 4
+ user: dummyuser1
+ article: article21
+ 
+Rating(dummyuser2-article1):
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 2
  user: dummyuser2
  article: article1
  
 Rating(dummyuser2-article2):
- writingStyle: 4
+ writingStyle: 2
  nonAlignment: 1
  overall: 2
  user: dummyuser2
@@ -962,897 +1138,1177 @@ Rating(dummyuser2-article2):
  
 Rating(dummyuser2-article3):
  writingStyle: 2
- nonAlignment: 4
- overall: 2
+ nonAlignment: 3
+ overall: 1
  user: dummyuser2
  article: article3
  
 Rating(dummyuser2-article4):
- writingStyle: 4
- nonAlignment: 4
- overall: 3
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 4
  user: dummyuser2
  article: article4
  
 Rating(dummyuser2-article5):
  writingStyle: 5
- nonAlignment: 1
- overall: 4
+ nonAlignment: 4
+ overall: 2
  user: dummyuser2
  article: article5
  
 Rating(dummyuser2-article6):
- writingStyle: 3
- nonAlignment: 3
- overall: 5
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 4
  user: dummyuser2
  article: article6
  
 Rating(dummyuser2-article7):
  writingStyle: 3
- nonAlignment: 2
- overall: 1
+ nonAlignment: 5
+ overall: 5
  user: dummyuser2
  article: article7
  
 Rating(dummyuser2-article8):
- writingStyle: 1
+ writingStyle: 3
  nonAlignment: 1
- overall: 2
+ overall: 4
  user: dummyuser2
  article: article8
  
 Rating(dummyuser2-article9):
  writingStyle: 1
- nonAlignment: 5
- overall: 2
+ nonAlignment: 4
+ overall: 4
  user: dummyuser2
  article: article9
  
 Rating(dummyuser2-article10):
- writingStyle: 3
- nonAlignment: 3
- overall: 4
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 2
  user: dummyuser2
  article: article10
  
 Rating(dummyuser2-article11):
- writingStyle: 1
- nonAlignment: 5
- overall: 2
+ writingStyle: 4
+ nonAlignment: 4
+ overall: 1
  user: dummyuser2
  article: article11
  
 Rating(dummyuser2-article12):
- writingStyle: 1
+ writingStyle: 2
  nonAlignment: 4
  overall: 1
  user: dummyuser2
  article: article12
  
 Rating(dummyuser2-article13):
- writingStyle: 2
- nonAlignment: 1
- overall: 4
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 5
  user: dummyuser2
  article: article13
  
 Rating(dummyuser2-article14):
  writingStyle: 5
- nonAlignment: 4
- overall: 5
+ nonAlignment: 5
+ overall: 3
  user: dummyuser2
  article: article14
  
 Rating(dummyuser2-article15):
- writingStyle: 2
- nonAlignment: 3
- overall: 1
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 2
  user: dummyuser2
  article: article15
  
 Rating(dummyuser2-article16):
  writingStyle: 2
- nonAlignment: 5
- overall: 3
+ nonAlignment: 4
+ overall: 4
  user: dummyuser2
  article: article16
  
-Rating(dummyuser3-article1):
- writingStyle: 4
+Rating(dummyuser2-article17):
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 2
+ user: dummyuser2
+ article: article17
+ 
+Rating(dummyuser2-article18):
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 2
+ user: dummyuser2
+ article: article18
+ 
+Rating(dummyuser2-article19):
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 2
+ user: dummyuser2
+ article: article19
+ 
+Rating(dummyuser2-article20):
+ writingStyle: 5
  nonAlignment: 2
- overall: 5
+ overall: 3
+ user: dummyuser2
+ article: article20
+ 
+Rating(dummyuser2-article21):
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 4
+ user: dummyuser2
+ article: article21
+ 
+Rating(dummyuser3-article1):
+ writingStyle: 5
+ nonAlignment: 1
+ overall: 4
  user: dummyuser3
  article: article1
  
 Rating(dummyuser3-article2):
- writingStyle: 2
- nonAlignment: 5
- overall: 4
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 3
  user: dummyuser3
  article: article2
  
 Rating(dummyuser3-article3):
- writingStyle: 3
+ writingStyle: 4
  nonAlignment: 4
- overall: 4
+ overall: 1
  user: dummyuser3
  article: article3
  
 Rating(dummyuser3-article4):
- writingStyle: 5
+ writingStyle: 3
  nonAlignment: 3
- overall: 4
+ overall: 3
  user: dummyuser3
  article: article4
  
 Rating(dummyuser3-article5):
- writingStyle: 3
- nonAlignment: 5
- overall: 3
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 5
  user: dummyuser3
  article: article5
  
 Rating(dummyuser3-article6):
- writingStyle: 2
- nonAlignment: 3
+ writingStyle: 1
+ nonAlignment: 2
  overall: 1
  user: dummyuser3
  article: article6
  
 Rating(dummyuser3-article7):
  writingStyle: 1
- nonAlignment: 2
+ nonAlignment: 5
  overall: 2
  user: dummyuser3
  article: article7
  
 Rating(dummyuser3-article8):
- writingStyle: 3
- nonAlignment: 1
- overall: 4
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 1
  user: dummyuser3
  article: article8
  
 Rating(dummyuser3-article9):
- writingStyle: 1
- nonAlignment: 4
- overall: 4
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 5
  user: dummyuser3
  article: article9
  
 Rating(dummyuser3-article10):
- writingStyle: 1
- nonAlignment: 5
- overall: 4
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 5
  user: dummyuser3
  article: article10
  
 Rating(dummyuser3-article11):
- writingStyle: 4
- nonAlignment: 2
- overall: 2
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 4
  user: dummyuser3
  article: article11
  
 Rating(dummyuser3-article12):
- writingStyle: 3
+ writingStyle: 5
  nonAlignment: 2
- overall: 3
+ overall: 5
  user: dummyuser3
  article: article12
  
 Rating(dummyuser3-article13):
- writingStyle: 4
- nonAlignment: 4
- overall: 2
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 1
  user: dummyuser3
  article: article13
  
 Rating(dummyuser3-article14):
- writingStyle: 3
- nonAlignment: 4
- overall: 1
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 2
  user: dummyuser3
  article: article14
  
 Rating(dummyuser3-article15):
- writingStyle: 4
+ writingStyle: 1
  nonAlignment: 3
- overall: 1
+ overall: 2
  user: dummyuser3
  article: article15
  
 Rating(dummyuser3-article16):
- writingStyle: 3
+ writingStyle: 5
  nonAlignment: 4
- overall: 2
+ overall: 3
  user: dummyuser3
  article: article16
  
-Rating(dummyuser4-article1):
+Rating(dummyuser3-article17):
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 5
+ user: dummyuser3
+ article: article17
+ 
+Rating(dummyuser3-article18):
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 5
+ user: dummyuser3
+ article: article18
+ 
+Rating(dummyuser3-article19):
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 4
+ user: dummyuser3
+ article: article19
+ 
+Rating(dummyuser3-article20):
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 4
+ user: dummyuser3
+ article: article20
+ 
+Rating(dummyuser3-article21):
  writingStyle: 1
  nonAlignment: 1
+ overall: 1
+ user: dummyuser3
+ article: article21
+ 
+Rating(dummyuser4-article1):
+ writingStyle: 2
+ nonAlignment: 3
  overall: 4
  user: dummyuser4
  article: article1
  
 Rating(dummyuser4-article2):
- writingStyle: 3
- nonAlignment: 1
- overall: 5
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 3
  user: dummyuser4
  article: article2
  
 Rating(dummyuser4-article3):
- writingStyle: 5
- nonAlignment: 4
- overall: 4
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 5
  user: dummyuser4
  article: article3
  
 Rating(dummyuser4-article4):
- writingStyle: 1
- nonAlignment: 1
- overall: 2
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 1
  user: dummyuser4
  article: article4
  
 Rating(dummyuser4-article5):
- writingStyle: 1
- nonAlignment: 4
- overall: 4
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 5
  user: dummyuser4
  article: article5
  
 Rating(dummyuser4-article6):
- writingStyle: 5
+ writingStyle: 1
  nonAlignment: 4
  overall: 4
  user: dummyuser4
  article: article6
  
 Rating(dummyuser4-article7):
- writingStyle: 5
- nonAlignment: 1
- overall: 4
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 2
  user: dummyuser4
  article: article7
  
 Rating(dummyuser4-article8):
- writingStyle: 5
- nonAlignment: 4
- overall: 3
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 5
  user: dummyuser4
  article: article8
  
 Rating(dummyuser4-article9):
- writingStyle: 4
- nonAlignment: 5
- overall: 1
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 4
  user: dummyuser4
  article: article9
  
 Rating(dummyuser4-article10):
- writingStyle: 5
- nonAlignment: 4
+ writingStyle: 4
+ nonAlignment: 1
  overall: 3
  user: dummyuser4
  article: article10
  
 Rating(dummyuser4-article11):
- writingStyle: 1
- nonAlignment: 5
- overall: 4
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 3
  user: dummyuser4
  article: article11
  
 Rating(dummyuser4-article12):
  writingStyle: 5
- nonAlignment: 2
- overall: 4
+ nonAlignment: 1
+ overall: 5
  user: dummyuser4
  article: article12
  
 Rating(dummyuser4-article13):
- writingStyle: 2
- nonAlignment: 4
- overall: 3
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 4
  user: dummyuser4
  article: article13
  
 Rating(dummyuser4-article14):
- writingStyle: 3
- nonAlignment: 1
- overall: 1
+ writingStyle: 1
+ nonAlignment: 2
+ overall: 5
  user: dummyuser4
  article: article14
  
 Rating(dummyuser4-article15):
- writingStyle: 1
- nonAlignment: 3
- overall: 5
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 2
  user: dummyuser4
  article: article15
  
 Rating(dummyuser4-article16):
- writingStyle: 3
+ writingStyle: 5
  nonAlignment: 5
- overall: 3
+ overall: 4
  user: dummyuser4
  article: article16
  
-Rating(dummyuser5-article1):
+Rating(dummyuser4-article17):
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 5
+ user: dummyuser4
+ article: article17
+ 
+Rating(dummyuser4-article18):
  writingStyle: 2
- nonAlignment: 5
+ nonAlignment: 2
  overall: 4
+ user: dummyuser4
+ article: article18
+ 
+Rating(dummyuser4-article19):
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 1
+ user: dummyuser4
+ article: article19
+ 
+Rating(dummyuser4-article20):
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 2
+ user: dummyuser4
+ article: article20
+ 
+Rating(dummyuser4-article21):
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 5
+ user: dummyuser4
+ article: article21
+ 
+Rating(dummyuser5-article1):
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 5
  user: dummyuser5
  article: article1
  
 Rating(dummyuser5-article2):
- writingStyle: 2
- nonAlignment: 5
+ writingStyle: 5
+ nonAlignment: 3
  overall: 4
  user: dummyuser5
  article: article2
  
 Rating(dummyuser5-article3):
- writingStyle: 1
- nonAlignment: 3
- overall: 2
+ writingStyle: 5
+ nonAlignment: 1
+ overall: 5
  user: dummyuser5
  article: article3
  
 Rating(dummyuser5-article4):
- writingStyle: 2
- nonAlignment: 4
- overall: 4
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 3
  user: dummyuser5
  article: article4
  
 Rating(dummyuser5-article5):
  writingStyle: 2
- nonAlignment: 2
- overall: 2
+ nonAlignment: 3
+ overall: 1
  user: dummyuser5
  article: article5
  
 Rating(dummyuser5-article6):
- writingStyle: 5
- nonAlignment: 1
- overall: 5
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 2
  user: dummyuser5
  article: article6
  
 Rating(dummyuser5-article7):
- writingStyle: 3
+ writingStyle: 1
  nonAlignment: 5
- overall: 2
+ overall: 4
  user: dummyuser5
  article: article7
  
 Rating(dummyuser5-article8):
- writingStyle: 4
- nonAlignment: 1
- overall: 5
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 4
  user: dummyuser5
  article: article8
  
 Rating(dummyuser5-article9):
- writingStyle: 2
- nonAlignment: 3
- overall: 2
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 4
  user: dummyuser5
  article: article9
  
 Rating(dummyuser5-article10):
- writingStyle: 1
- nonAlignment: 2
- overall: 5
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 2
  user: dummyuser5
  article: article10
  
 Rating(dummyuser5-article11):
- writingStyle: 2
- nonAlignment: 3
+ writingStyle: 5
+ nonAlignment: 4
  overall: 3
  user: dummyuser5
  article: article11
  
 Rating(dummyuser5-article12):
  writingStyle: 1
- nonAlignment: 4
- overall: 1
+ nonAlignment: 2
+ overall: 2
  user: dummyuser5
  article: article12
  
 Rating(dummyuser5-article13):
- writingStyle: 5
- nonAlignment: 4
- overall: 4
+ writingStyle: 1
+ nonAlignment: 2
+ overall: 2
  user: dummyuser5
  article: article13
  
 Rating(dummyuser5-article14):
- writingStyle: 4
+ writingStyle: 5
  nonAlignment: 1
- overall: 1
+ overall: 4
  user: dummyuser5
  article: article14
  
 Rating(dummyuser5-article15):
- writingStyle: 4
- nonAlignment: 3
+ writingStyle: 3
+ nonAlignment: 5
  overall: 5
  user: dummyuser5
  article: article15
  
 Rating(dummyuser5-article16):
  writingStyle: 1
- nonAlignment: 1
- overall: 4
+ nonAlignment: 5
+ overall: 5
  user: dummyuser5
  article: article16
  
-Rating(dummyuser6-article1):
- writingStyle: 1
+Rating(dummyuser5-article17):
+ writingStyle: 4
  nonAlignment: 5
+ overall: 5
+ user: dummyuser5
+ article: article17
+ 
+Rating(dummyuser5-article18):
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 4
+ user: dummyuser5
+ article: article18
+ 
+Rating(dummyuser5-article19):
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 1
+ user: dummyuser5
+ article: article19
+ 
+Rating(dummyuser5-article20):
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 2
+ user: dummyuser5
+ article: article20
+ 
+Rating(dummyuser5-article21):
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 3
+ user: dummyuser5
+ article: article21
+ 
+Rating(dummyuser6-article1):
+ writingStyle: 5
+ nonAlignment: 4
  overall: 3
  user: dummyuser6
  article: article1
  
 Rating(dummyuser6-article2):
- writingStyle: 5
- nonAlignment: 5
- overall: 4
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 2
  user: dummyuser6
  article: article2
  
 Rating(dummyuser6-article3):
- writingStyle: 2
- nonAlignment: 2
- overall: 3
+ writingStyle: 5
+ nonAlignment: 1
+ overall: 5
  user: dummyuser6
  article: article3
  
 Rating(dummyuser6-article4):
  writingStyle: 4
- nonAlignment: 1
+ nonAlignment: 2
  overall: 4
  user: dummyuser6
  article: article4
  
 Rating(dummyuser6-article5):
- writingStyle: 3
- nonAlignment: 5
+ writingStyle: 2
+ nonAlignment: 1
  overall: 4
  user: dummyuser6
  article: article5
  
 Rating(dummyuser6-article6):
  writingStyle: 3
- nonAlignment: 5
- overall: 3
+ nonAlignment: 1
+ overall: 1
  user: dummyuser6
  article: article6
  
 Rating(dummyuser6-article7):
- writingStyle: 4
- nonAlignment: 5
- overall: 5
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 3
  user: dummyuser6
  article: article7
  
 Rating(dummyuser6-article8):
- writingStyle: 3
- nonAlignment: 1
- overall: 2
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 4
  user: dummyuser6
  article: article8
  
 Rating(dummyuser6-article9):
  writingStyle: 1
- nonAlignment: 4
- overall: 4
+ nonAlignment: 1
+ overall: 2
  user: dummyuser6
  article: article9
  
 Rating(dummyuser6-article10):
  writingStyle: 4
- nonAlignment: 2
+ nonAlignment: 3
  overall: 3
  user: dummyuser6
  article: article10
  
 Rating(dummyuser6-article11):
- writingStyle: 4
- nonAlignment: 1
- overall: 1
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 2
  user: dummyuser6
  article: article11
  
 Rating(dummyuser6-article12):
- writingStyle: 2
- nonAlignment: 2
- overall: 4
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 1
  user: dummyuser6
  article: article12
  
 Rating(dummyuser6-article13):
  writingStyle: 5
- nonAlignment: 2
+ nonAlignment: 4
  overall: 4
  user: dummyuser6
  article: article13
  
 Rating(dummyuser6-article14):
- writingStyle: 2
- nonAlignment: 4
- overall: 2
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 5
  user: dummyuser6
  article: article14
  
 Rating(dummyuser6-article15):
- writingStyle: 5
+ writingStyle: 3
  nonAlignment: 1
- overall: 3
+ overall: 2
  user: dummyuser6
  article: article15
  
 Rating(dummyuser6-article16):
- writingStyle: 3
- nonAlignment: 2
- overall: 3
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 5
  user: dummyuser6
  article: article16
  
-Rating(dummyuser7-article1):
+Rating(dummyuser6-article17):
  writingStyle: 5
- nonAlignment: 2
+ nonAlignment: 4
+ overall: 4
+ user: dummyuser6
+ article: article17
+ 
+Rating(dummyuser6-article18):
+ writingStyle: 5
+ nonAlignment: 1
+ overall: 1
+ user: dummyuser6
+ article: article18
+ 
+Rating(dummyuser6-article19):
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 1
+ user: dummyuser6
+ article: article19
+ 
+Rating(dummyuser6-article20):
+ writingStyle: 1
+ nonAlignment: 3
  overall: 3
+ user: dummyuser6
+ article: article20
+ 
+Rating(dummyuser6-article21):
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 3
+ user: dummyuser6
+ article: article21
+ 
+Rating(dummyuser7-article1):
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 2
  user: dummyuser7
  article: article1
  
 Rating(dummyuser7-article2):
- writingStyle: 1
- nonAlignment: 5
- overall: 4
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 5
  user: dummyuser7
  article: article2
  
 Rating(dummyuser7-article3):
- writingStyle: 2
- nonAlignment: 5
- overall: 3
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 4
  user: dummyuser7
  article: article3
  
 Rating(dummyuser7-article4):
- writingStyle: 1
+ writingStyle: 4
  nonAlignment: 3
- overall: 1
+ overall: 5
  user: dummyuser7
  article: article4
  
 Rating(dummyuser7-article5):
- writingStyle: 5
+ writingStyle: 1
  nonAlignment: 4
- overall: 2
+ overall: 4
  user: dummyuser7
  article: article5
  
 Rating(dummyuser7-article6):
- writingStyle: 2
- nonAlignment: 1
- overall: 1
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 2
  user: dummyuser7
  article: article6
  
 Rating(dummyuser7-article7):
- writingStyle: 1
+ writingStyle: 5
  nonAlignment: 2
- overall: 4
+ overall: 5
  user: dummyuser7
  article: article7
  
 Rating(dummyuser7-article8):
- writingStyle: 3
+ writingStyle: 4
  nonAlignment: 5
- overall: 2
+ overall: 4
  user: dummyuser7
  article: article8
  
 Rating(dummyuser7-article9):
- writingStyle: 2
- nonAlignment: 1
- overall: 4
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 2
  user: dummyuser7
  article: article9
  
 Rating(dummyuser7-article10):
- writingStyle: 4
- nonAlignment: 1
+ writingStyle: 1
+ nonAlignment: 4
  overall: 2
  user: dummyuser7
  article: article10
  
 Rating(dummyuser7-article11):
- writingStyle: 4
- nonAlignment: 5
- overall: 5
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 4
  user: dummyuser7
  article: article11
  
 Rating(dummyuser7-article12):
- writingStyle: 3
- nonAlignment: 1
+ writingStyle: 5
+ nonAlignment: 3
  overall: 3
  user: dummyuser7
  article: article12
  
 Rating(dummyuser7-article13):
- writingStyle: 3
- nonAlignment: 1
- overall: 3
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 5
  user: dummyuser7
  article: article13
  
 Rating(dummyuser7-article14):
- writingStyle: 5
+ writingStyle: 4
  nonAlignment: 3
- overall: 4
+ overall: 5
  user: dummyuser7
  article: article14
  
 Rating(dummyuser7-article15):
- writingStyle: 1
- nonAlignment: 3
- overall: 2
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 1
  user: dummyuser7
  article: article15
  
 Rating(dummyuser7-article16):
- writingStyle: 1
+ writingStyle: 3
  nonAlignment: 3
- overall: 2
+ overall: 3
  user: dummyuser7
  article: article16
  
-Rating(dummyuser8-article1):
+Rating(dummyuser7-article17):
  writingStyle: 3
- nonAlignment: 2
+ nonAlignment: 1
  overall: 3
+ user: dummyuser7
+ article: article17
+ 
+Rating(dummyuser7-article18):
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 3
+ user: dummyuser7
+ article: article18
+ 
+Rating(dummyuser7-article19):
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 5
+ user: dummyuser7
+ article: article19
+ 
+Rating(dummyuser7-article20):
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 5
+ user: dummyuser7
+ article: article20
+ 
+Rating(dummyuser7-article21):
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 2
+ user: dummyuser7
+ article: article21
+ 
+Rating(dummyuser8-article1):
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 4
  user: dummyuser8
  article: article1
  
 Rating(dummyuser8-article2):
- writingStyle: 3
- nonAlignment: 5
+ writingStyle: 5
+ nonAlignment: 3
  overall: 4
  user: dummyuser8
  article: article2
  
 Rating(dummyuser8-article3):
- writingStyle: 1
+ writingStyle: 2
  nonAlignment: 5
- overall: 1
+ overall: 5
  user: dummyuser8
  article: article3
  
 Rating(dummyuser8-article4):
  writingStyle: 3
- nonAlignment: 4
- overall: 1
+ nonAlignment: 1
+ overall: 4
  user: dummyuser8
  article: article4
  
 Rating(dummyuser8-article5):
  writingStyle: 2
- nonAlignment: 4
- overall: 1
+ nonAlignment: 3
+ overall: 3
  user: dummyuser8
  article: article5
  
 Rating(dummyuser8-article6):
  writingStyle: 2
  nonAlignment: 4
- overall: 5
+ overall: 2
  user: dummyuser8
  article: article6
  
 Rating(dummyuser8-article7):
- writingStyle: 5
- nonAlignment: 5
+ writingStyle: 2
+ nonAlignment: 4
  overall: 4
  user: dummyuser8
  article: article7
  
 Rating(dummyuser8-article8):
- writingStyle: 4
- nonAlignment: 4
- overall: 2
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 4
  user: dummyuser8
  article: article8
  
 Rating(dummyuser8-article9):
  writingStyle: 4
- nonAlignment: 1
- overall: 5
+ nonAlignment: 2
+ overall: 2
  user: dummyuser8
  article: article9
  
 Rating(dummyuser8-article10):
- writingStyle: 1
- nonAlignment: 1
- overall: 2
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 5
  user: dummyuser8
  article: article10
  
 Rating(dummyuser8-article11):
- writingStyle: 1
- nonAlignment: 2
+ writingStyle: 2
+ nonAlignment: 1
  overall: 4
  user: dummyuser8
  article: article11
  
 Rating(dummyuser8-article12):
- writingStyle: 5
- nonAlignment: 3
- overall: 4
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 2
  user: dummyuser8
  article: article12
  
 Rating(dummyuser8-article13):
- writingStyle: 1
- nonAlignment: 1
- overall: 5
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 4
  user: dummyuser8
  article: article13
  
 Rating(dummyuser8-article14):
- writingStyle: 3
- nonAlignment: 2
+ writingStyle: 2
+ nonAlignment: 3
  overall: 2
  user: dummyuser8
  article: article14
  
 Rating(dummyuser8-article15):
- writingStyle: 4
- nonAlignment: 4
+ writingStyle: 3
+ nonAlignment: 5
  overall: 2
  user: dummyuser8
  article: article15
  
 Rating(dummyuser8-article16):
- writingStyle: 4
- nonAlignment: 1
- overall: 2
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 4
  user: dummyuser8
  article: article16
  
-Rating(dummyuser9-article1):
- writingStyle: 5
+Rating(dummyuser8-article17):
+ writingStyle: 1
+ nonAlignment: 2
+ overall: 1
+ user: dummyuser8
+ article: article17
+ 
+Rating(dummyuser8-article18):
+ writingStyle: 4
+ nonAlignment: 4
+ overall: 1
+ user: dummyuser8
+ article: article18
+ 
+Rating(dummyuser8-article19):
+ writingStyle: 1
  nonAlignment: 1
- overall: 2
+ overall: 4
+ user: dummyuser8
+ article: article19
+ 
+Rating(dummyuser8-article20):
+ writingStyle: 4
+ nonAlignment: 4
+ overall: 3
+ user: dummyuser8
+ article: article20
+ 
+Rating(dummyuser8-article21):
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 3
+ user: dummyuser8
+ article: article21
+ 
+Rating(dummyuser9-article1):
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 3
  user: dummyuser9
  article: article1
  
 Rating(dummyuser9-article2):
- writingStyle: 3
+ writingStyle: 2
  nonAlignment: 1
- overall: 2
+ overall: 1
  user: dummyuser9
  article: article2
  
 Rating(dummyuser9-article3):
- writingStyle: 3
- nonAlignment: 5
- overall: 2
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 3
  user: dummyuser9
  article: article3
  
 Rating(dummyuser9-article4):
- writingStyle: 4
- nonAlignment: 4
- overall: 2
+ writingStyle: 5
+ nonAlignment: 1
+ overall: 1
  user: dummyuser9
  article: article4
  
 Rating(dummyuser9-article5):
- writingStyle: 4
- nonAlignment: 2
- overall: 4
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 2
  user: dummyuser9
  article: article5
  
 Rating(dummyuser9-article6):
- writingStyle: 1
- nonAlignment: 2
+ writingStyle: 5
+ nonAlignment: 5
  overall: 2
  user: dummyuser9
  article: article6
  
 Rating(dummyuser9-article7):
- writingStyle: 4
- nonAlignment: 3
+ writingStyle: 5
+ nonAlignment: 4
  overall: 3
  user: dummyuser9
  article: article7
  
 Rating(dummyuser9-article8):
- writingStyle: 1
+ writingStyle: 5
  nonAlignment: 5
- overall: 5
+ overall: 1
  user: dummyuser9
  article: article8
  
 Rating(dummyuser9-article9):
  writingStyle: 2
- nonAlignment: 4
+ nonAlignment: 3
  overall: 5
  user: dummyuser9
  article: article9
  
 Rating(dummyuser9-article10):
- writingStyle: 5
- nonAlignment: 4
- overall: 2
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 4
  user: dummyuser9
  article: article10
  
 Rating(dummyuser9-article11):
- writingStyle: 5
- nonAlignment: 3
- overall: 4
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 1
  user: dummyuser9
  article: article11
  
 Rating(dummyuser9-article12):
- writingStyle: 5
- nonAlignment: 4
- overall: 1
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 3
  user: dummyuser9
  article: article12
  
 Rating(dummyuser9-article13):
- writingStyle: 4
- nonAlignment: 4
- overall: 2
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 1
  user: dummyuser9
  article: article13
  
 Rating(dummyuser9-article14):
- writingStyle: 5
- nonAlignment: 5
- overall: 3
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 2
  user: dummyuser9
  article: article14
  
 Rating(dummyuser9-article15):
- writingStyle: 4
- nonAlignment: 4
- overall: 2
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 5
  user: dummyuser9
  article: article15
  
 Rating(dummyuser9-article16):
- writingStyle: 4
- nonAlignment: 3
- overall: 3
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 4
  user: dummyuser9
  article: article16
  
-Rating(dummyuser10-article1):
- writingStyle: 3
+Rating(dummyuser9-article17):
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 3
+ user: dummyuser9
+ article: article17
+ 
+Rating(dummyuser9-article18):
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 5
+ user: dummyuser9
+ article: article18
+ 
+Rating(dummyuser9-article19):
+ writingStyle: 2
  nonAlignment: 2
- overall: 1
+ overall: 2
+ user: dummyuser9
+ article: article19
+ 
+Rating(dummyuser9-article20):
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 5
+ user: dummyuser9
+ article: article20
+ 
+Rating(dummyuser9-article21):
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 5
+ user: dummyuser9
+ article: article21
+ 
+Rating(dummyuser10-article1):
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 4
  user: dummyuser10
  article: article1
  
 Rating(dummyuser10-article2):
- writingStyle: 4
- nonAlignment: 1
- overall: 4
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 2
  user: dummyuser10
  article: article2
  
@@ -1865,566 +2321,741 @@ Rating(dummyuser10-article3):
  
 Rating(dummyuser10-article4):
  writingStyle: 4
- nonAlignment: 5
- overall: 3
+ nonAlignment: 3
+ overall: 4
  user: dummyuser10
  article: article4
  
 Rating(dummyuser10-article5):
- writingStyle: 2
+ writingStyle: 5
  nonAlignment: 3
- overall: 1
+ overall: 5
  user: dummyuser10
  article: article5
  
 Rating(dummyuser10-article6):
- writingStyle: 1
+ writingStyle: 4
  nonAlignment: 2
- overall: 2
+ overall: 3
  user: dummyuser10
  article: article6
  
 Rating(dummyuser10-article7):
  writingStyle: 3
- nonAlignment: 5
- overall: 1
+ nonAlignment: 2
+ overall: 5
  user: dummyuser10
  article: article7
  
 Rating(dummyuser10-article8):
- writingStyle: 4
- nonAlignment: 1
- overall: 2
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 3
  user: dummyuser10
  article: article8
  
 Rating(dummyuser10-article9):
  writingStyle: 5
- nonAlignment: 3
- overall: 2
+ nonAlignment: 4
+ overall: 3
  user: dummyuser10
  article: article9
  
 Rating(dummyuser10-article10):
  writingStyle: 5
- nonAlignment: 2
- overall: 2
+ nonAlignment: 5
+ overall: 3
  user: dummyuser10
  article: article10
  
 Rating(dummyuser10-article11):
  writingStyle: 4
- nonAlignment: 5
- overall: 5
+ nonAlignment: 1
+ overall: 3
  user: dummyuser10
  article: article11
  
 Rating(dummyuser10-article12):
- writingStyle: 1
- nonAlignment: 4
- overall: 2
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 5
  user: dummyuser10
  article: article12
  
 Rating(dummyuser10-article13):
  writingStyle: 2
- nonAlignment: 3
- overall: 1
+ nonAlignment: 1
+ overall: 3
  user: dummyuser10
  article: article13
  
 Rating(dummyuser10-article14):
  writingStyle: 3
- nonAlignment: 1
- overall: 4
+ nonAlignment: 4
+ overall: 3
  user: dummyuser10
  article: article14
  
 Rating(dummyuser10-article15):
  writingStyle: 4
- nonAlignment: 5
- overall: 1
+ nonAlignment: 3
+ overall: 3
  user: dummyuser10
  article: article15
  
 Rating(dummyuser10-article16):
  writingStyle: 4
- nonAlignment: 4
- overall: 1
+ nonAlignment: 5
+ overall: 5
  user: dummyuser10
  article: article16
  
-Rating(dummyuser11-article1):
+Rating(dummyuser10-article17):
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 5
+ user: dummyuser10
+ article: article17
+ 
+Rating(dummyuser10-article18):
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 1
+ user: dummyuser10
+ article: article18
+ 
+Rating(dummyuser10-article19):
  writingStyle: 3
  nonAlignment: 4
+ overall: 3
+ user: dummyuser10
+ article: article19
+ 
+Rating(dummyuser10-article20):
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 1
+ user: dummyuser10
+ article: article20
+ 
+Rating(dummyuser10-article21):
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 1
+ user: dummyuser10
+ article: article21
+ 
+Rating(dummyuser11-article1):
+ writingStyle: 4
+ nonAlignment: 5
  overall: 4
  user: dummyuser11
  article: article1
  
 Rating(dummyuser11-article2):
- writingStyle: 2
- nonAlignment: 2
- overall: 2
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 4
  user: dummyuser11
  article: article2
  
 Rating(dummyuser11-article3):
- writingStyle: 3
- nonAlignment: 5
+ writingStyle: 2
+ nonAlignment: 3
  overall: 3
  user: dummyuser11
  article: article3
  
 Rating(dummyuser11-article4):
- writingStyle: 5
- nonAlignment: 5
- overall: 3
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 1
  user: dummyuser11
  article: article4
  
 Rating(dummyuser11-article5):
- writingStyle: 4
+ writingStyle: 2
  nonAlignment: 1
  overall: 4
  user: dummyuser11
  article: article5
  
 Rating(dummyuser11-article6):
- writingStyle: 4
- nonAlignment: 2
- overall: 5
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 4
  user: dummyuser11
  article: article6
  
 Rating(dummyuser11-article7):
- writingStyle: 1
+ writingStyle: 4
  nonAlignment: 4
- overall: 2
+ overall: 5
  user: dummyuser11
  article: article7
  
 Rating(dummyuser11-article8):
- writingStyle: 2
- nonAlignment: 5
+ writingStyle: 4
+ nonAlignment: 3
  overall: 2
  user: dummyuser11
  article: article8
  
 Rating(dummyuser11-article9):
- writingStyle: 1
- nonAlignment: 2
+ writingStyle: 3
+ nonAlignment: 1
  overall: 2
  user: dummyuser11
  article: article9
  
 Rating(dummyuser11-article10):
  writingStyle: 5
- nonAlignment: 3
+ nonAlignment: 4
  overall: 2
  user: dummyuser11
  article: article10
  
 Rating(dummyuser11-article11):
- writingStyle: 1
- nonAlignment: 5
- overall: 3
+ writingStyle: 5
+ nonAlignment: 1
+ overall: 1
  user: dummyuser11
  article: article11
  
 Rating(dummyuser11-article12):
- writingStyle: 1
- nonAlignment: 1
- overall: 1
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 4
  user: dummyuser11
  article: article12
  
 Rating(dummyuser11-article13):
- writingStyle: 3
- nonAlignment: 1
- overall: 3
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 1
  user: dummyuser11
  article: article13
  
 Rating(dummyuser11-article14):
  writingStyle: 1
- nonAlignment: 1
+ nonAlignment: 4
  overall: 3
  user: dummyuser11
  article: article14
  
 Rating(dummyuser11-article15):
- writingStyle: 3
- nonAlignment: 4
- overall: 5
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 1
  user: dummyuser11
  article: article15
  
 Rating(dummyuser11-article16):
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 1
+ user: dummyuser11
+ article: article16
+ 
+Rating(dummyuser11-article17):
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 3
+ user: dummyuser11
+ article: article17
+ 
+Rating(dummyuser11-article18):
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 1
+ user: dummyuser11
+ article: article18
+ 
+Rating(dummyuser11-article19):
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 2
+ user: dummyuser11
+ article: article19
+ 
+Rating(dummyuser11-article20):
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 3
+ user: dummyuser11
+ article: article20
+ 
+Rating(dummyuser11-article21):
  writingStyle: 1
  nonAlignment: 2
  overall: 5
  user: dummyuser11
- article: article16
+ article: article21
  
 Rating(dummyuser12-article1):
- writingStyle: 5
- nonAlignment: 1
- overall: 2
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 4
  user: dummyuser12
  article: article1
  
 Rating(dummyuser12-article2):
- writingStyle: 5
- nonAlignment: 5
- overall: 3
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 1
  user: dummyuser12
  article: article2
  
 Rating(dummyuser12-article3):
- writingStyle: 2
- nonAlignment: 4
+ writingStyle: 4
+ nonAlignment: 3
  overall: 4
  user: dummyuser12
  article: article3
  
 Rating(dummyuser12-article4):
- writingStyle: 1
+ writingStyle: 3
  nonAlignment: 1
- overall: 4
+ overall: 5
  user: dummyuser12
  article: article4
  
 Rating(dummyuser12-article5):
- writingStyle: 4
- nonAlignment: 5
- overall: 5
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 2
  user: dummyuser12
  article: article5
  
 Rating(dummyuser12-article6):
- writingStyle: 5
+ writingStyle: 3
  nonAlignment: 5
  overall: 3
  user: dummyuser12
  article: article6
  
 Rating(dummyuser12-article7):
- writingStyle: 3
- nonAlignment: 3
- overall: 4
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 2
  user: dummyuser12
  article: article7
  
 Rating(dummyuser12-article8):
- writingStyle: 5
- nonAlignment: 3
- overall: 3
+ writingStyle: 1
+ nonAlignment: 2
+ overall: 2
  user: dummyuser12
  article: article8
  
 Rating(dummyuser12-article9):
- writingStyle: 2
- nonAlignment: 4
- overall: 1
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 4
  user: dummyuser12
  article: article9
  
 Rating(dummyuser12-article10):
  writingStyle: 1
- nonAlignment: 5
- overall: 3
+ nonAlignment: 2
+ overall: 5
  user: dummyuser12
  article: article10
  
 Rating(dummyuser12-article11):
- writingStyle: 5
- nonAlignment: 2
+ writingStyle: 1
+ nonAlignment: 3
  overall: 1
  user: dummyuser12
  article: article11
  
 Rating(dummyuser12-article12):
- writingStyle: 5
- nonAlignment: 3
- overall: 4
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 2
  user: dummyuser12
  article: article12
  
 Rating(dummyuser12-article13):
- writingStyle: 4
- nonAlignment: 3
- overall: 1
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 4
  user: dummyuser12
  article: article13
  
 Rating(dummyuser12-article14):
- writingStyle: 5
- nonAlignment: 3
- overall: 2
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 1
  user: dummyuser12
  article: article14
  
 Rating(dummyuser12-article15):
- writingStyle: 3
- nonAlignment: 2
- overall: 1
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 3
  user: dummyuser12
  article: article15
  
 Rating(dummyuser12-article16):
- writingStyle: 2
- nonAlignment: 3
- overall: 1
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 3
  user: dummyuser12
  article: article16
  
-Rating(dummyuser13-article1):
- writingStyle: 3
- nonAlignment: 1
+Rating(dummyuser12-article17):
+ writingStyle: 2
+ nonAlignment: 5
  overall: 1
+ user: dummyuser12
+ article: article17
+ 
+Rating(dummyuser12-article18):
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 1
+ user: dummyuser12
+ article: article18
+ 
+Rating(dummyuser12-article19):
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 2
+ user: dummyuser12
+ article: article19
+ 
+Rating(dummyuser12-article20):
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 3
+ user: dummyuser12
+ article: article20
+ 
+Rating(dummyuser12-article21):
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 5
+ user: dummyuser12
+ article: article21
+ 
+Rating(dummyuser13-article1):
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 4
  user: dummyuser13
  article: article1
  
 Rating(dummyuser13-article2):
- writingStyle: 5
+ writingStyle: 2
  nonAlignment: 4
- overall: 4
+ overall: 1
  user: dummyuser13
  article: article2
  
 Rating(dummyuser13-article3):
- writingStyle: 1
- nonAlignment: 3
- overall: 4
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 3
  user: dummyuser13
  article: article3
  
 Rating(dummyuser13-article4):
- writingStyle: 1
- nonAlignment: 1
- overall: 3
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 5
  user: dummyuser13
  article: article4
  
 Rating(dummyuser13-article5):
  writingStyle: 3
- nonAlignment: 4
- overall: 5
+ nonAlignment: 1
+ overall: 1
  user: dummyuser13
  article: article5
  
 Rating(dummyuser13-article6):
- writingStyle: 1
- nonAlignment: 5
- overall: 5
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 2
  user: dummyuser13
  article: article6
  
 Rating(dummyuser13-article7):
- writingStyle: 2
- nonAlignment: 3
+ writingStyle: 3
+ nonAlignment: 2
  overall: 5
  user: dummyuser13
  article: article7
  
 Rating(dummyuser13-article8):
- writingStyle: 3
- nonAlignment: 2
- overall: 5
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 4
  user: dummyuser13
  article: article8
  
 Rating(dummyuser13-article9):
- writingStyle: 4
+ writingStyle: 1
  nonAlignment: 4
  overall: 3
  user: dummyuser13
  article: article9
  
 Rating(dummyuser13-article10):
- writingStyle: 1
- nonAlignment: 2
- overall: 4
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 1
  user: dummyuser13
  article: article10
  
 Rating(dummyuser13-article11):
- writingStyle: 3
- nonAlignment: 1
+ writingStyle: 4
+ nonAlignment: 4
  overall: 3
  user: dummyuser13
  article: article11
  
 Rating(dummyuser13-article12):
  writingStyle: 2
- nonAlignment: 2
- overall: 3
+ nonAlignment: 4
+ overall: 4
  user: dummyuser13
  article: article12
  
 Rating(dummyuser13-article13):
- writingStyle: 5
- nonAlignment: 5
- overall: 3
+ writingStyle: 1
+ nonAlignment: 2
+ overall: 1
  user: dummyuser13
  article: article13
  
 Rating(dummyuser13-article14):
  writingStyle: 5
- nonAlignment: 4
- overall: 5
+ nonAlignment: 5
+ overall: 3
  user: dummyuser13
  article: article14
  
 Rating(dummyuser13-article15):
  writingStyle: 4
- nonAlignment: 1
- overall: 1
+ nonAlignment: 5
+ overall: 3
  user: dummyuser13
  article: article15
  
 Rating(dummyuser13-article16):
- writingStyle: 3
- nonAlignment: 3
- overall: 2
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 5
  user: dummyuser13
  article: article16
  
-Rating(dummyuser14-article1):
+Rating(dummyuser13-article17):
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 4
+ user: dummyuser13
+ article: article17
+ 
+Rating(dummyuser13-article18):
  writingStyle: 2
- nonAlignment: 1
- overall: 5
+ nonAlignment: 5
+ overall: 4
+ user: dummyuser13
+ article: article18
+ 
+Rating(dummyuser13-article19):
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 1
+ user: dummyuser13
+ article: article19
+ 
+Rating(dummyuser13-article20):
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 1
+ user: dummyuser13
+ article: article20
+ 
+Rating(dummyuser13-article21):
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 3
+ user: dummyuser13
+ article: article21
+ 
+Rating(dummyuser14-article1):
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 3
  user: dummyuser14
  article: article1
  
 Rating(dummyuser14-article2):
  writingStyle: 3
- nonAlignment: 2
+ nonAlignment: 4
  overall: 3
  user: dummyuser14
  article: article2
  
 Rating(dummyuser14-article3):
- writingStyle: 3
- nonAlignment: 4
- overall: 2
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 1
  user: dummyuser14
  article: article3
  
 Rating(dummyuser14-article4):
- writingStyle: 1
- nonAlignment: 5
- overall: 3
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 1
  user: dummyuser14
  article: article4
  
 Rating(dummyuser14-article5):
- writingStyle: 5
+ writingStyle: 4
  nonAlignment: 3
- overall: 1
+ overall: 3
  user: dummyuser14
  article: article5
  
 Rating(dummyuser14-article6):
- writingStyle: 5
- nonAlignment: 4
- overall: 1
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 2
  user: dummyuser14
  article: article6
  
 Rating(dummyuser14-article7):
- writingStyle: 4
- nonAlignment: 3
- overall: 5
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 4
  user: dummyuser14
  article: article7
  
 Rating(dummyuser14-article8):
- writingStyle: 3
- nonAlignment: 5
- overall: 4
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 1
  user: dummyuser14
  article: article8
  
 Rating(dummyuser14-article9):
- writingStyle: 5
- nonAlignment: 4
- overall: 2
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 3
  user: dummyuser14
  article: article9
  
 Rating(dummyuser14-article10):
  writingStyle: 4
- nonAlignment: 3
- overall: 4
+ nonAlignment: 4
+ overall: 3
  user: dummyuser14
  article: article10
  
 Rating(dummyuser14-article11):
- writingStyle: 3
- nonAlignment: 1
- overall: 4
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 2
  user: dummyuser14
  article: article11
  
 Rating(dummyuser14-article12):
- writingStyle: 2
- nonAlignment: 5
- overall: 1
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 3
  user: dummyuser14
  article: article12
  
 Rating(dummyuser14-article13):
- writingStyle: 4
+ writingStyle: 3
  nonAlignment: 1
- overall: 2
+ overall: 5
  user: dummyuser14
  article: article13
  
 Rating(dummyuser14-article14):
- writingStyle: 2
- nonAlignment: 1
- overall: 3
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 5
  user: dummyuser14
  article: article14
  
 Rating(dummyuser14-article15):
- writingStyle: 1
- nonAlignment: 3
- overall: 4
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 3
  user: dummyuser14
  article: article15
  
 Rating(dummyuser14-article16):
  writingStyle: 2
- nonAlignment: 4
- overall: 2
+ nonAlignment: 1
+ overall: 3
  user: dummyuser14
  article: article16
  
+Rating(dummyuser14-article17):
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 4
+ user: dummyuser14
+ article: article17
+ 
+Rating(dummyuser14-article18):
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 5
+ user: dummyuser14
+ article: article18
+ 
+Rating(dummyuser14-article19):
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 5
+ user: dummyuser14
+ article: article19
+ 
+Rating(dummyuser14-article20):
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 5
+ user: dummyuser14
+ article: article20
+ 
+Rating(dummyuser14-article21):
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 5
+ user: dummyuser14
+ article: article21
+ 
 Rating(dummyuser15-article1):
- writingStyle: 2
- nonAlignment: 3
- overall: 2
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 3
  user: dummyuser15
  article: article1
  
 Rating(dummyuser15-article2):
- writingStyle: 1
- nonAlignment: 1
- overall: 2
- user: dummyuser15
- article: article2
- 
-Rating(dummyuser15-article3):
  writingStyle: 5
  nonAlignment: 2
  overall: 4
  user: dummyuser15
+ article: article2
+ 
+Rating(dummyuser15-article3):
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 2
+ user: dummyuser15
  article: article3
  
 Rating(dummyuser15-article4):
- writingStyle: 3
+ writingStyle: 2
  nonAlignment: 5
  overall: 4
  user: dummyuser15
@@ -2432,539 +3063,714 @@ Rating(dummyuser15-article4):
  
 Rating(dummyuser15-article5):
  writingStyle: 2
- nonAlignment: 4
+ nonAlignment: 5
  overall: 1
  user: dummyuser15
  article: article5
  
 Rating(dummyuser15-article6):
- writingStyle: 5
- nonAlignment: 1
- overall: 3
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 5
  user: dummyuser15
  article: article6
  
 Rating(dummyuser15-article7):
  writingStyle: 2
- nonAlignment: 3
- overall: 5
+ nonAlignment: 4
+ overall: 4
  user: dummyuser15
  article: article7
  
 Rating(dummyuser15-article8):
- writingStyle: 3
- nonAlignment: 2
- overall: 2
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 1
  user: dummyuser15
  article: article8
  
 Rating(dummyuser15-article9):
- writingStyle: 5
+ writingStyle: 2
  nonAlignment: 5
- overall: 5
+ overall: 4
  user: dummyuser15
  article: article9
  
 Rating(dummyuser15-article10):
- writingStyle: 1
- nonAlignment: 5
- overall: 1
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 4
  user: dummyuser15
  article: article10
  
 Rating(dummyuser15-article11):
- writingStyle: 1
- nonAlignment: 2
- overall: 5
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 1
  user: dummyuser15
  article: article11
  
 Rating(dummyuser15-article12):
- writingStyle: 3
- nonAlignment: 4
+ writingStyle: 4
+ nonAlignment: 3
  overall: 3
  user: dummyuser15
  article: article12
  
 Rating(dummyuser15-article13):
- writingStyle: 1
+ writingStyle: 2
  nonAlignment: 2
- overall: 5
+ overall: 4
  user: dummyuser15
  article: article13
  
 Rating(dummyuser15-article14):
- writingStyle: 4
- nonAlignment: 1
- overall: 2
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 4
  user: dummyuser15
  article: article14
  
 Rating(dummyuser15-article15):
- writingStyle: 4
- nonAlignment: 2
+ writingStyle: 1
+ nonAlignment: 1
  overall: 1
  user: dummyuser15
  article: article15
  
 Rating(dummyuser15-article16):
- writingStyle: 3
+ writingStyle: 4
  nonAlignment: 1
- overall: 2
+ overall: 4
  user: dummyuser15
  article: article16
  
-Rating(dummyuser16-article1):
- writingStyle: 1
- nonAlignment: 3
+Rating(dummyuser15-article17):
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 2
+ user: dummyuser15
+ article: article17
+ 
+Rating(dummyuser15-article18):
+ writingStyle: 3
+ nonAlignment: 2
  overall: 3
+ user: dummyuser15
+ article: article18
+ 
+Rating(dummyuser15-article19):
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 5
+ user: dummyuser15
+ article: article19
+ 
+Rating(dummyuser15-article20):
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 4
+ user: dummyuser15
+ article: article20
+ 
+Rating(dummyuser15-article21):
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 2
+ user: dummyuser15
+ article: article21
+ 
+Rating(dummyuser16-article1):
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 1
  user: dummyuser16
  article: article1
  
 Rating(dummyuser16-article2):
- writingStyle: 4
+ writingStyle: 5
  nonAlignment: 2
- overall: 5
+ overall: 2
  user: dummyuser16
  article: article2
  
 Rating(dummyuser16-article3):
- writingStyle: 5
- nonAlignment: 5
+ writingStyle: 3
+ nonAlignment: 4
  overall: 2
  user: dummyuser16
  article: article3
  
 Rating(dummyuser16-article4):
- writingStyle: 2
- nonAlignment: 2
+ writingStyle: 4
+ nonAlignment: 5
  overall: 4
  user: dummyuser16
  article: article4
  
 Rating(dummyuser16-article5):
- writingStyle: 3
- nonAlignment: 1
- overall: 3
+ writingStyle: 4
+ nonAlignment: 4
+ overall: 5
  user: dummyuser16
  article: article5
  
 Rating(dummyuser16-article6):
- writingStyle: 1
- nonAlignment: 1
- overall: 3
+ writingStyle: 2
+ nonAlignment: 2
+ overall: 5
  user: dummyuser16
  article: article6
  
 Rating(dummyuser16-article7):
- writingStyle: 4
- nonAlignment: 2
- overall: 5
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 2
  user: dummyuser16
  article: article7
  
 Rating(dummyuser16-article8):
- writingStyle: 4
- nonAlignment: 1
+ writingStyle: 3
+ nonAlignment: 4
  overall: 3
  user: dummyuser16
  article: article8
  
 Rating(dummyuser16-article9):
- writingStyle: 2
- nonAlignment: 1
- overall: 1
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 4
  user: dummyuser16
  article: article9
  
 Rating(dummyuser16-article10):
- writingStyle: 4
- nonAlignment: 1
- overall: 1
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 3
  user: dummyuser16
  article: article10
  
 Rating(dummyuser16-article11):
- writingStyle: 2
- nonAlignment: 4
- overall: 4
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 2
  user: dummyuser16
  article: article11
  
 Rating(dummyuser16-article12):
- writingStyle: 5
- nonAlignment: 5
- overall: 3
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 5
  user: dummyuser16
  article: article12
  
 Rating(dummyuser16-article13):
- writingStyle: 5
+ writingStyle: 1
  nonAlignment: 5
- overall: 4
+ overall: 3
  user: dummyuser16
  article: article13
  
 Rating(dummyuser16-article14):
- writingStyle: 5
- nonAlignment: 2
- overall: 3
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 1
  user: dummyuser16
  article: article14
  
 Rating(dummyuser16-article15):
- writingStyle: 3
- nonAlignment: 4
+ writingStyle: 2
+ nonAlignment: 5
  overall: 1
  user: dummyuser16
  article: article15
  
 Rating(dummyuser16-article16):
- writingStyle: 2
- nonAlignment: 3
- overall: 4
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 2
  user: dummyuser16
  article: article16
  
-Rating(dummyuser17-article1):
- writingStyle: 4
+Rating(dummyuser16-article17):
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 5
+ user: dummyuser16
+ article: article17
+ 
+Rating(dummyuser16-article18):
+ writingStyle: 2
+ nonAlignment: 5
+ overall: 2
+ user: dummyuser16
+ article: article18
+ 
+Rating(dummyuser16-article19):
+ writingStyle: 5
  nonAlignment: 2
+ overall: 4
+ user: dummyuser16
+ article: article19
+ 
+Rating(dummyuser16-article20):
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 3
+ user: dummyuser16
+ article: article20
+ 
+Rating(dummyuser16-article21):
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 5
+ user: dummyuser16
+ article: article21
+ 
+Rating(dummyuser17-article1):
+ writingStyle: 3
+ nonAlignment: 5
  overall: 3
  user: dummyuser17
  article: article1
  
 Rating(dummyuser17-article2):
- writingStyle: 4
+ writingStyle: 2
  nonAlignment: 2
- overall: 4
+ overall: 2
  user: dummyuser17
  article: article2
  
 Rating(dummyuser17-article3):
- writingStyle: 1
- nonAlignment: 2
- overall: 5
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 2
  user: dummyuser17
  article: article3
  
 Rating(dummyuser17-article4):
- writingStyle: 2
- nonAlignment: 4
- overall: 2
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 5
  user: dummyuser17
  article: article4
  
 Rating(dummyuser17-article5):
- writingStyle: 2
- nonAlignment: 1
- overall: 5
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 3
  user: dummyuser17
  article: article5
  
 Rating(dummyuser17-article6):
  writingStyle: 1
- nonAlignment: 2
- overall: 1
+ nonAlignment: 1
+ overall: 4
  user: dummyuser17
  article: article6
  
 Rating(dummyuser17-article7):
- writingStyle: 3
+ writingStyle: 1
  nonAlignment: 2
  overall: 1
  user: dummyuser17
  article: article7
  
 Rating(dummyuser17-article8):
- writingStyle: 5
- nonAlignment: 5
- overall: 5
+ writingStyle: 1
+ nonAlignment: 3
+ overall: 4
  user: dummyuser17
  article: article8
  
 Rating(dummyuser17-article9):
- writingStyle: 3
- nonAlignment: 2
- overall: 5
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 3
  user: dummyuser17
  article: article9
  
 Rating(dummyuser17-article10):
- writingStyle: 2
- nonAlignment: 2
- overall: 3
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 5
  user: dummyuser17
  article: article10
  
 Rating(dummyuser17-article11):
- writingStyle: 4
- nonAlignment: 2
+ writingStyle: 5
+ nonAlignment: 4
  overall: 1
  user: dummyuser17
  article: article11
  
 Rating(dummyuser17-article12):
- writingStyle: 1
- nonAlignment: 2
- overall: 4
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 2
  user: dummyuser17
  article: article12
  
 Rating(dummyuser17-article13):
  writingStyle: 3
- nonAlignment: 3
- overall: 5
+ nonAlignment: 5
+ overall: 2
  user: dummyuser17
  article: article13
  
 Rating(dummyuser17-article14):
- writingStyle: 5
- nonAlignment: 5
- overall: 1
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 2
  user: dummyuser17
  article: article14
  
 Rating(dummyuser17-article15):
  writingStyle: 4
- nonAlignment: 4
- overall: 4
+ nonAlignment: 5
+ overall: 5
  user: dummyuser17
  article: article15
  
 Rating(dummyuser17-article16):
- writingStyle: 5
+ writingStyle: 3
  nonAlignment: 5
- overall: 1
+ overall: 5
  user: dummyuser17
  article: article16
  
-Rating(dummyuser18-article1):
+Rating(dummyuser17-article17):
  writingStyle: 5
- nonAlignment: 5
+ nonAlignment: 1
  overall: 4
+ user: dummyuser17
+ article: article17
+ 
+Rating(dummyuser17-article18):
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 3
+ user: dummyuser17
+ article: article18
+ 
+Rating(dummyuser17-article19):
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 5
+ user: dummyuser17
+ article: article19
+ 
+Rating(dummyuser17-article20):
+ writingStyle: 4
+ nonAlignment: 1
+ overall: 2
+ user: dummyuser17
+ article: article20
+ 
+Rating(dummyuser17-article21):
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 2
+ user: dummyuser17
+ article: article21
+ 
+Rating(dummyuser18-article1):
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 2
  user: dummyuser18
  article: article1
  
 Rating(dummyuser18-article2):
- writingStyle: 1
- nonAlignment: 2
- overall: 1
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 5
  user: dummyuser18
  article: article2
  
 Rating(dummyuser18-article3):
  writingStyle: 5
- nonAlignment: 2
- overall: 4
+ nonAlignment: 4
+ overall: 1
  user: dummyuser18
  article: article3
  
 Rating(dummyuser18-article4):
- writingStyle: 4
- nonAlignment: 2
+ writingStyle: 2
+ nonAlignment: 3
  overall: 1
  user: dummyuser18
  article: article4
  
 Rating(dummyuser18-article5):
- writingStyle: 5
- nonAlignment: 3
- overall: 3
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 2
  user: dummyuser18
  article: article5
  
 Rating(dummyuser18-article6):
- writingStyle: 2
- nonAlignment: 2
- overall: 4
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 1
  user: dummyuser18
  article: article6
  
 Rating(dummyuser18-article7):
  writingStyle: 1
  nonAlignment: 1
- overall: 1
+ overall: 2
  user: dummyuser18
  article: article7
  
 Rating(dummyuser18-article8):
- writingStyle: 4
+ writingStyle: 5
  nonAlignment: 3
  overall: 2
  user: dummyuser18
  article: article8
  
 Rating(dummyuser18-article9):
- writingStyle: 1
+ writingStyle: 3
  nonAlignment: 5
- overall: 1
+ overall: 5
  user: dummyuser18
  article: article9
  
 Rating(dummyuser18-article10):
- writingStyle: 5
+ writingStyle: 3
  nonAlignment: 1
- overall: 2
+ overall: 1
  user: dummyuser18
  article: article10
  
 Rating(dummyuser18-article11):
- writingStyle: 4
- nonAlignment: 2
- overall: 2
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 4
  user: dummyuser18
  article: article11
  
 Rating(dummyuser18-article12):
  writingStyle: 3
- nonAlignment: 5
- overall: 4
+ nonAlignment: 4
+ overall: 3
  user: dummyuser18
  article: article12
  
 Rating(dummyuser18-article13):
- writingStyle: 1
- nonAlignment: 3
- overall: 4
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 3
  user: dummyuser18
  article: article13
  
 Rating(dummyuser18-article14):
- writingStyle: 3
- nonAlignment: 2
+ writingStyle: 4
+ nonAlignment: 3
  overall: 4
  user: dummyuser18
  article: article14
  
 Rating(dummyuser18-article15):
- writingStyle: 5
+ writingStyle: 2
  nonAlignment: 2
- overall: 2
+ overall: 4
  user: dummyuser18
  article: article15
  
 Rating(dummyuser18-article16):
- writingStyle: 2
- nonAlignment: 3
- overall: 5
+ writingStyle: 3
+ nonAlignment: 2
+ overall: 1
  user: dummyuser18
  article: article16
  
+Rating(dummyuser18-article17):
+ writingStyle: 2
+ nonAlignment: 4
+ overall: 1
+ user: dummyuser18
+ article: article17
+ 
+Rating(dummyuser18-article18):
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 2
+ user: dummyuser18
+ article: article18
+ 
+Rating(dummyuser18-article19):
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 1
+ user: dummyuser18
+ article: article19
+ 
+Rating(dummyuser18-article20):
+ writingStyle: 1
+ nonAlignment: 2
+ overall: 1
+ user: dummyuser18
+ article: article20
+ 
+Rating(dummyuser18-article21):
+ writingStyle: 4
+ nonAlignment: 2
+ overall: 5
+ user: dummyuser18
+ article: article21
+ 
 Rating(dummyuser19-article1):
  writingStyle: 2
- nonAlignment: 5
- overall: 3
+ nonAlignment: 3
+ overall: 4
  user: dummyuser19
  article: article1
  
 Rating(dummyuser19-article2):
- writingStyle: 5
+ writingStyle: 3
  nonAlignment: 4
  overall: 4
  user: dummyuser19
  article: article2
  
 Rating(dummyuser19-article3):
- writingStyle: 2
- nonAlignment: 3
- overall: 5
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 1
  user: dummyuser19
  article: article3
  
 Rating(dummyuser19-article4):
  writingStyle: 5
- nonAlignment: 2
- overall: 5
+ nonAlignment: 3
+ overall: 4
  user: dummyuser19
  article: article4
  
 Rating(dummyuser19-article5):
  writingStyle: 2
- nonAlignment: 5
- overall: 4
+ nonAlignment: 4
+ overall: 5
  user: dummyuser19
  article: article5
  
 Rating(dummyuser19-article6):
- writingStyle: 4
- nonAlignment: 2
- overall: 5
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 3
  user: dummyuser19
  article: article6
  
 Rating(dummyuser19-article7):
- writingStyle: 4
+ writingStyle: 5
  nonAlignment: 2
- overall: 5
+ overall: 2
  user: dummyuser19
  article: article7
  
 Rating(dummyuser19-article8):
- writingStyle: 4
- nonAlignment: 1
- overall: 2
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 4
  user: dummyuser19
  article: article8
  
 Rating(dummyuser19-article9):
- writingStyle: 3
- nonAlignment: 3
+ writingStyle: 4
+ nonAlignment: 5
  overall: 4
  user: dummyuser19
  article: article9
  
 Rating(dummyuser19-article10):
- writingStyle: 5
- nonAlignment: 5
- overall: 2
+ writingStyle: 1
+ nonAlignment: 2
+ overall: 5
  user: dummyuser19
  article: article10
  
 Rating(dummyuser19-article11):
- writingStyle: 1
- nonAlignment: 4
- overall: 3
+ writingStyle: 4
+ nonAlignment: 3
+ overall: 5
  user: dummyuser19
  article: article11
  
 Rating(dummyuser19-article12):
- writingStyle: 5
+ writingStyle: 1
  nonAlignment: 2
- overall: 2
+ overall: 1
  user: dummyuser19
  article: article12
  
 Rating(dummyuser19-article13):
- writingStyle: 5
- nonAlignment: 3
- overall: 4
+ writingStyle: 1
+ nonAlignment: 4
+ overall: 3
  user: dummyuser19
  article: article13
  
 Rating(dummyuser19-article14):
- writingStyle: 2
- nonAlignment: 3
+ writingStyle: 4
+ nonAlignment: 2
  overall: 3
  user: dummyuser19
  article: article14
  
 Rating(dummyuser19-article15):
- writingStyle: 1
- nonAlignment: 3
+ writingStyle: 5
+ nonAlignment: 2
  overall: 1
  user: dummyuser19
  article: article15
  
 Rating(dummyuser19-article16):
  writingStyle: 1
- nonAlignment: 3
- overall: 1
+ nonAlignment: 2
+ overall: 4
  user: dummyuser19
  article: article16
  
-Rating(dummyuser20-article1):
- writingStyle: 1
+Rating(dummyuser19-article17):
+ writingStyle: 5
+ nonAlignment: 3
+ overall: 5
+ user: dummyuser19
+ article: article17
+ 
+Rating(dummyuser19-article18):
+ writingStyle: 3
+ nonAlignment: 3
+ overall: 3
+ user: dummyuser19
+ article: article18
+ 
+Rating(dummyuser19-article19):
+ writingStyle: 3
+ nonAlignment: 4
+ overall: 3
+ user: dummyuser19
+ article: article19
+ 
+Rating(dummyuser19-article20):
+ writingStyle: 5
+ nonAlignment: 2
+ overall: 5
+ user: dummyuser19
+ article: article20
+ 
+Rating(dummyuser19-article21):
+ writingStyle: 4
  nonAlignment: 1
+ overall: 4
+ user: dummyuser19
+ article: article21
+ 
+Rating(dummyuser20-article1):
+ writingStyle: 2
+ nonAlignment: 3
  overall: 3
  user: dummyuser20
  article: article1
@@ -2972,105 +3778,140 @@ Rating(dummyuser20-article1):
 Rating(dummyuser20-article2):
  writingStyle: 5
  nonAlignment: 2
- overall: 5
+ overall: 2
  user: dummyuser20
  article: article2
  
 Rating(dummyuser20-article3):
- writingStyle: 3
- nonAlignment: 1
- overall: 1
+ writingStyle: 4
+ nonAlignment: 5
+ overall: 4
  user: dummyuser20
  article: article3
  
 Rating(dummyuser20-article4):
  writingStyle: 3
- nonAlignment: 2
- overall: 4
+ nonAlignment: 1
+ overall: 5
  user: dummyuser20
  article: article4
  
 Rating(dummyuser20-article5):
- writingStyle: 3
- nonAlignment: 5
- overall: 5
+ writingStyle: 5
+ nonAlignment: 4
+ overall: 1
  user: dummyuser20
  article: article5
  
 Rating(dummyuser20-article6):
- writingStyle: 5
- nonAlignment: 5
- overall: 5
+ writingStyle: 2
+ nonAlignment: 1
+ overall: 2
  user: dummyuser20
  article: article6
  
 Rating(dummyuser20-article7):
  writingStyle: 4
  nonAlignment: 4
- overall: 5
+ overall: 2
  user: dummyuser20
  article: article7
  
 Rating(dummyuser20-article8):
- writingStyle: 3
- nonAlignment: 5
- overall: 1
+ writingStyle: 1
+ nonAlignment: 1
+ overall: 2
  user: dummyuser20
  article: article8
  
 Rating(dummyuser20-article9):
  writingStyle: 1
  nonAlignment: 3
- overall: 5
+ overall: 2
  user: dummyuser20
  article: article9
  
 Rating(dummyuser20-article10):
- writingStyle: 5
- nonAlignment: 1
- overall: 5
+ writingStyle: 4
+ nonAlignment: 4
+ overall: 3
  user: dummyuser20
  article: article10
  
 Rating(dummyuser20-article11):
- writingStyle: 4
- nonAlignment: 1
- overall: 5
+ writingStyle: 2
+ nonAlignment: 3
+ overall: 2
  user: dummyuser20
  article: article11
  
 Rating(dummyuser20-article12):
- writingStyle: 2
- nonAlignment: 2
- overall: 5
+ writingStyle: 5
+ nonAlignment: 1
+ overall: 4
  user: dummyuser20
  article: article12
  
 Rating(dummyuser20-article13):
- writingStyle: 5
- nonAlignment: 2
- overall: 2
+ writingStyle: 3
+ nonAlignment: 1
+ overall: 5
  user: dummyuser20
  article: article13
  
 Rating(dummyuser20-article14):
  writingStyle: 4
- nonAlignment: 3
- overall: 3
+ nonAlignment: 1
+ overall: 1
  user: dummyuser20
  article: article14
  
 Rating(dummyuser20-article15):
- writingStyle: 5
- nonAlignment: 1
- overall: 2
+ writingStyle: 3
+ nonAlignment: 5
+ overall: 5
  user: dummyuser20
  article: article15
  
 Rating(dummyuser20-article16):
- writingStyle: 4
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 5
+ user: dummyuser20
+ article: article16
+ 
+Rating(dummyuser20-article17):
+ writingStyle: 2
  nonAlignment: 4
  overall: 4
  user: dummyuser20
- article: article16
+ article: article17
+ 
+Rating(dummyuser20-article18):
+ writingStyle: 1
+ nonAlignment: 5
+ overall: 1
+ user: dummyuser20
+ article: article18
+ 
+Rating(dummyuser20-article19):
+ writingStyle: 1
+ nonAlignment: 2
+ overall: 2
+ user: dummyuser20
+ article: article19
+ 
+Rating(dummyuser20-article20):
+ writingStyle: 5
+ nonAlignment: 5
+ overall: 5
+ user: dummyuser20
+ article: article20
+ 
+Rating(dummyuser20-article21):
+ writingStyle: 5
+ nonAlignment: 1
+ overall: 3
+ user: dummyuser20
+ article: article21
  
