@@ -28,6 +28,8 @@ GET		/api/tags						rest.REST.getTags
 GET		/api/tags/{tagName}				rest.REST.findByTag(tagName: String)
 GET		/api/categories					rest.REST.getCategories
 GET		/api/categories/{categoryName}	rest.REST.findByCategory(categoryName: String)
+GET		/api/articles/{articleId}/comments		rest.REST.getComments(articleId: long)
+
 
 GET 	/tags/{tagName}					Tags.renderByTag(tagName: String)
 

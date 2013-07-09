@@ -9,6 +9,7 @@ import models.rest.AbstractRestResource;
 import models.rest.RestResponse;
 import play.Logger;
 import controllers.Categories;
+import controllers.Comments;
 import controllers.Tags;
 
 /**
@@ -98,6 +99,20 @@ public class REST extends AbstractRestResource {
 		}
 
 		renderJSON(new RestResponse(restCategories));
+
+	}
+
+	public static void getComments(long articleId) {
+		List<AbstractRestResource> restComments = new ArrayList<AbstractRestResource>();
+		List<models.Comment> comments = Comments
+				.getCommentsForArticle(articleId);
+
+		for (models.Comment comment : comments) {
+			models.rest.Comment restComment = new models.rest.Comment();
+			restComments.add(restComment.convert(comment));
+		}
+
+		renderJSON(new RestResponse(restComments));
 
 	}
 }
