@@ -50,9 +50,12 @@
 			</div>
 		#{/else}
 	</div>
-	#{if hasMore}
+	#{if hasNext}
 	<a href="@{Application.nextPage(page+1)}" class="btn pull-right">Next Page</a>
 	#{/if}
+    #{elseif hasPrev}
+    <a href="@{Application.nextPage(page-1)}" class="btn pull-left">Previous Page</a>
+    #{/elseif}
 	<!--/row-->
 #{if models.Article.count() > 0}
     </div>

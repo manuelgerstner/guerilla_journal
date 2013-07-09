@@ -25,12 +25,6 @@ public class Application extends Controller {
 		session.put("loggedin", user.loggedIn);
 		Logger.info("User is logged in = " + user.loggedIn);
 
-  //       GenericModel.JPAQuery articles = Article.find("order by rank desc ");
-		// Logger.info("Got posts for show all view");
-  //       renderArgs.put("articles", articles.from(0).fetch(12));
-  //       renderArgs.put("page", 1);
-  //       renderArgs.put("hasMore",Article.count() > 12 ? true : false);
-		// render();//frontPost, olderPosts);
 		nextPage(1);
 	}
 
@@ -42,7 +36,8 @@ public class Application extends Controller {
         renderArgs.put("articles", articles.from((page-1) * 12).fetch(page * 12));
         renderArgs.put("page", page);
 
-        renderArgs.put("hasMore",Article.count() > 12*(page) ? true : false);
+        renderArgs.put("hasNext",Article.count() > 12*(page) ? true : false);
+        renderArgs.put("hasPrev",page > 1);
         renderArgs.put("user",Users.getUser());
         renderTemplate("Application/index.html");
     }
