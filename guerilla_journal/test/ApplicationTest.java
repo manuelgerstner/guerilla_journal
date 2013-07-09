@@ -93,6 +93,7 @@ public class ApplicationTest extends FunctionalTest {
 		long lon = 1;
 		Article retrieved = Article.findById(lon);
 		float help = retrieved.getAvgOverall();
+		help +=retrieved.getAvgStyle();
 		User user = User.find("name", "dummyuser1").first();
 
 		Rating rate = Rating.find ("user",user).first();
@@ -102,12 +103,23 @@ public class ApplicationTest extends FunctionalTest {
 	    params.put("score", "5");
 	    params.put("category", "overall");
 	    response = POST("/Articles/rateArticle",params);
+	    Map<String, String> params3 = new HashMap();
+	    params3.put("articleId", "1");
+	    params3.put("score", "5");
+	    params3.put("category", "writingStyle");
+	    response = POST("/Articles/rateArticle",params3);
         assertStatus(200, response);
-        
-		Article retrieved2 = Article.findById(lon);
-		float help2 = retrieved2.getAvgOverall();
 		UpdateRatings up = new UpdateRatings();
 		up.doJob();
+
+		retrieved = Article.findById(lon+1);
+		Logger.info("help 2 and help: "+retrieved.getAvgOverall()+" "+retrieved.getAvgStyle());
+
+		retrieved = Article.findById(lon);
+		float help2 = retrieved.getAvgOverall();
+		help2 +=retrieved.getAvgStyle();
+
+		
 		Logger.info("help 2 and help: "+help2+" "+help);
 		rate = Rating.find ("user",user).first();
 		Logger.info("rating at end: "+rate.overall);
@@ -121,10 +133,10 @@ public class ApplicationTest extends FunctionalTest {
 public void testSearchFunction (){
 
     Map<String, String> params = new HashMap();
-    params.put("query", "Bayern");
+    params.put("query", "fc");
     Response response = POST("/search/search",params);
 	List<Article> articles = (List<Article>) renderArgs("articles");
-	Article article =  new Article ("dummyuser1", "dummyuser1","dummy article title about Bayern",
+	Article article =  new Article ("dummyuser1", "dummyuser1","dummy article title about fc Bayern",
 			"just a test article for search function", "this is the entry, but it isnt supposed to make much sense",
 			"http://www.erfolgreiche-diät.de/wp-content/uploads/2012/07/test.gif", "World");
 	article.save();
