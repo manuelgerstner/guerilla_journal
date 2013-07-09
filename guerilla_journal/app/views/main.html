@@ -75,10 +75,8 @@
                 
                 #{else}
                     #{list items:controllers.Users.getUser(), as:'user'}
-
-	                   	 	
    						#{form @Users.logout(), style: 'height: 0px', class: 'pull-right form-inline'}
-							<a href="/profile">
+							<a href="@{Profiles.getUserProfileByScreenName(user.name)}">
 								<img height="24" width="24" src="${user.iconUrl}" />
 		                   		<span class="name">${user.screenName}</span>
 		                   	</a>
@@ -107,6 +105,7 @@
     <script src="@{'/public/assets/js/bootstrap-select.js'}"></script>
     <script src="@{'/public/assets/js/jquery.raty-2.5.2.min.js'}"></script>
     <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+    <script src="@{'/public/assets/js/jquery.tagcloud.js'}"></script>
     <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
     <script type="text/javascript">
 	    	
@@ -119,9 +118,27 @@
    		         	document.location.href=$(this).find('a:first').attr('href');
    		         });
    		    });
-	    });
-    
-    </script>
+   	    	
+   	    	// initiate tagcloud
+ 	    	
+			$.fn.tagcloud.defaults = {
+					size : {
+						start : 10,
+						end : 30,
+						unit : 'pt'
+					},
+					color : {
+						start : '#0E0EFF',
+						end : '#f52'
+					}
+				};
+
+				$(function() {
+					$('#tagcloud a').tagcloud();
+				});
+
+			});
+		</script>
     
     </body>
 </html>

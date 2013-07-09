@@ -1,5 +1,8 @@
 package models;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.Entity;
 
 import play.db.jpa.Model;
@@ -34,5 +37,12 @@ public class Tag extends Model implements Comparable<Tag> {
 			tag = new Tag(name);
 		}
 		return tag;
+	}
+
+	public static List<Map> getCloud() {
+		List<Map> result = Tag
+				.find("select new map(t.name as name, count(a.id) as pound) from Article a join a.tags as t group by t.name order by t.name")
+				.fetch();
+		return result;
 	}
 }
