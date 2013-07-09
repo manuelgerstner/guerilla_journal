@@ -19,7 +19,9 @@ public class Profiles extends CRUD {
 		if (user == null) {
 			notFound();
 		} else {
-			render("Profiles/publicProfile.html", user);
+            renderArgs.put("user",Users.getUser());
+            renderArgs.put("profileUser",user);
+			render("Profiles/publicProfile.html");
 		}
 	}
 

@@ -1,8 +1,8 @@
 <!-- index.html -->
 
 #{extends 'main.html' /}
-#{if user}
-#{set title: user.name + '\'s profile' /}
+#{if profileUser}
+#{set title: profileUser.name + '\'s profile' /}
 #{/if}
 #{else}
 #{set title: 'User does not exist' /}
@@ -12,25 +12,25 @@
         <ul class="breadcrumb">
             You are here:
             <li><a href="/">Frontpage</a> <span class="divider">/</span></li>
-            <li class="active">${user.name}'s Profile</li>
+            <li class="active">${profileUser.name}'s Profile</li>
         </ul>
     </div>
     <div class="row-fluid">
         <div class="span9">
             <div class="span8">
-                #{if user.iconUrl}
+                #{if profileUser.iconUrl}
                 <div class="span1">
-                    <img class="usericon" src="${user.iconUrl}"/>
+                    <img class="usericon" src="${profileUser.iconUrl}"/>
                 </div>
                 #{/if}
 
-                #{if user}
-                <h3>${user.name}'s articles:</h3>
+                #{if profileUser}
+                <h3>${profileUser.name}'s articles:</h3>
             </div>
         </div>
     </div>
     <div class="row-fluid">
-        #{list items:models.Article.getUsersArticles(user.twitterHandle), as:'article'}
+        #{list items:models.Article.getUsersArticles(profileUser.twitterHandle), as:'article'}
         <div class="span4 well">
             <a href="@{Articles.getArticle(article.id)}">${article.title}</a>
             (${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"})
