@@ -20,7 +20,7 @@
 			
 			#{list items:controllers.Articles.getTrending(), as:'article'}
 			<li>
-				<a href="@@{Articles.getArticle(article.id)}">${article.title}</a>
+				<a class="leftborder-${article.category.className}" href="@@{Articles.getArticle(article.id)}">${article.title}</a>
 			</li>
 			#{/list}
 		</ul>
