@@ -2,74 +2,93 @@
 
 #{extends 'main.html' /}
 #{if user}
-	#{set title: user.name + '\'s profile' /}
+#{set title: user.name + '\'s profile' /}
 #{/if}
 #{else}
-	#{set title: 'User does not exist' /}
+#{set title: 'User does not exist' /}
 #{/else}
 <div class="span9">
-	<div class="row-fluid">
-			<ul class="breadcrumb">
-			  You are here: <li><a href="/">Frontpage</a> <span class="divider">/</span></li>
-			  <li class="active">${user.name}'s Profile</li>
-			</ul>
-	</div>
-	<div class="row-fluid">
-		<div class="span9">
-			<div class="span8">
-			#{if user.iconUrl}
-				<div class="span1">
-					<img class="usericon" src="${user.iconUrl}"/>
-				</div>
-			#{/if}
-			
-			#{if user}
-				<h3>${user.name}'s articles:</h3>
-				<div class="row-fluid">
-				#{list items:models.Article.getUsersArticles(user.twitterHandle), as:'article'}
-						<div class="span6 well">	
-							<a href="@{Articles.getArticle(article.id)}">${article.title}</a> (${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"}) 
-							<div>
-								<dl>Writing style:</dl>
-								<dt><div class="star" data-category="writingStyle" data-score="${article.getAvgStyle()}"></div></dt>
-							 </div>
-							<div>
-								<dl>Non-Alignment:</dl>
-								<dt><div class="star" data-category="nonAlignment" data-score="${article.getAvgNonAlign()}"></div></dt>
-							 </div>
-							 <div>
-								<dl>Overall:</dl>
-								<dt><div class="star" data-category="overall" data-score="${article.getAvgOverall()}"></div></dt>
-							 </div>
-						</div>
-				#{/list}
-				</div>
-			#{/if}
-			#{else}
-				<h3>The username does not exist in our database :(</h3>				
-			#{/else}
-				
-			</div>
-		</div>
-	</div>
+    <div class="row-fluid">
+        <ul class="breadcrumb">
+            You are here:
+            <li><a href="/">Frontpage</a> <span class="divider">/</span></li>
+            <li class="active">${user.name}'s Profile</li>
+        </ul>
+    </div>
+    <div class="row-fluid">
+        <div class="span9">
+            <div class="span8">
+                #{if user.iconUrl}
+                <div class="span1">
+                    <img class="usericon" src="${user.iconUrl}"/>
+                </div>
+                #{/if}
+
+                #{if user}
+                <h3>${user.name}'s articles:</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        #{list items:models.Article.getUsersArticles(user.twitterHandle), as:'article'}
+        <div class="span4 well">
+            <a href="@{Articles.getArticle(article.id)}">${article.title}</a>
+            (${article.avgScore==0 ? "not rated yet" : article.avgScore + " / 5"})
+            <div>
+                <dl>Writing style:</dl>
+                <dt>
+                <div class="star" data-category="writingStyle" data-score="${article.getAvgStyle()}"></div>
+                </dt>
+            </div>
+            <div>
+                <dl>Non-Alignment:</dl>
+                <dt>
+                <div class="star" data-category="nonAlignment" data-score="${article.getAvgNonAlign()}"></div>
+                </dt>
+            </div>
+            <div>
+                <dl>Overall:</dl>
+                <dt>
+                <div class="star" data-category="overall" data-score="${article.getAvgOverall()}"></div>
+                </dt>
+            </div>
+        </div>
+        #{/list}
+    </div>
+    #{/if}
+    #{else}
+    <h3>The username does not exist in our database :(</h3>
+    #{/else}
 </div>
 #{include 'sidebar.html'/}
 
 <script>
-	$(function () {
-		/*$('head').append('<meta property="og:title" content="${article?.title}" />');
-		$('#share-facebook').click(function(e) {
-			    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('@{Articles.getArticle(article?.id)}'),'facebook-share-dialog','width=626,height=436');
-		});*/
-	    $('.star').each(function () {
-	        var category = $(this).attr('data-category');
-	        $(this).raty({
-	        	readOnly: true,
-	            path: '/public/assets/img/',
-	            score: function () {
-	            	return $(this).attr('data-score');
-	            }
-	        });
-	    });
-	});
+
+    <!--Make all rating boxes equal height-->
+    boxes = $('.well');
+    maxHeight = Math.max.apply(
+    Math, boxes.map(function() {
+    return $(this).height();
+    }).get());
+    $('.span4').height(maxHeight-50);
+    <!--Make all rating boxes equal height-->
+
+    $(function () {
+    /*$('head').append('
+    <meta property="og:title" content="${article?.title}"/>
+    ');
+    $('#share-facebook').click(function(e) {
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('@{Articles.getArticle(article?.id)}'),'facebook-share-dialog','width=626,height=436');
+    });*/
+    $('.star').each(function () {
+    var category = $(this).attr('data-category');
+    $(this).raty({
+    readOnly: true,
+    path: '/public/assets/img/',
+    score: function () {
+    return $(this).attr('data-score');
+    }
+    });
+    });
+    });
 </script>
