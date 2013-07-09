@@ -6,7 +6,7 @@
 GET     /               Application.index
 GET     /oauthcallback  Application.authenticate
 GET		/profile		Profiles.index
-GET 	/{page}			Application.nextPage(int: page)
+GET 	/articles/{page}			Application.nextPage(int: page)
 
 *	    /admin			module:crud
 
