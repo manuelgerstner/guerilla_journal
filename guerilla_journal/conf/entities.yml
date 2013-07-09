@@ -227,6 +227,62 @@ Article(article16):
  headerPicUrl: http://graphics8.nytimes.com/images/2013/07/07/world/middleeast/2nd-sub-cairo/2nd-sub-cairo-articleLarge.jpg
  tags: [politics]
  category: politics
+ 
+Article(article17):
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ title: Apple iOS 7 Beta 3 What's the Big Deal?
+ summary: Apple iOS 7 The Most Exciting Features will be presented soon 
+ entry: It's still iOS, after all these years. Apple's iOS 7 beta 3 is out, smoothing and stabilizing Apple's new mobile operating system. It's still far from being ready for consumers, but it's also far from launch; I'm anticipating late September or early October, when the new iPhones and iPads come out.So why the early betas, from such a famously private company? This redesign is a huge deal for app developers. From what I'm hearing, a whole bunch of third-party apps - even big names like PopCap's Bejeweled Blitz - are crashing on iOS 7, and many others look pretty bad. Developers have to take action to include the new keyboard, for instance, and they'll probably want to fix their fonts and background styles to fit with the new look.This isn't a review. Nobody should be "reviewing" this software yet. It's months away from launch, and the primacy of third-party apps in Apple's world means that a huge part of the iOS 7 experience will come down to how many app developers refit their software before the OS breaks big. We'll have a real review, with plenty of hands-on time, when that happens.
+ postedAt: 2013-07-09
+ headerPicUrl: http://www7.pcmag.com/media/images/388667-ios-7-wwdc-2013-alt.jpg?thumb=y
+ tags: [tech]
+ category: technology
+
+Article(article18):
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ title: Astronauts to spacewalk outside space station today
+ summary: Flight Engineers Chris Cassidy (left) and Luca Parmitano participate in a "dry run" in the International Space Station's Quest airlock in preparation for the first of two spacewalks in July 2013. Flight Engineer Karen Nyberg (center) assists. (NASA) 
+ entry: Two astronauts will work outside the International Space Station for 6 1/2 hours on Tuesday, and you can follow all the free-floating action live. NASA astronaut Chris Cassidy and the European Space Agency's Luca Parmitano are slated to exit the orbiting lab's Quest airlock Tuesday morning at 8:10 a.m. EDT (1210 GMT). You can watch their spacewalk live here beginning at 7:00 a.m. EDT, courtesy of NASA TV's feed. 
+ postedAt: 2013-07-09
+ headerPicUrl: http://a57.foxnews.com/global.fncstatic.com/static/managed/img/fn2/feeds/Space.com/660/371/cassidy-parmitano-spacewalk-prep.jpg?ve=1
+ tags: [tech]
+ category: technology
+ 
+ Article(article19):
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ title: Ohio kidnap victims break silence to say 'thank you'
+ summary: Amanda Berry, Gina DeJesus and Michelle Knight break their silence in a YouTube video. 
+ entry: The three were still in their teens when they disappeared at different times from 2002 to 2004.Ariel Castro, a 52-year-old former school bus driver, has been charged with kidnapping the girls off the streets of the city and holding them captive in his two-story home. Castro, who has pleaded not guilty, was deemed mentally fit last week to stand trial. It is scheduled to begin Aug. 5.The young women have not appeared in public since Berry broke through a door at the home while Castro was briefly away and shouted to neighbors for help. Police quickly freed the women, along with Berry's 6-year-old daughter, who was fathered by Castro."I want everyone to know how happy I am to be home with my family and friends," says Berry, who sports short hair with a blond streak. "It has been unbelievable."I am getting stronger each day and I having my privacy has helped immensely," she says. 
+ postedAt: 2013-07-04
+ headerPicUrl: http://www.gannett-cdn.com/media/USATODAY/GenericImages/2013/07/09/1373357179000-AP-Missing-Women-Found-1307090407_4_3_rx404_c534x401.jpg?87cc7ae5b5e3d133be9f113f907a13faa9f8741e
+ tags: [society]
+ category: world
+ 
+ Article(article20):
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ title: Kroger Agrees to Buy Grocer Harris Teeter for $2.5 Billion
+ summary: Kroger Co. (KR), the largest U.S. grocery-store chain, agreed to buy Harris Teeter Supermarkets Inc (HTSI). for $2.5 billion in cash to bolster its presence in the southeastern part of the country.  
+ entry: The offer of $49.38 per share is 34 percent more than Harris Teeter’s closing price on Jan. 18, the day of the first media report that the chain was evaluating strategic alternatives, according to a statement today. The buyout gives Kroger a chain that had revenue of $4.54 billion last year and 212 stores in states including North Carolina, Virginia and South Carolina. Kroger, which will finance the transaction with debt, said the combination will bring annual savings of $40 million to $60 million in the next three to four years. 
+ postedAt: 2013-07-02
+ headerPicUrl: http://www.bloomberg.com/image/ifYyho5J4kJk.jpg
+ tags: [business]
+ category: business
+ 
+ Article(article21):
+ author: Julian Pfaff
+ authorTwitterHandle: julianpfaff
+ title: Egypt's Muslim Brotherhood rejects transition plan
+ summary: Egypt's Muslim Brotherhood rejects transition plan announced by the military-backed interim leadership  
+ entry: CAIRO (AP) — Egypt's Muslim Brotherhood on Tuesday rejected a new timetable announced by the military-backed interim leadership that sets a fast track for amending the Islamist-drafted constitution and holding new parliamentary and presidential elections by early next year. The quick issuing of the transition plan showed how Egypt's new leadership is shrugging off Islamists' vows to reverse the military's ousting of President Mohammed Morsi and wants to quickly entrench a post-Morsi political system.
+ postedAt: 2013-06-22
+ headerPicUrl: http://www.gannett-cdn.com/media/USATODAY/USATODAY/2013/07/09/1373377971000-AFP-521234505-1307090954_4_3_rx513_c680x510.jpg?6c3c24a06b2ec04d15c066f5e9a76a10a837ffd4
+ tags: [society]
+ category: world
+ 
 
 User(dombusser):
  name: Dominique Busser
@@ -251,6 +307,9 @@ User(julianpfaff):
 User(dummyuser1):
  name: dummyuser1
  twitterHandle: dummyuser1
+ secret: dsbjfajbkkjdf
+ token: sdfnlfdsak
+ loggedIn: true
  
 User(dummyuser2):
  name: dummyuser2

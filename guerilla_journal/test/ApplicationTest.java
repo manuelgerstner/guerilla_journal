@@ -38,6 +38,10 @@ public class ApplicationTest extends FunctionalTest {
 		User user = users.getUser();
 	    User knownUser = User.find("name", "dummyuser1").first();
 	    if (knownUser != null) { // check if we already know this user
+	    	while (User.find("session",Scope.Session.current().getId()).first()!=null ){
+	    		User user2 = User.find("session",Scope.Session.current().getId()).first();
+	    		user2.delete();
+	    	}
 	        if (users.isGuest(user)) {
 	            user.delete();  // if so delete the guest user created for him
 	        } else {
@@ -49,7 +53,7 @@ public class ApplicationTest extends FunctionalTest {
 	        user = knownUser; // and work on the know User db record from now on
 	    }
 		user.name="dummyuser1";
-		user.screenName="dummyuser1";
+		user.twitterHandle="dummyuser1";
 	    user.session = Scope.Session.current().getId();
 		user.loggedIn = true;
 		user.token ="frhiefe";
@@ -103,7 +107,7 @@ public class ApplicationTest extends FunctionalTest {
         user = knownUser; // and work on the know User db record from now on
     }
 	user.name="dummyuser1";
-	user.screenName="dummyuser1";
+	user.twitterHandle="dummyuser1";
     user.session = Scope.Session.current().getId();
 	user.token ="frhiefe";
 	user.secret="rhirehfrei";
@@ -131,26 +135,16 @@ public class ApplicationTest extends FunctionalTest {
  */
 @Test
 public void testSearchFunction (){
-	Users users = new Users();
-	User user = users.getUser();
-	user.name="dummyuser1";
-	user.screenName="dummyuser1";
-	user.loggedIn = true;
-    user.requestSent = false;
-	user.token ="frhiefe";
-	user.secret="rhirehfrei";
-    user.save();
-	Scope.Session.current().put("loggedin", user.loggedIn);
 
     Map<String, String> params = new HashMap();
     params.put("query", "Bayern");
-    Response response = POST("/search/search",params);
+    Response response = POST("/Search/search",params);
 	List<Article> articles = (List<Article>) renderArgs("articles");
 	Article article =  new Article ("dummyuser1", "dummyuser1","dummy article title about Bayern",
 			"just a test article for search function", "this is the entry, but it isnt supposed to make much sense",
 			"http://www.erfolgreiche-diät.de/wp-content/uploads/2012/07/test.gif", "World");
 	article.save();
-	Response response2 = POST("/search/search",params);
+	Response response2 = POST("/Search/search",params);
 	List<Article> articles2 = (List<Article>) renderArgs("articles");
 	assertTrue(articles.size()+1 == articles2.size());
 	article.delete();
@@ -159,26 +153,6 @@ public void testSearchFunction (){
 
 @Test
 public void testTagFunction (){
-	Users users = new Users();
-	User user = users.getUser();
-    User knownUser = User.find("name", "dummyuser1").first();
-    if (knownUser != null) { // check if we already know this user
-        if (users.isGuest(user)) {
-            user.delete();  // if so delete the guest user created for him
-        } else {
-            user.session = null;
-            user.secret = null;
-            user.token = null;
-            user.save();
-        }
-        user = knownUser; // and work on the know User db record from now on
-    }
-	user.name="dummyuser1";
-	user.screenName="dummyuser1";
-    user.session = Scope.Session.current().getId();
-	user.loggedIn = true;
-	user.save();
-	Scope.Session.current().put("loggedin", true);
 
     Map<String, String> params = new HashMap();
     params.put("tagName", "Sport");
