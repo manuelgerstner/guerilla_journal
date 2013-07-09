@@ -30,4 +30,8 @@ public class Comment extends Model {
 		super.create();
 	}
 
+	public Date getPostedAt() {
+		return postedAt;
+	}
+
 }

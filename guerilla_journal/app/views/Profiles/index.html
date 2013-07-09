@@ -6,14 +6,10 @@
 <div class="span9">
 	<div class="row-fluid">
 			<ul class="breadcrumb">
-			  Orientation: <li><a href="/">Frontpage</a> <span class="divider">/</span></li>
+			  You are here: <li><a href="/">Frontpage</a> <span class="divider">/</span></li>
 			  <li class="active">My Profile</li>
 			</ul>
 	</div>
-	#{include 'header.html' /}
-	
-	<br/>
-	<br/>
 	<div class="row-fluid">
 	#{list items:controllers.Users.getUser(), as:'user'}
 		<div class="span9">
@@ -47,22 +43,7 @@
 	</div>
 </div>
 
-<div class="span3">
-	
-	<div class="well sidebar-nav">
-		<h4>
-			Your rating:
-		</h4>
-		<ul class="nav nav-list">
-			<li>
-				<a href="#">Article #1</a>
-			</li>
-			<li>
-				<a href="#">Article #2</a>
-			</li>
-		</ul>
-	</div>
-</div>
+#{include 'sidebar.html'/}
 
 <script>
 	

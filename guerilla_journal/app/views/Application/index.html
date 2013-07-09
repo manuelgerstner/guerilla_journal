@@ -5,12 +5,7 @@
 
 <div class="span9">
 
-	<div class="row-fluid">
-			<ul class="breadcrumb">
-			  You are here:  <li class="active">Frontpage</li>
-			</ul>
-	</div>
-	
+
 	#{include 'header.html' /}
 	
 	
@@ -28,7 +23,7 @@
 			<div class="span4">
 				<a href="@{Articles.getArticle(article.id)}"><img class="headerPicUrl" src="${article.headerPicUrl}" /></a>
 				<div class="subimg-${article.category.className}"></div>
-				<a href="detail/${article.id}"><h2>${article.title}</h2></a>
+				<a href="@{Articles.getArticle(article.id)}"><h2>${article.title}</h2></a>
 				<small>
 					Written on <strong>${article.postedAt.format('dd.MM.yyyy HH:mm')}</strong> by <strong><a href="#{if article.authorScreenName == controllers.Users.getUser().screenName}/profile#{/if}#{else}/profile/${article.authorScreenName}#{/else}">${article.author}</a></strong> 
 				</small>
