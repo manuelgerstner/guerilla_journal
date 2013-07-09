@@ -250,7 +250,7 @@ Article(article18):
  tags: [tech]
  category: technology
  
- Article(article19):
+Article(article19):
  author: Julian Pfaff
  authorTwitterHandle: julianpfaff
  title: Ohio kidnap victims break silence to say 'thank you'
@@ -261,7 +261,7 @@ Article(article18):
  tags: [society]
  category: world
  
- Article(article20):
+Article(article20):
  author: Julian Pfaff
  authorTwitterHandle: julianpfaff
  title: Kroger Agrees to Buy Grocer Harris Teeter for $2.5 Billion
@@ -272,7 +272,7 @@ Article(article18):
  tags: [business]
  category: business
  
- Article(article21):
+Article(article21):
  author: Julian Pfaff
  authorTwitterHandle: julianpfaff
  title: Egypt's Muslim Brotherhood rejects transition plan
