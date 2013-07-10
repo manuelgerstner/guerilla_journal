@@ -17,15 +17,23 @@ import controllers.Tags;
  * 
  * @author dbusser
  * 
- *         handles all requests through the REST API (which is read-only)
- *         options include
+ *         Handles all requests through the REST API (which is read-only)
+ *         REST resources:
  *         - all articles
+ *         - all tags
+ *         - all categories
  *         - article detail view
  *         - articles by tags
- *         - articles by categoriy
+ *         - articles by category
+ *         - comments for a single article
+ * 
+ *         Subclasses AbstractRestResource to include building of URLs
  */
 public class REST extends AbstractRestResource {
 
+	/**
+	 * retrieve all articles without filtering
+	 */
 	public static void getArticles() {
 		List<AbstractRestResource> restArticles = new ArrayList<AbstractRestResource>();
 
@@ -38,6 +46,11 @@ public class REST extends AbstractRestResource {
 		renderJSON(new RestResponse(restArticles));
 	}
 
+	/**
+	 * retrieve one single article
+	 * 
+	 * @param id
+	 */
 	public static void getArticle(long id) {
 		// add comments
 		models.Article article = Article.findById(id);
@@ -47,6 +60,11 @@ public class REST extends AbstractRestResource {
 
 	}
 
+	/**
+	 * retrieve all articles tagged with {tagName}
+	 * 
+	 * @param tagName
+	 */
 	public static void findByTag(String tagName) {
 		List<AbstractRestResource> restArticles = new ArrayList<AbstractRestResource>();
 		List<models.Article> articles = Tags.findTaggedWith(tagName);
@@ -58,6 +76,11 @@ public class REST extends AbstractRestResource {
 		renderJSON(new RestResponse(restArticles));
 	}
 
+	/**
+	 * retrieve all articles in category {categoryName}
+	 * 
+	 * @param categoryName
+	 */
 	public static void findByCategory(String categoryName) {
 		List<AbstractRestResource> restArticles = new ArrayList<AbstractRestResource>();
 
@@ -77,6 +100,9 @@ public class REST extends AbstractRestResource {
 
 	}
 
+	/**
+	 * retrieve all tags and include their rest urls
+	 */
 	public static void getTags() {
 		List<AbstractRestResource> restTags = new ArrayList<AbstractRestResource>();
 		List<models.Tag> tags = Tags.getTags();
@@ -89,6 +115,9 @@ public class REST extends AbstractRestResource {
 		renderJSON(new RestResponse(restTags));
 	}
 
+	/**
+	 * retrieve all categories and include their rest urls
+	 */
 	public static void getCategories() {
 		List<AbstractRestResource> restCategories = new ArrayList<AbstractRestResource>();
 		List<models.Category> categories = Categories.getCategories();
@@ -102,6 +131,11 @@ public class REST extends AbstractRestResource {
 
 	}
 
+	/**
+	 * retrieve all comments for a specific article
+	 * 
+	 * @param articleId
+	 */
 	public static void getComments(long articleId) {
 		List<AbstractRestResource> restComments = new ArrayList<AbstractRestResource>();
 		List<models.Comment> comments = Comments

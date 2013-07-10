@@ -19,6 +19,7 @@ import play.mvc.Controller;
  * @author dbusser
  * 
  *         handles creation and assignment of tags to articles
+ *         as well as fetching based on tags
  * 
  */
 public class Tags extends Controller {
@@ -39,6 +40,11 @@ public class Tags extends Controller {
 		return tags;
 	}
 
+	/**
+	 * renders all articles tagged with {tagName} to HTML
+	 * 
+	 * @param tagName
+	 */
 	public static void renderByTag(String tagName) {
 		Tag tag = Tag.find("name", tagName).first();
 		if (tag == null) {
@@ -49,7 +55,7 @@ public class Tags extends Controller {
 		List<Article> articleList = findTaggedWith(tagName);
 
 		Logger.info("Show articles tagged with " + tagName);
-        renderArgs.put("user",Users.getUser());
+		renderArgs.put("user", Users.getUser());
 		render("Tags/index.html", articleList, tagName);
 
 	}

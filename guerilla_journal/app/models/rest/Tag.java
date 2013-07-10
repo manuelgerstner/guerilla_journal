@@ -18,7 +18,7 @@ public class Tag extends AbstractRestResource implements RestResource {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("tagName", name);
 		this.restUrl = this.buildRestUrl("rest.REST.findByTag", params);
-		this.webUrl = this.buildWebUrl("Tags.findTaggedWith", params);
+		this.webUrl = this.buildWebUrl("Tags.renderByTag", params);
 
 		return this;
 	}
