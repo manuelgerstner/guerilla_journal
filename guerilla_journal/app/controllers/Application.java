@@ -1,19 +1,21 @@
 package controllers;
 
-import java.util.List;
-
 import models.Article;
 import models.User;
 import play.Logger;
 import play.db.jpa.GenericModel;
 import play.mvc.Controller;
 
+/**
+ * Renders the main page of the Guerilla Journal application.
+ * 
+ * @author Manuel
+ * 
+ */
 public class Application extends Controller {
 
 	/**
-	 * initiates the web application takes care of:
-	 * - user login
-	 * - user session
+	 * initiates the web application takes care of: - user login - user session
 	 * - front page posts
 	 */
 	public static void index() {
@@ -28,6 +30,12 @@ public class Application extends Controller {
 		nextPage(1);
 	}
 
+	/**
+	 * Renders the articles for the page specified.
+	 * 
+	 * @param page
+	 *            - index number of the page
+	 */
 	public static void nextPage(int page) {
 
 		GenericModel.JPAQuery articles = Article.find("order by rank desc ");
