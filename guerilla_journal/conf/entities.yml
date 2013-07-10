@@ -65,7 +65,7 @@ Article(article1):
 
 Article(article2):
  author: Dominique Busser
- authorTwitterHandle: dombusser
+ authorTwitterHandle: Xymak1y
  title: Ready to be Berliners too! Obama visits Berlin
  summary: Ready to be Berliners too! Michelle and the girls ditch casual clothes as Obamas land in Germany for President's landmark speech.  Comes almost exactly 50 years since JFK gave 'Ich bin ein Berliner' speech
  entry: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
@@ -142,7 +142,7 @@ Article(article8):
 
 Article(article9):
  author: Dominique Busser
- authorTwitterHandle: dombusser
+ authorTwitterHandle: Xymak1y
  title: In Cargo Delivery, the Three-Wheelers That Could
  summary: B-Line Sustainable Delivery moves freight around downtown Portland, Ore., on electric-assisted tricycles.
  entry: IT’S well-known that Portland really likes its bicycles. But its embrace of bike culture goes beyond its catering to commuters leisure riders and athletes. So bike-centric is Portland that its residents can have any of the following delivered to their doorsteps by cycle a pizza, a keg of pilsner, plumbing services or a hot tub. And the list grows from there. It’s logical, then, that a Portland entrepreneur, Franklin Jones, would have helped pioneer the new field of pedal-powered freight delivery. In 2009, Mr. Jones, a former teacher, founded B-Line Sustainable Urban Delivery, a company that delivers produce, baked goods, coffee beans, bike parts and office supplies to restaurants, bike shops and other businesses throughout Portland’s downtown area using electric-assisted tricycles that pull 60-cubic-foot cargo boxes with a 600-pound capacity.
@@ -284,9 +284,9 @@ Article(article21):
  category: world
  
 
-User(dombusser):
+User(Xymak1y):
  name: Dominique Busser
- twitterHandle: dombusser
+ twitterHandle: Xymak1y
 
 User(manuelgerstner):
  name: Manuel Gerstner
@@ -676,116 +676,116 @@ Comment(cn-art19):
  commentString: Ja wirklisch super geschrieben!
  postedAt: 2013-07-15               
  
-Rating(dombusser-article1):
+Rating(Xymak1y-article1):
  writingStyle: 1
  nonAlignment: 1
  overall: 2
- user: dombusser
+ user: Xymak1y
  article: article1
  
-Rating(dombusser-article2):
+Rating(Xymak1y-article2):
  writingStyle: 3
  nonAlignment: 1
  overall: 4
- user: dombusser
+ user: Xymak1y
  article: article2
  
-Rating(dombusser-article3):
+Rating(Xymak1y-article3):
  writingStyle: 5
  nonAlignment: 2
  overall: 5
- user: dombusser
+ user: Xymak1y
  article: article3
  
-Rating(dombusser-article4):
+Rating(Xymak1y-article4):
  writingStyle: 1
  nonAlignment: 5
  overall: 3
- user: dombusser
+ user: Xymak1y
  article: article4
  
-Rating(dombusser-article5):
+Rating(Xymak1y-article5):
  writingStyle: 1
  nonAlignment: 3
  overall: 1
- user: dombusser
+ user: Xymak1y
  article: article5
  
-Rating(dombusser-article6):
+Rating(Xymak1y-article6):
  writingStyle: 2
  nonAlignment: 5
  overall: 5
- user: dombusser
+ user: Xymak1y
  article: article6
  
-Rating(dombusser-article7):
+Rating(Xymak1y-article7):
  writingStyle: 2
  nonAlignment: 2
  overall: 1
- user: dombusser
+ user: Xymak1y
  article: article7
  
-Rating(dombusser-article8):
+Rating(Xymak1y-article8):
  writingStyle: 4
  nonAlignment: 1
  overall: 1
- user: dombusser
+ user: Xymak1y
  article: article8
  
-Rating(dombusser-article9):
+Rating(Xymak1y-article9):
  writingStyle: 3
  nonAlignment: 1
  overall: 2
- user: dombusser
+ user: Xymak1y
  article: article9
  
-Rating(dombusser-article10):
+Rating(Xymak1y-article10):
  writingStyle: 2
  nonAlignment: 2
  overall: 3
- user: dombusser
+ user: Xymak1y
  article: article10
  
-Rating(dombusser-article11):
+Rating(Xymak1y-article11):
  writingStyle: 1
  nonAlignment: 2
  overall: 1
- user: dombusser
+ user: Xymak1y
  article: article11
  
-Rating(dombusser-article12):
+Rating(Xymak1y-article12):
  writingStyle: 1
  nonAlignment: 5
  overall: 4
- user: dombusser
+ user: Xymak1y
  article: article12
  
-Rating(dombusser-article13):
+Rating(Xymak1y-article13):
  writingStyle: 3
  nonAlignment: 5
  overall: 2
- user: dombusser
+ user: Xymak1y
  article: article13
  
-Rating(dombusser-article14):
+Rating(Xymak1y-article14):
  writingStyle: 3
  nonAlignment: 1
  overall: 4
- user: dombusser
+ user: Xymak1y
  article: article14
  
-Rating(dombusser-article15):
+Rating(Xymak1y-article15):
  writingStyle: 4
  nonAlignment: 3
  overall: 5
- user: dombusser
+ user: Xymak1y
  article: article15
  
-Rating(dombusser-article16):
+Rating(Xymak1y-article16):
  writingStyle: 1
  nonAlignment: 1
  overall: 2
- user: dombusser
+ user: Xymak1y
  article: article16
  
 Rating(manuelgerstner-article1):
