@@ -93,7 +93,8 @@ $(function() {
 		filepicker.pick(function(img) {
 			if (img) {
 				$('#headerPicUrl').val(img.url);
-				$('<img src="'+img.url+'"/><br/>').prependTo('#textarea');
+				$('#headerPicPreview').remove();
+				$('<img id="headerPicPreview" src="'+img.url+'"/><br/>').prependTo('#textarea');
 				$('#headerPicSelector').text('Select a different picture');
 			}
 		})
