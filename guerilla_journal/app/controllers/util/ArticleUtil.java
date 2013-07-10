@@ -160,7 +160,7 @@ public class ArticleUtil {
      *
      * @param article
      */
-    public static void updateRank(Article article) {
+    public static void  updateRank(Article article) {
 
         float totNonAl = 0;
         float totStyle = 0;
@@ -196,7 +196,7 @@ public class ArticleUtil {
         float rawRank = totNonAl + totOverall + totStyle - (3f * (totOv + totNA + totSt)); // offset ratings from -2 to 2
         float sign = rawRank < 0 ? -1 : 1;
         float order = (float) Math.log10(Math.abs(rawRank));
-        article.rank = order + sign * getFreshness(article);
+        article.rank = rawRank ==0 ? getFreshness(article) : order + sign * getFreshness(article);
         article.trendingRank = order + sign * getTrendingFreshness(article);
 
 
