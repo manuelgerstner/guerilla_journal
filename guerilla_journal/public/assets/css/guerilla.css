@@ -69,3 +69,6 @@ span.name { color: #fff; }
 #articleContent .headerPic {
 	margin-left: 10px;
 }
+#categories .btn {
+	min-width: 130px;
+}
