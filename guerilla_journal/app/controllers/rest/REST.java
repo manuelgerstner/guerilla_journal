@@ -8,6 +8,7 @@ import models.Category;
 import models.rest.AbstractRestResource;
 import models.rest.RestResponse;
 import play.Logger;
+import play.mvc.Controller;
 import controllers.Categories;
 import controllers.Comments;
 import controllers.Tags;
@@ -27,9 +28,8 @@ import controllers.Tags;
  *         - articles by category
  *         - comments for a single article
  * 
- *         Subclasses AbstractRestResource to include building of URLs
  */
-public class REST extends AbstractRestResource {
+public class REST extends Controller {
 
 	/**
 	 * retrieve all articles without filtering

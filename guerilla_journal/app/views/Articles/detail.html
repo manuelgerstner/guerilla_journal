@@ -188,6 +188,7 @@
 	            },
 	            click: function (score) {
                     console && console.log('rating article #%d with %d points in category %s', ARTICLE_ID, score, category);
+                    $('.'+ category+' .icon-ok').remove();
                     $('.' + category).append('<i class="icon-ok"></i>');
                     $.post('@@{Articles.rateArticle()}', {
                         articleId: ARTICLE_ID,
